@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Free Niche Finder | Find Your Product Idea in Minutes</title>
+<meta name="description" content="Answer 4 quick questions and get a free product idea with titles, hooks, and pricing — built for beginners starting with no audience. 100% free.">
+<link rel="canonical" href="https://smarterhustleacademy.com/niche-finder/">
+<meta name="author" content="Smarter Hustle Academy™">
+<meta property="og:title" content="Free Niche Finder | Smarter Hustle Academy™">
+<meta property="og:description" content="Find your product idea, audience, and pricing in under 20 minutes. Free tool for beginners.">
+<meta property="og:image" content="https://i.imgur.com/RFC3kLW.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://smarterhustleacademy.com/niche-finder/">
+<meta name="twitter:card" content="summary_large_image">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Smarter Hustle Academy",
+  "url": "https://smarterhustleacademy.com",
+  "sameAs": ["https://www.instagram.com/smarterhustleacademy","https://www.tiktok.com/@smarterhustleacademy"]
+}
+</script>
+<style>
+:root{--g:#2D6A4F;--g2:#3d8a68;--gold:#D4A017;--cream:#FAFAF5;--ink:#16241D;--ink2:#4a564e;--mu:#6B7560;--bd:#e4e6df;--fh:'Sora',sans-serif;--fb:'DM Sans',sans-serif;--radius:20px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--fb);background:var(--cream);color:var(--ink);line-height:1.6}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header{padding:18px 0;border-bottom:1px solid var(--bd)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.logo{font-family:var(--fh);font-weight:800;font-size:18px;color:var(--g);text-decoration:none}
+nav a{color:var(--ink2);text-decoration:none;font-size:14px;font-weight:600;margin-left:18px}
+.hero{padding:56px 0 40px;text-align:center}
+.eyebrow{font-size:13px;font-weight:700;color:var(--g);text-transform:uppercase;letter-spacing:.05em;margin-bottom:14px}
+h1{font-family:var(--fh);font-size:clamp(30px,5vw,46px);font-weight:800;line-height:1.15;margin-bottom:16px}
+.lede{font-size:18px;color:var(--ink2);max-width:640px;margin:0 auto 28px}
+.cta{display:inline-block;background:var(--g);color:#fff;font-family:var(--fh);font-weight:700;padding:16px 32px;border-radius:12px;text-decoration:none;font-size:17px}
+.cta:hover{background:var(--g2)}
+.cta.free{background:var(--gold);color:var(--ink)}
+.cta-sub{font-size:13px;color:var(--mu);margin-top:10px}
+section{padding:40px 0;border-top:1px solid var(--bd)}
+h2{font-family:var(--fh);font-size:26px;font-weight:800;margin-bottom:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:#fff;border:1px solid var(--bd);border-radius:var(--radius);padding:22px}
+.card h3{font-family:var(--fh);font-size:17px;margin-bottom:8px}
+.card p{font-size:14px;color:var(--ink2)}
+.includes{list-style:none}
+.includes li{padding:10px 0 10px 28px;position:relative;border-bottom:1px solid var(--bd)}
+.includes li:before{content:"✓";position:absolute;left:0;color:var(--g);font-weight:800}
+.steps{counter-reset:step}
+.step{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--bd)}
+.step .num{font-family:var(--fh);font-weight:800;color:var(--gold);font-size:22px;min-width:32px}
+.step h3{font-family:var(--fh);font-size:16px;margin-bottom:4px}
+.step p{font-size:14px;color:var(--ink2)}
+footer{padding:30px 0;text-align:center;font-size:13px;color:var(--mu)}
+footer a{color:var(--g);text-decoration:none}
+.internal-links{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:14px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="https://smarterhustleacademy.com/" class="logo">SHA — Smarter Hustle Academy™</a>
+    <nav>
+      <a href="https://smarterhustleacademy.com/">Home</a>
+      <a href="https://smarterhustleacademy.com/48-hour-income-system/">48-Hour System</a>
+      <a href="https://blog.smarterhustleacademy.com/">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">🎯 Free Tool</div>
+    <h1>Find Your Product Idea in Under 20 Minutes</h1>
+    <p class="lede">Answer 4 quick questions and get a free product idea — including title options, hooks, and pricing — built for beginners starting with no audience and no experience.</p>
+    <a class="cta free" href="https://smarterhustleacademy.com/#niche">Use the Niche Finder — Free →</a>
+    <div class="cta-sub">No credit card. Full plan preview instantly.</div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2>What You Get, Free</h2>
+    <ul class="includes">
+      <li>Niche scoring worksheet</li>
+      <li>Audience hooks library</li>
+      <li>Validation prompts</li>
+      <li>A free preview of your product title, hook, and content angle</li>
+    </ul>
+    <p style="font-size:14px;color:var(--ink2);margin-top:14px">Want the full plan — all 3 title options, all 5 hooks, all 3 content angles, and a Gumroad-ready product description? Unlock it with the <a href="https://smarterhustleacademy.com/ai-prompt-library/" style="color:var(--g);font-weight:700">AI Prompt Library ($37)</a>.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>How the Niche Finder Works</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <div><h3>What topic interests you most?</h3><p>Side hustles, AI tools, social media growth, personal finance, home gardening, digital products, mindset, freelancing, health & wellness, or self-publishing.</p></div>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <div><h3>Who do you want to help?</h3><p>Complete beginners, 9-to-5 workers, stay-at-home parents, college students, or scaling solopreneurs.</p></div>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <div><h3>What is their biggest struggle?</h3><p>Not knowing where to start, no time, no money, overwhelm, or inconsistency.</p></div>
+      </div>
+      <div class="step">
+        <div class="num">4</div>
+        <div><h3>What format do you want to create?</h3><p>PDF guide, checklist, template pack, prompt library, video scripts, or email sequence.</p></div>
+      </div>
+    </div>
+    <p style="margin-top:18px;text-align:center">
+      <a class="cta" href="https://smarterhustleacademy.com/#niche">Start the Niche Finder →</a>
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Next Step After Your Niche</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>48-Hour Income System — $27</h3>
+        <p>Once you know your niche, this is the step-by-step system to build your PDF and publish it on Gumroad.</p>
+        <p style="margin-top:10px"><a href="https://smarterhustleacademy.com/48-hour-income-system/" style="color:var(--g);font-weight:700">See the System →</a></p>
+      </div>
+      <div class="card">
+        <h3>AI Prompt Library — $37</h3>
+        <p>52 done-for-you prompts, 5 video scripts, and 6 hook formulas to write all your content fast.</p>
+        <p style="margin-top:10px"><a href="https://smarterhustleacademy.com/ai-prompt-library/" style="color:var(--g);font-weight:700">See the Library →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Smarter Hustle Academy™ · Powered by Magnate Enterprise</p>
+    <div class="internal-links">
+      <a href="https://smarterhustleacademy.com/">Home</a>
+      <a href="https://smarterhustleacademy.com/48-hour-income-system/">48-Hour System</a>
+      <a href="https://smarterhustleacademy.com/ai-prompt-library/">AI Prompt Library</a>
+      <a href="https://smarterhustleacademy.com/trading-academy/">Trading Academy</a>
+      <a href="https://blog.smarterhustleacademy.com/">Blog</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
