@@ -852,8 +852,8 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
       <div class="optin-note">No spam. No fluff. Unsubscribe any time.</div>
       <div class="optin-success" id="optinSuccessMid">
         <p>🎉 Your free resources are on the way!</p>
-        <span>You just got 25 AI prompts, the Quick-Start Checklist, and the 48-Hr Starter Kit. Ready to go further? The full AI Prompt Library has 52 prompts plus advanced copy frameworks.</span>
-        <div style="margin-top:14px"><a href="https://smarterhustleacademy.gumroad.com/l/aipromptlibrary?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=homepage_mid_aipromptlibrary" target="_blank" rel="noopener" class="btn" style="font-size:14px;padding:11px 22px">Get the Full AI Prompt Library (52 Prompts) — $37 →</a></div>
+        <span id="optinSuccessMsgMid">You just got 25 AI prompts, the Quick-Start Checklist, and the 48-Hr Starter Kit. Ready to go further? The full AI Prompt Library has 52 prompts plus advanced copy frameworks.</span>
+        <div id="optinSuccessCtaMid" style="margin-top:14px"><a href="https://smarterhustleacademy.gumroad.com/l/aipromptlibrary?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=homepage_mid_aipromptlibrary" target="_blank" rel="noopener" class="btn" style="font-size:14px;padding:11px 22px">Get the Full AI Prompt Library (52 Prompts) — $37 →</a></div>
       </div>
     </div>
 
@@ -1636,6 +1636,29 @@ function toggleFaq(el){
   note.style.display = 'block';
 })();
 
+// Segment-specific thank-you messaging, keyed to the same 4 answers as the
+// "Where are you right now?" quiz (qD array above). If someone never took
+// the quiz, sessionStorage has nothing stored and the original default
+// message/CTA (already in the HTML) is left untouched.
+var optinSegmentMsg = [
+  {
+    msg: "You just got 25 AI prompts, the Quick-Start Checklist, and the 48-Hr Starter Kit. Since you're brand new, your best next move is the free Niche Finder — it'll take you 60 seconds to land on your first product idea.",
+    ctaHtml: '<button class="btn" data-tab="niche" style="font-size:14px;padding:11px 22px">Try the Free Niche Finder →</button>'
+  },
+  {
+    msg: "You just got 25 AI prompts, the Quick-Start Checklist, and the 48-Hr Starter Kit. You already know your topic — the 48-Hour Income System will get you from idea to a published product this week.",
+    ctaHtml: '<a href="https://smarterhustleacademy.gumroad.com/l/48hourincomesystem?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=optin_segment_48hourincomesystem" target="_blank" rel="noopener" class="btn" style="font-size:14px;padding:11px 22px">Get the 48-Hour System — $27 →</a>'
+  },
+  {
+    msg: "You just got 25 AI prompts, the Quick-Start Checklist, and the 48-Hr Starter Kit — including 5 done-for-you video scripts. You've already built your product, so the fastest path to a sale is getting content out. Use those scripts this week.",
+    ctaHtml: '<button class="btn" data-tab="content" style="font-size:14px;padding:11px 22px">Go to My Content →</button>'
+  },
+  {
+    msg: "You just got 25 AI prompts, the Quick-Start Checklist, and the 48-Hr Starter Kit. Ready to go further? The full AI Prompt Library has 52 prompts plus advanced copy frameworks to help you scale content faster.",
+    ctaHtml: null // null = keep the original default CTA already in the HTML
+  }
+];
+
 function handleOptin(suffix){
   suffix = suffix || '';
   var _inp=document.getElementById('optinEmail'+suffix);
@@ -1654,6 +1677,17 @@ function handleOptin(suffix){
   var _os=document.getElementById('optinSuccess'+suffix);
   if(_ob)_ob.style.display='none';
   if(_os)_os.style.display='block';
+  // Tailor the thank-you message to the quiz segment, if one was captured.
+  try{
+    var seg = sessionStorage.getItem('sha_segment');
+    if(seg !== null && optinSegmentMsg[seg]){
+      var segData = optinSegmentMsg[seg];
+      var msgEl = document.getElementById('optinSuccessMsg'+suffix);
+      var ctaEl = document.getElementById('optinSuccessCta'+suffix);
+      if(msgEl) msgEl.textContent = segData.msg;
+      if(ctaEl && segData.ctaHtml) ctaEl.innerHTML = segData.ctaHtml;
+    }
+  }catch(e){ /* sessionStorage unavailable — silently keep the default message */ }
   setTimeout(function(){window.open(url,'_blank');},800);
 }
 </script>
@@ -1688,7 +1722,7 @@ document.addEventListener('click',function(e){
 });
 function cp(btn,txt){if(!navigator.clipboard){alert(txt);return;}navigator.clipboard.writeText(txt).then(function(){if(!btn)return;var o=btn.textContent;btn.textContent='✅ Copied!';btn.style.color='var(--g)';setTimeout(function(){btn.textContent=o;btn.style.color='';},2000);});}
 var qD=[{m:'Great starting point. The best move right now is to figure out your niche — your product topic and who you want to help.',c:'Here is your first step →',t:'niche',b:'Go to Niche Finder →'},{m:'You are closer than you think. Go straight to Build — follow the 6-step plan and your product can be live on Gumroad today.',c:'Here is where to go →',t:'build',b:'Go to Build →'},{m:"Your next move is content. The reason most people with products don't make sales is they're not posting enough.",c:'Your next step →',t:'content',b:'Go to My Content →'},{m:'You are further along than most. Go to My Progress — log your numbers and let the data show which content is working.',c:'Keep the momentum →',t:'progress',b:'Go to My Progress →'}];
-function handleQ(idx){document.querySelectorAll('.qo').forEach(function(o){o.classList.remove('sel');});document.querySelectorAll('.qo')[idx].classList.add('sel');var d=qD[idx];document.getElementById('qMsg').textContent=d.m;document.getElementById('qCta').textContent=d.c;var btn=document.getElementById('qBtn');btn.textContent=d.b;btn.dataset.gt=d.t;document.getElementById('qRes').style.display='block';}
+function handleQ(idx){document.querySelectorAll('.qo').forEach(function(o){o.classList.remove('sel');});document.querySelectorAll('.qo')[idx].classList.add('sel');var d=qD[idx];document.getElementById('qMsg').textContent=d.m;document.getElementById('qCta').textContent=d.c;var btn=document.getElementById('qBtn');btn.textContent=d.b;btn.dataset.gt=d.t;document.getElementById('qRes').style.display='block';try{sessionStorage.setItem('sha_segment',idx);}catch(e){}}
 var tStart=null,tInt=null;
 function startTimer(){if(tInt)return;tStart=Date.now();var btn=document.getElementById('tBtn');btn.textContent='⏱ Running...';btn.disabled=true;document.getElementById('tSub').textContent='Your 48-hour challenge is live!';tInt=setInterval(updTimer,1000);updTimer();}
 function updTimer(){if(!tStart)return;var e=Math.floor((Date.now()-tStart)/1000);var r=Math.max(0,48*3600-e);var h=String(Math.floor(r/3600)).padStart(2,'0');var m=String(Math.floor((r%3600)/60)).padStart(2,'0');var s=String(r%60).padStart(2,'0');document.getElementById('tDisp').textContent=h+':'+m+':'+s+' remaining';if(r===0){clearInterval(tInt);document.getElementById('tDisp').textContent='🎉 Challenge Complete!';}}
@@ -1897,8 +1931,8 @@ var _oeMid=document.getElementById('optinEmailMid');if(_oeMid){_oeMid.addEventLi
   <div class="optin-note">No spam. No fluff. Unsubscribe any time.</div>
   <div class="optin-success" id="optinSuccess">
     <p>🎉 Your free resources are on the way!</p>
-    <span>You just got 25 AI prompts, the Quick-Start Checklist, and the 48-Hr Starter Kit. Ready to go further? The full AI Prompt Library has 52 prompts plus advanced copy frameworks.</span>
-    <div style="margin-top:14px"><a href="https://smarterhustleacademy.gumroad.com/l/aipromptlibrary?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=trading_aipromptlibrary_2" target="_blank" rel="noopener" class="btn" style="font-size:14px;padding:11px 22px">Get the Full AI Prompt Library (52 Prompts) — $37 →</a></div>
+    <span id="optinSuccessMsg">You just got 25 AI prompts, the Quick-Start Checklist, and the 48-Hr Starter Kit. Ready to go further? The full AI Prompt Library has 52 prompts plus advanced copy frameworks.</span>
+    <div id="optinSuccessCta" style="margin-top:14px"><a href="https://smarterhustleacademy.gumroad.com/l/aipromptlibrary?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=trading_aipromptlibrary_2" target="_blank" rel="noopener" class="btn" style="font-size:14px;padding:11px 22px">Get the Full AI Prompt Library (52 Prompts) — $37 →</a></div>
   </div>
 </div>
 
