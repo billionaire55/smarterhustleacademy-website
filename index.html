@@ -1,4 +1,13 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<!DOCTYPE html><html lang="en"><head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TX0KEERVR0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TX0KEERVR0');
+</script>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Smarter Hustle Academy™ | Build Your First Digital Product</title>
 <meta name="description" content="Build your first digital product and make your first sale — no experience, no audience, no team required. Free Niche Finder + step-by-step system.">
@@ -801,14 +810,14 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
         <div class="top-pick-price">Free</div>
         <span class="top-pick-cta">Use Niche Finder →</span>
       </div>
-      <div class="top-pick" onclick="window.open('https://smarterhustleacademy.gumroad.com/l/passivefoundation?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=hero_passivefoundation','_blank')">
+      <div class="top-pick" onclick="gtag('event','gumroad_click',{'product_slug':'passivefoundation','utm_content':'hero_passivefoundation','utm_campaign':'homepage','page_location':window.location.href});window.open('https://smarterhustleacademy.gumroad.com/l/passivefoundation?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=hero_passivefoundation','_blank')">
         <div class="top-pick-ico">💤</div>
         <div class="top-pick-title">Passive Income Blueprint</div>
         <div class="top-pick-desc">Every passive income model explained simply — and which one fits your life.</div>
         <div class="top-pick-price">$27</div>
         <a href="https://smarterhustleacademy.gumroad.com/l/passivefoundation?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=hero_passivefoundation_2" target="_blank" rel="noopener" class="top-pick-cta">Get the Blueprint →</a>
       </div>
-      <div class="top-pick" onclick="window.open('https://smarterhustleacademy.gumroad.com/l/faststartbundle?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=hero_faststartbundle','_blank')">
+      <div class="top-pick" onclick="gtag('event','gumroad_click',{'product_slug':'faststartbundle','utm_content':'hero_faststartbundle','utm_campaign':'homepage','page_location':window.location.href});window.open('https://smarterhustleacademy.gumroad.com/l/faststartbundle?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=hero_faststartbundle','_blank')">
         <div class="top-pick-ico">⚡</div>
         <div class="top-pick-title">Fast Start Bundle</div>
         <div class="top-pick-desc">The 48-Hr System + Validation Toolkit + AI Prompt Library. Everything to launch fast.</div>
@@ -1585,6 +1594,7 @@ function handleOptin(){
     return;
   }
   _inp.style.borderColor='';
+  gtag('event','gumroad_click',{'product_slug':'aipromptcollection','utm_content':'trading_aipromptcollection','utm_campaign':'homepage','page_location':window.location.href});
   var url='https://smarterhustleacademy.gumroad.com/l/aipromptcollection?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=trading_aipromptcollection&email='+encodeURIComponent(email);
   var _ob=document.getElementById('optinBox');
   var _os=document.getElementById('optinSuccess');
@@ -1802,6 +1812,7 @@ var _oe=document.getElementById('optinEmail');if(_oe){_oe.addEventListener('keyp
     var captured=val;
     lpForm.reset();
     if(lpToast){lpToast.classList.add('show');setTimeout(function(){lpToast.classList.remove('show');},2600);}
+    gtag('event','gumroad_click',{'product_slug':'quickstartchecklist','utm_content':'trading_quickstartchecklist','utm_campaign':'homepage','page_location':window.location.href});
     setTimeout(function(){window.open('https://smarterhustleacademy.gumroad.com/l/quickstartchecklist?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=trading_quickstartchecklist&email='+encodeURIComponent(captured),'_blank');},600);
   });
   document.querySelectorAll('.lp-wrap details').forEach(function(d){
@@ -2128,4 +2139,24 @@ var _oe=document.getElementById('optinEmail');if(_oe){_oe.addEventListener('keyp
   </div>
   </div>
 </div>
+<script>
+// GA4 click tracking for Gumroad links — delegated so it catches every
+// current and future Gumroad button without needing per-element wiring.
+// Pulls utm_content/utm_campaign straight off the link's own URL so this
+// stays in sync with the UTM tagging automatically.
+document.addEventListener('click', function(e) {
+  var link = e.target.closest('a[href*="gumroad.com"]');
+  if (!link) return;
+  try {
+    var url = new URL(link.href);
+    var params = url.searchParams;
+    gtag('event', 'gumroad_click', {
+      'product_slug': url.pathname.split('/').pop(),
+      'utm_content': params.get('utm_content') || 'unspecified',
+      'utm_campaign': params.get('utm_campaign') || 'unspecified',
+      'page_location': window.location.href
+    });
+  } catch (err) { /* fail silently, never block the actual link */ }
+});
+</script>
 </body></html>
