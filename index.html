@@ -782,6 +782,10 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
         <a href="https://smarterhustleacademy.gumroad.com/l/48hourincomesystem?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=hero_48hourincomesystem_3" target="_blank" rel="noopener"><button class="btn" style="font-size:16px;padding:14px 30px">Get the 48-Hour System →</button></a>
         <span class="flagship-was" style="font-size:13px;color:var(--mu)">Instant download · No subscription</span>
       </div>
+      <div id="foundingPriceNote" style="display:none;background:#fef3c7;border-left:4px solid var(--go);border-radius:10px;padding:14px 18px;margin-top:14px;font-size:14px;color:#78350f;line-height:1.7">
+        <strong>Founding Price — <span id="foundingDaysLeft"></span> left.</strong>
+        Price increases to $37 on <span id="foundingDateDisplay"></span>. Lock in $27 now.
+      </div>
     </div>
 
     <div style="background:var(--cr2);border-left:4px solid var(--go);border-radius:var(--r);padding:24px;margin:14px 0">
@@ -1608,6 +1612,30 @@ function toggleFaq(el){
   if(!isOpen)item.classList.add('open');
 }
 // Email opt-in — global scope so onclick="handleOptin()" can reach it
+// ── FOUNDING PRICE BANNER — real cutoff date, never shows a false claim ──
+// Price genuinely increases $27 → $37 on this date. If this date changes,
+// update it here AND manually update the Gumroad listing price to match —
+// this script only controls the on-site copy, not the actual checkout price.
+(function(){
+  var CUTOFF = new Date('2026-08-11T00:00:00');
+  var note = document.getElementById('foundingPriceNote');
+  if(!note) return;
+  var now = new Date();
+  if(now >= CUTOFF){
+    // Past the cutoff — do not show a stale/false "ends in X days" claim.
+    // (Site price copy itself still needs a manual update once the real
+    // Gumroad price changes — this script intentionally does not guess.)
+    return;
+  }
+  var msPerDay = 1000*60*60*24;
+  var daysLeft = Math.ceil((CUTOFF - now) / msPerDay);
+  var dayLabel = daysLeft === 1 ? '1 day' : daysLeft + ' days';
+  var dateLabel = CUTOFF.toLocaleDateString('en-US', {month:'long', day:'numeric', year:'numeric'});
+  document.getElementById('foundingDaysLeft').textContent = dayLabel;
+  document.getElementById('foundingDateDisplay').textContent = dateLabel;
+  note.style.display = 'block';
+})();
+
 function handleOptin(suffix){
   suffix = suffix || '';
   var _inp=document.getElementById('optinEmail'+suffix);
