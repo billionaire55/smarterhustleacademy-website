@@ -830,6 +830,30 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
     </div>
 
     <div class="dv"></div>
+    <!-- MID-PAGE EMAIL CAPTURE (duplicate of the bottom optin-bar, unique IDs, same working mechanism) -->
+    <div class="optin-bar" style="border-radius:var(--r)">
+      <div class="optin-eyebrow">Not Ready to Buy Yet?</div>
+      <h2>Get 25 Done-For-You <span>AI Prompts</span> — Free 🤖</h2>
+      <div class="optin-sub">The SHA™ AI Prompts Collection + Quick-Start Checklist + 48-Hour Starter Kit. Three free resources, one download. No purchase required.</div>
+      <div class="optin-perks">
+        <span class="optin-perk">✓ 25 AI Prompts (6 categories)</span>
+        <span class="optin-perk">✓ Quick-Start Checklist</span>
+        <span class="optin-perk">✓ 48-Hr Starter Kit</span>
+        <span class="optin-perk">✓ Instant Download</span>
+      </div>
+      <div class="optin-box" id="optinBoxMid">
+        <input type="email" class="optin-input" id="optinEmailMid" placeholder="Enter your email address" autocomplete="email">
+        <button class="optin-btn" id="optinBtnMid" onclick="handleOptin('Mid')">Send Me the Free Kit →</button>
+      </div>
+      <div class="optin-note">No spam. No fluff. Unsubscribe any time.</div>
+      <div class="optin-success" id="optinSuccessMid">
+        <p>🎉 Your free resources are on the way!</p>
+        <span>You just got 25 AI prompts, the Quick-Start Checklist, and the 48-Hr Starter Kit. Ready to go further? The full AI Prompt Library has 52 prompts plus advanced copy frameworks.</span>
+        <div style="margin-top:14px"><a href="https://smarterhustleacademy.gumroad.com/l/aipromptlibrary?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=homepage_mid_aipromptlibrary" target="_blank" rel="noopener" class="btn" style="font-size:14px;padding:11px 22px">Get the Full AI Prompt Library (52 Prompts) — $37 →</a></div>
+      </div>
+    </div>
+
+    <div class="dv"></div>
     <!-- FOUNDER STORY -->
     <h2 class="sh">Why This Exists</h2>
     <div class="founder">
@@ -1584,8 +1608,9 @@ function toggleFaq(el){
   if(!isOpen)item.classList.add('open');
 }
 // Email opt-in — global scope so onclick="handleOptin()" can reach it
-function handleOptin(){
-  var _inp=document.getElementById('optinEmail');
+function handleOptin(suffix){
+  suffix = suffix || '';
+  var _inp=document.getElementById('optinEmail'+suffix);
   if(!_inp)return;
   var email=_inp.value.trim();
   if(!email||!email.includes('@')){
@@ -1594,10 +1619,11 @@ function handleOptin(){
     return;
   }
   _inp.style.borderColor='';
-  gtag('event','gumroad_click',{'product_slug':'aipromptcollection','utm_content':'trading_aipromptcollection','utm_campaign':'homepage','page_location':window.location.href});
-  var url='https://smarterhustleacademy.gumroad.com/l/aipromptcollection?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=trading_aipromptcollection&email='+encodeURIComponent(email);
-  var _ob=document.getElementById('optinBox');
-  var _os=document.getElementById('optinSuccess');
+  var utmTag = suffix ? 'homepage_mid_aipromptcollection' : 'trading_aipromptcollection';
+  gtag('event','gumroad_click',{'product_slug':'aipromptcollection','utm_content':utmTag,'utm_campaign':'homepage','page_location':window.location.href});
+  var url='https://smarterhustleacademy.gumroad.com/l/aipromptcollection?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content='+utmTag+'&email='+encodeURIComponent(email);
+  var _ob=document.getElementById('optinBox'+suffix);
+  var _os=document.getElementById('optinSuccess'+suffix);
   if(_ob)_ob.style.display='none';
   if(_os)_os.style.display='block';
   setTimeout(function(){window.open(url,'_blank');},800);
@@ -1794,6 +1820,7 @@ setInterval(function(){
 // ── EMAIL OPT-IN ─────────────────────────────────────────────────
 
 var _oe=document.getElementById('optinEmail');if(_oe){_oe.addEventListener('keypress',function(e){if(e.key==='Enter')handleOptin();});_oe.addEventListener('input',function(){this.style.borderColor='#3A4035';});}
+var _oeMid=document.getElementById('optinEmailMid');if(_oeMid){_oeMid.addEventListener('keypress',function(e){if(e.key==='Enter')handleOptin('Mid');});_oeMid.addEventListener('input',function(){this.style.borderColor='#3A4035';});}
 
 // ── LANDING PAGE FORM ─────────────────────────────────────────────
 (function(){
