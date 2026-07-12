@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TX0KEERVR0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TX0KEERVR0');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>48-Hour Income System | Build Your First Digital Product</title>
@@ -205,5 +213,21 @@ footer a{color:var(--g);text-decoration:none}
   </div>
 </footer>
 
+<script>
+document.addEventListener('click', function(e) {
+  var link = e.target.closest('a[href*="gumroad.com"]');
+  if (!link) return;
+  try {
+    var url = new URL(link.href);
+    var params = url.searchParams;
+    gtag('event', 'gumroad_click', {
+      'product_slug': url.pathname.split('/').pop(),
+      'utm_content': params.get('utm_content') || 'unspecified',
+      'utm_campaign': params.get('utm_campaign') || 'unspecified',
+      'page_location': window.location.href
+    });
+  } catch (err) { /* fail silently, never block the actual link */ }
+});
+</script>
 </body>
 </html>
