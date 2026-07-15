@@ -113,6 +113,7 @@ nav{background:var(--ink);position:sticky;top:0;z-index:200;display:flex;align-i
 .ns{display:flex;align-items:stretch;overflow-x:auto;flex:1;scrollbar-width:none}
 .ns::-webkit-scrollbar{display:none}
 nav button{background:none;border:none;color:#8A9080;padding:0 14px;font-size:13px;cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;transition:.2s;font-family:var(--fb);font-weight:600;min-height:52px}
+.nav-div{width:1px;align-self:center;height:24px;background:rgba(255,255,255,.14);margin:0 4px;flex-shrink:0}
 nav button.on{color:var(--g3);border-bottom-color:var(--g3)}
 nav button:hover:not(.on){color:#fff}
 .sec{display:none;animation:fi .3s ease}.sec.act{display:block}
@@ -653,15 +654,18 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
   <div class="nb"><div class="nl">SHA</div><div class="nn">Smarter Hustle™</div></div>
   <div class="ns">
     <button class="on" data-tab="home">🏠 Home</button>
+    <span class="nav-div"></span>
     <button data-tab="niche">🎯 Niche Finder</button>
     <button data-tab="build">🛠 Build</button>
     <button data-tab="content">🎬 Scripts</button>
+    <button data-tab="progress">✅ My Progress</button>
+    <span class="nav-div"></span>
     <button data-tab="shop">🛒 Shop</button>
     <button data-tab="bundles">🎁 Bundles</button>
-    <button data-tab="blog">📖 Blog</button>
-    <button data-tab="progress">✅ My Progress</button>
     <button data-tab="trading">📈 Trading</button>
-    <button data-tab="landing">📣 Sales Page</button>
+    <span class="nav-div"></span>
+    <button data-tab="blog">📖 Blog</button>
+    <button data-tab="resources">🔗 Resources</button>
   </div>
 </nav>
 
@@ -1301,6 +1305,74 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
   </div>
 </div>
 
+<!-- RESOURCES -->
+<style>
+.res-note{font-size:14.5px;color:var(--mu);font-style:italic;margin:4px 0 16px}
+.res-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--fh);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--go);background:var(--gol);padding:5px 12px;border-radius:999px;margin:28px 0 8px}
+.res-eyebrow:first-of-type{margin-top:6px}
+.res-h2{font-family:var(--fh);font-size:20px;font-weight:700;color:var(--ink2);margin-bottom:2px}
+.res-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:14px 0 6px}
+.res-card{background:var(--wh);border:1.5px solid var(--bd);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:8px;box-shadow:var(--sh);transition:.2s}
+.res-card:hover{border-color:var(--g);box-shadow:0 6px 24px rgba(45,106,79,.14);transform:translateY(-2px)}
+.res-card h3{font-family:var(--fh);font-size:15px;font-weight:700;color:var(--ink)}
+.res-card p{font-size:12.5px;color:var(--mu);line-height:1.6;flex:1}
+.res-card a{font-family:var(--fh);font-weight:700;font-size:12.5px;color:var(--g);text-decoration:none;border-bottom:2px solid var(--go);width:fit-content;padding-bottom:1px}
+.res-card a:hover{color:var(--go)}
+.res-disclosure{margin:32px 0 4px;padding:16px 18px;background:var(--gl);border-left:3px solid var(--go);border-radius:10px;font-size:12.5px;color:var(--ink2)}
+</style>
+<div id="resources" class="sec">
+  <div class="cnt">
+    <h2 class="pg">🔗 Resources We Actually Use</h2>
+    <p class="sub">No random ads. Just the tools, platforms, and money moves we'd hand a friend starting their hustle today.</p>
+
+    <div class="res-eyebrow">AI + The Smarter Hustle</div>
+    <div class="res-grid">
+      <div class="res-card"><h3>NordVPN</h3><p>Lock down your privacy while you're building, banking, and browsing online.</p><a href="https://nordvpn.sjv.io/R0Y0nN" target="_blank" rel="noopener">Get NordVPN →</a></div>
+      <div class="res-card"><h3>NordPass</h3><p>Password chaos kills momentum. One less thing to think about.</p><a href="https://www.jdoqocy.com/o8121ox52x4KQPPTTONKMQTORLML" target="_blank" rel="noopener">Get NordPass →</a></div>
+      <div class="res-card"><h3>McAfee</h3><p>Your laptop is your business. Protect it like one.</p><a href="https://www.jdoqocy.com/7c103hz74z6MSRRVVQPMOUNVTVVS" target="_blank" rel="noopener">Get McAfee →</a></div>
+      <div class="res-card"><h3>CyberLink</h3><p>Video editing tools for creators making tutorials and content.</p><a href="https://www.jdoqocy.com/b3111qgpmgo3988CC763554C4B77" target="_blank" rel="noopener">Explore CyberLink →</a></div>
+      <div class="res-card"><h3>Corel</h3><p>Design and creative software for building polished digital products fast.</p><a href="https://www.dpbolvw.net/5o122iqzwqyDJIIMMHGDFFHGMFJN" target="_blank" rel="noopener">Explore Corel →</a></div>
+      <div class="res-card"><h3>TechSmith</h3><p>Camtasia and Snagit for creators making tutorials, courses, and how-to content.</p><a href="https://techsmith.z6rjha.net/GmGED2" target="_blank" rel="noopener">Explore TechSmith →</a></div>
+    </div>
+
+    <div class="res-eyebrow">Side Hustle Economy</div>
+    <div class="res-grid">
+      <div class="res-card"><h3>DHgate</h3><p>Source products, test ideas, build your first storefront — without the overhead.</p><a href="https://www.kqzyfj.com/e381wktqks7DCCGGBA79FA88ECA" target="_blank" rel="noopener">Start Sourcing →</a></div>
+      <div class="res-card"><h3>HostPapa</h3><p>Every hustle needs a home. Get your site up and running today.</p><a href="https://www.tkqlhce.com/n765js0ys-FLKKOOJIFHGLHJPOP" target="_blank" rel="noopener">Get Hosting →</a></div>
+      <div class="res-card"><h3>Domain.com</h3><p>Lock in your brand name before someone else does.</p><a href="https://domain.mno8.net/qWkEgn" target="_blank" rel="noopener">Get Your Domain →</a></div>
+      <div class="res-card"><h3>AWeber</h3><p>Your list is your leverage. Start capturing emails from day one.</p><a href="https://www.dpbolvw.net/ap117mu2-u1HNMMQQLKHJNPLMQKN" target="_blank" rel="noopener">Start with AWeber →</a></div>
+      <div class="res-card"><h3>GetResponse</h3><p>All-in-one email marketing built for creators growing an audience.</p><a href="https://www.kqzyfj.com/jm70p-85-7NTSSWWRQNPOWRPSUR" target="_blank" rel="noopener">Start with GetResponse →</a></div>
+    </div>
+
+    <div class="res-eyebrow">Smarter Money Mindset</div>
+    <div class="res-grid">
+      <div class="res-card"><h3>E-file.com</h3><p>Taxes don't have to derail your hustle. File smart, keep more of what you earn.</p><a href="https://www.dpbolvw.net/fl115dlurlt8EDDHHCB8AAIAGAEH" target="_blank" rel="noopener">File Now →</a></div>
+      <div class="res-card"><h3>Experian</h3><p>Know your numbers. Your credit is part of your business foundation.</p><a href="https://www.kqzyfj.com/3c100biroiq5BAAEE9857A68DDAB" target="_blank" rel="noopener">Check Your Credit →</a></div>
+      <div class="res-card"><h3>Corporate Finance Institute</h3><p>Level up your financial literacy with real, practical training.</p><a href="https://corporatefinancialinstitute.pxf.io/enJn0r" target="_blank" rel="noopener">Learn More →</a></div>
+      <div class="res-card"><h3>Tradeline Supply Co.</h3><p>Build credit strategically to unlock capital.</p><a href="https://www.dpbolvw.net/a1107zw41w3JPOOSSNMJLNPMKOPL" target="_blank" rel="noopener">Explore Tradelines →</a></div>
+      <div class="res-card"><h3>Dun &amp; Bradstreet</h3><p>Build and monitor your business credit — separate from your personal score.</p><a href="https://dandb.7eer.net/9VxMee" target="_blank" rel="noopener">Check Business Credit →</a></div>
+      <div class="res-card"><h3>Empower</h3><p>Track your net worth and see the full picture of your money in one dashboard.</p><a href="https://empower.sjv.io/k4QaRM" target="_blank" rel="noopener">Track Your Net Worth →</a></div>
+    </div>
+
+    <div class="res-eyebrow">Niche &amp; Future-Proof Hustles</div>
+    <div class="res-grid">
+      <div class="res-card"><h3>Mindful Trader</h3><p>Data-driven trading insights for the Trading Academy crowd.</p><a href="https://mindful-trader.pxf.io/n4jRnx" target="_blank" rel="noopener">Check It Out →</a></div>
+      <div class="res-card"><h3>Silver Gold Bull</h3><p>Diversify beyond the obvious. Precious metals as a wealth-building hedge.</p><a href="https://www.dpbolvw.net/bm116kjspjr6CBBFFA9687GCGCGE" target="_blank" rel="noopener">Explore →</a></div>
+      <div class="res-card"><h3>CoinTelegraph</h3><p>Stay ahead of the crypto market with news built for real decisions.</p><a href="https://marketspro.sjv.io/ZQymyX" target="_blank" rel="noopener">Read CoinTelegraph →</a></div>
+      <div class="res-card"><h3>Tickstory</h3><p>Backtest your trading strategies with historical data before you risk real money.</p><a href="https://tickstory.7eer.net/zBYLW" target="_blank" rel="noopener">Explore Tickstory →</a></div>
+    </div>
+
+    <div class="res-eyebrow">Travel Rewards</div>
+    <p class="res-note">Because building a business shouldn't mean staying home.</p>
+    <div class="res-grid">
+      <div class="res-card"><h3>Priceline</h3><p>Our top pick for booking smart — flights, hotels, and deals in one place.</p><a href="https://www.tkqlhce.com/k6115shqnhp4A99DD874658C559A" target="_blank" rel="noopener">Book with Priceline →</a></div>
+      <div class="res-card"><h3>Hotels.com</h3><p>Reliable rates and rewards for hustlers who travel light and often.</p><a href="https://www.dpbolvw.net/sk82tenkem1766AA541392A7952" target="_blank" rel="noopener">Book with Hotels.com →</a></div>
+    </div>
+
+    <div class="res-disclosure">Smarter Hustle Academy™ may earn a commission from links on this page — at no extra cost to you. We only recommend what we'd actually use.</div>
+  </div>
+</div>
+
 <!-- TRADING -->
 <div id="trading" class="sec">
 
@@ -1694,7 +1766,7 @@ function handleOptin(suffix){
 <script>
 (function(){
 'use strict';
-var TABS=['home','build','content','niche','progress','bundles','blog','shop','trading','landing'];
+var TABS=['home','build','content','niche','progress','bundles','blog','shop','resources','trading','landing'];
 function goTab(id){TABS.forEach(function(t){var s=document.getElementById(t);if(s)s.classList.remove('act');});var s=document.getElementById(id);if(s){s.classList.add('act');window.scrollTo(0,0);}document.querySelectorAll('nav button').forEach(function(b){b.classList.remove('on');});var nb=document.querySelector('nav button[data-tab="'+id+'"]');if(nb)nb.classList.add('on');if(id==='home')updSnap();if(id==='blog')loadBlog();}
 document.addEventListener('click',function(e){
   var tb=e.target.closest('[data-tab]');if(tb&&tb.dataset.tab){goTab(tb.dataset.tab);return;}
