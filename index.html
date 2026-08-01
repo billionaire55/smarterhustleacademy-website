@@ -337,6 +337,18 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
 .optin-success{display:none;background:#0D2820;border:1.5px solid var(--g);border-radius:12px;padding:20px 24px;max-width:500px;margin:0 auto}
 .optin-success p{font-size:15px;color:#fff;font-family:var(--fh);font-weight:700;margin-bottom:6px}
 .optin-success span{font-size:13px;color:#A8D5BE}
+
+/* EXIT-INTENT / SCROLL POPUP */
+.epop-overlay{display:none;position:fixed;inset:0;background:rgba(13,17,11,.72);z-index:500;align-items:center;justify-content:center;padding:20px}
+.epop-overlay.show{display:flex}
+.epop-box{position:relative;background:var(--ink);border:2px solid var(--go);border-radius:var(--r);max-width:480px;width:100%;padding:34px 26px 28px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.5);max-height:92vh;overflow-y:auto}
+.epop-close{position:absolute;top:12px;right:14px;background:none;border:none;color:#8A9080;font-size:22px;cursor:pointer;line-height:1;padding:4px 8px}
+.epop-close:hover{color:#fff}
+.epop-eyebrow{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--go);text-transform:uppercase;margin-bottom:12px;font-family:var(--fh)}
+.epop-box h2{font-family:var(--fh);font-size:22px;font-weight:800;color:#fff;margin-bottom:10px;line-height:1.3}
+.epop-box h2 span{color:var(--g3)}
+.epop-sub{font-size:14px;color:#B0B8A4;line-height:1.75;margin-bottom:18px}
+.epop-perks{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-bottom:20px}
 .footer{background:#0D1410;border-top:1px solid #1A2A1A;padding:36px 22px 28px}
 .footer-inner{max-width:840px;margin:0 auto}
 .footer-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px;margin-bottom:28px}
@@ -714,7 +726,22 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
       <div class="qo" data-quiz="2"><span class="qi">📦</span><div class="ql">I've built something but haven't made a sale yet</div></div>
       <div class="qo" data-quiz="3"><span class="qi">📈</span><div class="ql">I'm making sales and want to grow consistently</div></div>
     </div>
-    <div class="qr" id="qRes"><div class="qm" id="qMsg"></div><div class="qc" id="qCta"></div><button class="btn" id="qBtn" style="font-size:14px;padding:12px 24px"></button></div>
+    <div class="qr" id="qRes"><div class="qm" id="qMsg"></div><div class="qc" id="qCta"></div><button class="btn" id="qBtn" style="font-size:14px;padding:12px 24px"></button>
+      <div id="qProd" style="display:none;margin-top:16px;padding-top:16px;border-top:1px solid #2D3328">
+        <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--go);text-transform:uppercase;margin-bottom:10px;font-family:var(--fh)">Recommended For You</div>
+        <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+          <div style="font-size:30px;flex-shrink:0" id="qProdIcon"></div>
+          <div style="flex:1;min-width:180px">
+            <div id="qProdTitle" style="font-family:var(--fh);font-size:14px;font-weight:700;color:#fff;margin-bottom:3px"></div>
+            <div id="qProdDesc" style="font-size:13px;color:#A0A898;line-height:1.6"></div>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <div id="qProdPrice" style="font-family:var(--fh);font-size:20px;font-weight:800;color:var(--go);margin-bottom:6px"></div>
+            <a id="qProdLink" href="#" target="_blank" rel="noopener"><button class="btn bgo" style="font-size:13px;padding:10px 18px">Get It →</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 <!-- PROOF STRIP -->
 <div class="proof-strip">
@@ -1766,7 +1793,7 @@ function handleOptin(suffix){
     return;
   }
   _inp.style.borderColor='';
-  var utmTag = suffix ? 'homepage_mid_aipromptcollection' : 'trading_aipromptcollection';
+  var utmTag = suffix === 'Mid' ? 'homepage_mid_aipromptcollection' : suffix === 'Popup' ? 'popup_aipromptcollection' : 'trading_aipromptcollection';
   gtag('event','gumroad_click',{'product_slug':'aipromptcollection','utm_content':utmTag,'utm_campaign':'homepage','page_location':window.location.href});
   var url='https://smarterhustleacademy.gumroad.com/l/aipromptcollection?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content='+utmTag+'&email='+encodeURIComponent(email);
   var _ob=document.getElementById('optinBox'+suffix);
@@ -1817,8 +1844,17 @@ document.addEventListener('click',function(e){
   var qo=e.target.closest('.qo');if(qo){handleQ(parseInt(qo.dataset.quiz,10));}
 });
 function cp(btn,txt){if(!navigator.clipboard){alert(txt);return;}navigator.clipboard.writeText(txt).then(function(){if(!btn)return;var o=btn.textContent;btn.textContent='✅ Copied!';btn.style.color='var(--g)';setTimeout(function(){btn.textContent=o;btn.style.color='';},2000);});}
-var qD=[{m:'Great starting point. The best move right now is to figure out your niche — your product topic and who you want to help.',c:'Here is your first step →',t:'niche',b:'Go to Niche Finder →'},{m:'You are closer than you think. Go straight to Build — follow the 6-step plan and your product can be live on Gumroad today.',c:'Here is where to go →',t:'build',b:'Go to Build →'},{m:"Your next move is content. The reason most people with products don't make sales is they're not posting enough.",c:'Your next step →',t:'content',b:'Go to My Content →'},{m:'You are further along than most. Go to My Progress — log your numbers and let the data show which content is working.',c:'Keep the momentum →',t:'progress',b:'Go to My Progress →'}];
-function handleQ(idx){document.querySelectorAll('.qo').forEach(function(o){o.classList.remove('sel');});document.querySelectorAll('.qo')[idx].classList.add('sel');var d=qD[idx];document.getElementById('qMsg').textContent=d.m;document.getElementById('qCta').textContent=d.c;var btn=document.getElementById('qBtn');btn.textContent=d.b;btn.dataset.gt=d.t;document.getElementById('qRes').style.display='block';try{sessionStorage.setItem('sha_segment',idx);}catch(e){}}
+var qD=[{m:'Great starting point. The best move right now is to figure out your niche — your product topic and who you want to help.',c:'Here is your first step →',t:'niche',b:'Go to Niche Finder →',prod:{icon:'💰',title:'48-Hour Income System™ — Foundation',desc:'Once you have your niche, this is the step-by-step system to build and publish your first product.',price:'$27',url:'https://smarterhustleacademy.gumroad.com/l/48hourincomesystem?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=quiz&utm_content=quiz_segment0_48hourincomesystem'}},{m:'You are closer than you think. Go straight to Build — follow the 6-step plan and your product can be live on Gumroad today.',c:'Here is where to go →',t:'build',b:'Go to Build →',prod:{icon:'💰',title:'48-Hour Income System™ — Foundation',desc:'The complete step-by-step system to turn your topic into a published product on Gumroad.',price:'$27',url:'https://smarterhustleacademy.gumroad.com/l/48hourincomesystem?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=quiz&utm_content=quiz_segment1_48hourincomesystem'}},{m:"Your next move is content. The reason most people with products don't make sales is they're not posting enough.",c:'Your next step →',t:'content',b:'Go to My Content →',prod:{icon:'📝',title:'AI Prompt Library — 52 Prompts',desc:'Unlocks all 5 video scripts, 6 hook formulas, and a 10-video content generator so you can post consistently.',price:'$37',url:'https://smarterhustleacademy.gumroad.com/l/aipromptlibrary?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=quiz&utm_content=quiz_segment2_aipromptlibrary'}},{m:'You are further along than most. Go to My Progress — log your numbers and let the data show which content is working.',c:'Keep the momentum →',t:'progress',b:'Go to My Progress →',prod:{icon:'💰',title:'The Complete Income Stack',desc:'6 guides plus bonuses to help you build multiple products and package them into bundles that sell on autopilot.',price:'$97',url:'https://smarterhustleacademy.gumroad.com/l/completeincomestack?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=quiz&utm_content=quiz_segment3_completeincomestack'}}];
+function handleQ(idx){document.querySelectorAll('.qo').forEach(function(o){o.classList.remove('sel');});document.querySelectorAll('.qo')[idx].classList.add('sel');var d=qD[idx];document.getElementById('qMsg').textContent=d.m;document.getElementById('qCta').textContent=d.c;var btn=document.getElementById('qBtn');btn.textContent=d.b;btn.dataset.gt=d.t;
+  if(d.prod){
+    document.getElementById('qProdIcon').textContent=d.prod.icon;
+    document.getElementById('qProdTitle').textContent=d.prod.title;
+    document.getElementById('qProdDesc').textContent=d.prod.desc;
+    document.getElementById('qProdPrice').textContent=d.prod.price;
+    document.getElementById('qProdLink').href=d.prod.url;
+    document.getElementById('qProd').style.display='block';
+  }
+  document.getElementById('qRes').style.display='block';try{sessionStorage.setItem('sha_segment',idx);}catch(e){}}
 var tStart=null,tInt=null;
 function startTimer(){if(tInt)return;tStart=Date.now();var btn=document.getElementById('tBtn');btn.textContent='⏱ Running...';btn.disabled=true;document.getElementById('tSub').textContent='Your 48-hour challenge is live!';tInt=setInterval(updTimer,1000);updTimer();}
 function updTimer(){if(!tStart)return;var e=Math.floor((Date.now()-tStart)/1000);var r=Math.max(0,48*3600-e);var h=String(Math.floor(r/3600)).padStart(2,'0');var m=String(Math.floor((r%3600)/60)).padStart(2,'0');var s=String(r%60).padStart(2,'0');document.getElementById('tDisp').textContent=h+':'+m+':'+s+' remaining';if(r===0){clearInterval(tInt);document.getElementById('tDisp').textContent='🎉 Challenge Complete!';}}
@@ -2029,6 +2065,31 @@ var _oeMid=document.getElementById('optinEmailMid');if(_oeMid){_oeMid.addEventLi
     <p>🎉 Your free resources are on the way!</p>
     <span id="optinSuccessMsg">You just got 25 AI prompts, the Quick-Start Checklist, and the 48-Hr Starter Kit. Ready to go further? The full AI Prompt Library has 52 prompts plus advanced copy frameworks.</span>
     <div id="optinSuccessCta" style="margin-top:14px"><a href="https://smarterhustleacademy.gumroad.com/l/aipromptlibrary?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=trading_aipromptlibrary_2" target="_blank" rel="noopener" class="btn" style="font-size:14px;padding:11px 22px">Get the Full AI Prompt Library (52 Prompts) — $37 →</a></div>
+  </div>
+</div>
+
+<!-- EXIT-INTENT / SCROLL POPUP -->
+<div class="epop-overlay" id="epopOverlay">
+  <div class="epop-box">
+    <button class="epop-close" id="epopClose" aria-label="Close">✕</button>
+    <div class="epop-eyebrow">Wait — Before You Go</div>
+    <h2>Get 25 Done-For-You <span>AI Prompts</span> — Free 🤖</h2>
+    <div class="epop-sub">The SHA™ AI Prompts Collection + Quick-Start Checklist + 48-Hour Starter Kit. Three free resources, one download.</div>
+    <div class="epop-perks">
+      <span class="optin-perk">✓ 25 AI Prompts</span>
+      <span class="optin-perk">✓ Quick-Start Checklist</span>
+      <span class="optin-perk">✓ 48-Hr Starter Kit</span>
+    </div>
+    <div class="optin-box" id="optinBoxPopup">
+      <input type="email" class="optin-input" id="optinEmailPopup" placeholder="Enter your email address" autocomplete="email">
+      <button class="optin-btn" id="optinBtnPopup" onclick="handleOptin('Popup')">Send Me the Free Kit →</button>
+    </div>
+    <div class="optin-note">No spam. No fluff. Unsubscribe any time.</div>
+    <div class="optin-success" id="optinSuccessPopup">
+      <p>🎉 Your free resources are on the way!</p>
+      <span id="optinSuccessMsgPopup">You just got 25 AI prompts, the Quick-Start Checklist, and the 48-Hr Starter Kit. Ready to go further? The full AI Prompt Library has 52 prompts plus advanced copy frameworks.</span>
+      <div id="optinSuccessCtaPopup" style="margin-top:14px"><a href="https://smarterhustleacademy.gumroad.com/l/aipromptlibrary?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=popup&utm_content=popup_aipromptlibrary" target="_blank" rel="noopener" class="btn" style="font-size:14px;padding:11px 22px">Get the Full AI Prompt Library (52 Prompts) — $37 →</a></div>
+    </div>
   </div>
 </div>
 
@@ -2344,5 +2405,67 @@ document.addEventListener('click', function(e) {
     });
   } catch (err) { /* fail silently, never block the actual link */ }
 });
+</script>
+<script>
+// ── EXIT-INTENT / SCROLL POPUP TRIGGER ─────────────────────────────
+(function(){
+  var overlay=document.getElementById('epopOverlay');
+  if(!overlay)return;
+  var SHOWN_KEY='sha_popup_shown';
+  var CONVERTED_KEY='sha_popup_converted';
+  var shown=false;
+
+  function alreadyHandled(){
+    try{
+      return sessionStorage.getItem(SHOWN_KEY)==='1' || sessionStorage.getItem(CONVERTED_KEY)==='1';
+    }catch(e){ return shown; }
+  }
+  function markShown(){
+    shown=true;
+    try{ sessionStorage.setItem(SHOWN_KEY,'1'); }catch(e){}
+  }
+  function openPopup(){
+    if(shown||alreadyHandled())return;
+    markShown();
+    overlay.classList.add('show');
+  }
+  function closePopup(){
+    overlay.classList.remove('show');
+  }
+
+  // Close interactions
+  document.getElementById('epopClose').addEventListener('click',closePopup);
+  overlay.addEventListener('click',function(e){ if(e.target===overlay)closePopup(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape')closePopup(); });
+
+  // If the popup's own email capture succeeds, don't show it again this session
+  var popupBtn=document.getElementById('optinBtnPopup');
+  if(popupBtn){
+    popupBtn.addEventListener('click',function(){
+      try{ sessionStorage.setItem(CONVERTED_KEY,'1'); }catch(e){}
+    });
+  }
+  var popupEmail=document.getElementById('optinEmailPopup');
+  if(popupEmail){
+    popupEmail.addEventListener('keypress',function(e){ if(e.key==='Enter')handleOptin('Popup'); });
+  }
+
+  // Trigger 1: exit intent — mouse moves toward the top of the viewport (desktop only)
+  document.addEventListener('mouseout',function(e){
+    if(e.clientY>0)return; // only fires when leaving toward the top edge
+    if(!e.relatedTarget && !e.toElement)openPopup();
+  });
+
+  // Trigger 2: scrolled past 50% of the page — give the page a moment to settle first
+  var scrollArmed=false;
+  setTimeout(function(){ scrollArmed=true; },4000);
+  window.addEventListener('scroll',function(){
+    if(!scrollArmed||shown||alreadyHandled())return;
+    var scrolled=window.scrollY;
+    var max=document.documentElement.scrollHeight-window.innerHeight;
+    if(max<=0)return;
+    if(scrolled/max>=0.5)openPopup();
+  },{passive:true});
+})();
 </script>
 </body></html>
