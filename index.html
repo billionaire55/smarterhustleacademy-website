@@ -1915,18 +1915,38 @@ renderProd();
 // ── BLOG — PRELOADED + HOME STRIP + LEARN TAB ────────────────────
 var blogLoaded=false;
 var blogData=null;
-function RSS_URL(){return 'https://api.rss2json.com/v1/api.json?rss_url=https://blog.smarterhustleacademy.com/feed.xml&count=10&_='+Date.now();}
-
 function fetchBlog(){
-  return fetch(RSS_URL(),{cache:'no-store'}).then(function(r){return r.json();}).then(function(data){
-    if(!data.items||!data.items.length)throw new Error('empty');
-    // Sort newest first by pubDate
-    data.items.sort(function(a,b){
-      return new Date(b.pubDate) - new Date(a.pubDate);
+  return fetch('https://blog.smarterhustleacademy.com/feed.xml',{cache:'no-store'})
+    .then(function(r){
+      if(!r.ok) throw new Error('feed fetch failed: '+r.status);
+      return r.text();
+    })
+    .then(function(xmlText){
+      var parser=new DOMParser();
+      var xml=parser.parseFromString(xmlText,'application/xml');
+      if(xml.querySelector('parsererror')) throw new Error('feed xml parse error');
+      var itemEls=Array.prototype.slice.call(xml.querySelectorAll('item'));
+      if(!itemEls.length) throw new Error('empty');
+      var items=itemEls.map(function(el){
+        var titleEl=el.querySelector('title');
+        var linkEl=el.querySelector('link');
+        var pubDateEl=el.querySelector('pubDate');
+        var descEl=el.querySelector('description');
+        return {
+          title: titleEl ? titleEl.textContent : 'Untitled',
+          link: linkEl ? linkEl.textContent : 'https://blog.smarterhustleacademy.com/',
+          pubDate: pubDateEl ? pubDateEl.textContent : '',
+          description: descEl ? descEl.textContent : ''
+        };
+      });
+      // Sort newest first by pubDate
+      items.sort(function(a,b){
+        return new Date(b.pubDate) - new Date(a.pubDate);
+      });
+      var data={items:items};
+      blogData=data;
+      return data;
     });
-    blogData=data;
-    return data;
-  });
 }
 
 function fmtDate(d){return new Date(d).toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});}
