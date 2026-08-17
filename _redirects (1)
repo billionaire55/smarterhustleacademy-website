@@ -1,0 +1,10 @@
+# These two rules used to proxy /trading-academy/* to the standalone course
+# product on GitHub Pages (sha-academy-x9k4m2). That target now returns a
+# 403 error, AND the proxy rule was silently overriding the dedicated
+# funnel/sales page that lives locally at trading-academy/index.html in
+# this repo -- no matter what was uploaded there, it could never be served
+# because Netlify's rewrite rules take priority over local static files at
+# the same path.
+#
+# Removed intentionally on 2026-08-17 so /trading-academy/ serves the local
+# trading-academy/index.html funnel page directly, as intended.
