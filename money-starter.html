@@ -1,0 +1,649 @@
+<!-- ENHANCED VERSION — includes interactive Learning Lab; educational use only, not individualized financial advice. -->
+<!--
+  WEBSITE EMBED — SHA site: host this file at smarterhustleacademy.com/courses/money-starter.html
+  then embed with:
+  <iframe src="/courses/money-starter.html" title="Money Starter Course" width="100%" height="1400"
+          style="border:0;max-width:960px;display:block;margin:0 auto;" loading="lazy"></iframe>
+  Self-contained: no external assets besides the Google Fonts CDN link below. Responsive down to mobile width.
+  Increase the iframe height if the certificate screen gets cut off on short viewports.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Money Starter™ — Level 1: The 13-17 Money Course | Smarter Hustle Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --green:#2D6A4F; --green-dark:#16241D; --gold:#D4A017; --cream:#FAFAF5; --white:#ffffff; --gray:#6b7a72; }
+  *{box-sizing:border-box;}
+  body{ margin:0; font-family:'DM Sans', sans-serif; background:var(--cream); color:var(--green-dark); }
+  h1,h2,h3,h4{font-family:'Sora', sans-serif;}
+  .topbar{ background:var(--green-dark); color:var(--cream); padding:14px 24px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+  .topbar .brand{font-weight:800;font-size:17px;letter-spacing:0.5px;}
+  .topbar .brand span{color:var(--gold);}
+  .progress-wrap{flex:1;max-width:340px;margin:0 20px;}
+  .progress-track{background:#2f4038;border-radius:20px;height:10px;overflow:hidden;}
+  .progress-fill{background:var(--gold);height:100%;width:0%;transition:width .4s ease;}
+  .progress-label{font-size:14px;margin-top:4px;color:#cfe0d6;}
+  .progression-bar{ background:var(--white);border-bottom:1px solid #ece7d9; padding:16px 24px;display:flex;align-items:center;justify-content:center;gap:0; flex-wrap:wrap; }
+  .prog-step{display:flex;flex-direction:column;align-items:center;position:relative;width:150px;}
+  .prog-circle{ width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center; font-family:'Sora',sans-serif;font-weight:800;font-size:17px;border:3px solid #e3ded1;color:var(--gray);background:var(--cream); }
+  .prog-step.current .prog-circle{background:var(--gold);border-color:var(--gold);color:var(--green-dark);box-shadow:0 0 0 4px #fbf3e0;}
+  .prog-label{font-size:14px;font-weight:700;margin-top:8px;text-align:center;color:var(--green-dark);}
+  .prog-sub{font-size:12px;color:var(--gray);text-transform:uppercase;letter-spacing:0.5px;}
+  .prog-line{height:3px;background:#e3ded1;flex:1;max-width:70px;margin-top:22px;}
+  .hero{ background:linear-gradient(135deg, var(--green) 0%, #1f4d38 100%); color:var(--white); padding:44px 24px 36px; text-align:center; }
+  .hero .eyebrow{ display:inline-block;background:var(--gold);color:var(--green-dark); font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase; padding:6px 14px;border-radius:20px;margin-bottom:16px; }
+  .hero h1{font-size:clamp(24px,5vw,38px);margin:0 0 12px;line-height:1.15;}
+  .hero p{font-size:20px;max-width:560px;margin:0 auto;opacity:.92;}
+  .wrap{max-width:900px;margin:0 auto;padding:32px 20px 80px;}
+  .module-nav{ display:grid;grid-template-columns:repeat(auto-fit,minmax(90px,1fr)); gap:8px;margin-bottom:32px; }
+  .module-pill{ background:var(--white);border:2px solid #e3ded1;border-radius:10px; padding:9px 6px;text-align:center;cursor:pointer;font-size:13px;font-weight:700; color:var(--green-dark);transition:all .15s ease; }
+  .module-pill .num{ display:block;font-family:'Sora',sans-serif;font-size:17px;color:var(--green);margin-bottom:1px; }
+  .module-pill.active{border-color:var(--green);background:#eef5f0;}
+  .module-pill.done{border-color:var(--gold);}
+  .module-pill.done .num::after{content:" ✓";color:var(--gold);}
+  .module{ display:none;background:var(--white);border-radius:18px; box-shadow:0 4px 24px rgba(22,36,29,0.06);overflow:hidden; border:1px solid #ece7d9; }
+  .module.active{display:block;}
+  .module-head{ background:var(--green);color:var(--white);padding:20px 26px; display:flex;align-items:center;gap:14px; }
+  .badge-icon{font-size:32px;}
+  .module-head .tag{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--gold);font-weight:700;}
+  .module-head h2{margin:4px 0 0;font-size:23px;}
+  .module-body{padding:26px;}
+  .module-body h3{color:var(--green);font-size:19px;margin:20px 0 8px;}
+  .module-body h3:first-child{margin-top:0;}
+  .module-body p{line-height:1.65;font-size:20.5px;margin:0 0 12px;}
+  .module-body ul{padding-left:22px;line-height:1.7;font-size:20.5px;}
+  .story{ background:#FBF3E0;border-radius:12px;padding:16px 18px;margin:16px 0; display:flex;gap:12px;align-items:flex-start; }
+  .story-avatar{ width:40px;height:40px;border-radius:50%;background:var(--gold);flex-shrink:0; display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:800;color:var(--green-dark);font-size:17px; }
+  .story-name{font-weight:700;font-size:14px;color:#8a6a10;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;}
+  .story p{margin:0;font-size:19px;line-height:1.55;font-style:italic;}
+  .cartoon{ background:var(--green-dark);color:var(--cream);border-radius:12px;padding:16px 18px;margin:16px 0;font-family:'DM Sans',sans-serif; }
+  .cartoon .tag{color:var(--gold);font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;display:block;}
+  .cartoon .panel{font-size:15.5px;margin-bottom:6px;line-height:1.5;}
+  .cartoon .panel b{color:var(--gold);}
+  .example{ background:#eef5f0;border-radius:10px;padding:14px 16px;margin:14px 0;font-size:19px; }
+  .example b{color:var(--green);}
+  .calc{ background:var(--cream);border:2px dashed #d6cdb0;border-radius:12px;padding:16px 18px;margin:16px 0; }
+  .calc-tag{font-weight:700;font-size:13px;color:#8a6a10;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;}
+  .calc-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap;}
+  .calc-row label{font-size:15px;font-weight:600;min-width:150px;}
+  .calc-row input{ border:2px solid #e3ded1;border-radius:8px;padding:7px 9px;font-size:15px;width:120px;font-family:'DM Sans',sans-serif; }
+  .calc-result{ margin-top:10px;background:var(--green);color:var(--white);border-radius:8px;padding:10px 14px;font-size:15.5px;font-weight:600; }
+  .calc-result span{color:var(--gold);font-family:'Sora',sans-serif;font-size:18px;}
+  .challenge{ background:var(--green-dark);color:var(--cream);border-radius:12px; padding:16px 18px;margin-top:18px; }
+  .challenge .tag{color:var(--gold);font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;}
+  .challenge p{margin:6px 0 0;font-size:18.5px;line-height:1.55;}
+  .quiz{margin-top:22px;border-top:2px dashed #e3ded1;padding-top:18px;}
+  .q-block{margin-bottom:16px;}
+  .q-text{font-weight:700;font-size:18.5px;margin-bottom:8px;}
+  .q-opts{display:grid;gap:7px;}
+  .q-opt{ text-align:left;background:var(--cream);border:2px solid #e3ded1;border-radius:8px; padding:9px 12px;cursor:pointer;font-size:16.5px;font-family:'DM Sans',sans-serif; }
+  .q-opt.correct{border-color:#2D6A4F;background:#e3f2e8;font-weight:700;}
+  .q-opt.wrong{border-color:#c0392b;background:#fbe9e7;}
+  .q-feedback{font-size:14px;margin-top:5px;font-weight:600;}
+  .q-feedback.ok{color:var(--green);}
+  .q-feedback.no{color:#c0392b;}
+  .nav-buttons{display:flex;justify-content:space-between;margin-top:24px;}
+  .btn{ font-family:'Sora',sans-serif;font-weight:700;font-size:15px; border:none;border-radius:30px;padding:11px 22px;cursor:pointer; }
+  .btn-primary{background:var(--gold);color:var(--green-dark);}
+  .btn-secondary{background:transparent;color:var(--green);border:2px solid var(--green);}
+  .btn:disabled{opacity:.4;cursor:not-allowed;}
+  .complete-screen{ display:none;text-align:center;background:var(--white);border-radius:18px; padding:40px 28px;box-shadow:0 4px 24px rgba(22,36,29,0.06); }
+  .complete-screen.active{display:block;}
+  .complete-screen h2{color:var(--green);margin:10px 0;}
+  .complete-screen > p{max-width:520px;margin:0 auto 22px;font-size:16px;line-height:1.6;color:var(--gray);}
+  .cert-form{max-width:400px;margin:0 auto 24px;}
+  .cert-form input{ width:100%;border:2px solid #e3ded1;border-radius:8px;padding:11px 13px;font-size:17px; font-family:'DM Sans',sans-serif;text-align:center; }
+  .cert-form label{display:block;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--gray);margin-bottom:6px;}
+  .certificate{ border:3px solid var(--green);border-radius:16px;padding:36px 26px;background:var(--cream); max-width:620px;margin:0 auto;position:relative; }
+  .certificate::before{ content:"";position:absolute;inset:9px;border:1px solid var(--gold);border-radius:10px;pointer-events:none; }
+  .cert-eyebrow{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+  .cert-title{font-family:'Sora',sans-serif;font-size:26px;color:var(--green);margin:8px 0 16px;font-weight:800;}
+  .cert-name{ font-family:'Sora',sans-serif;font-size:30px;color:var(--green-dark);margin:10px 0;font-weight:800; border-bottom:2px solid var(--gold);display:inline-block;padding-bottom:6px;min-width:260px; }
+  .cert-desc{font-size:16px;color:var(--green-dark);max-width:420px;margin:14px auto;line-height:1.6;}
+  .cert-level{ display:inline-block;background:var(--green);color:var(--white);font-family:'Sora',sans-serif; font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;padding:7px 16px;border-radius:20px;margin-top:8px; }
+  .cert-footer{display:flex;justify-content:space-between;margin-top:26px;font-size:12px;color:var(--gray);}
+  .print-btn-wrap{margin-top:22px;}
+  .badge-strip{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:16px 0 24px;}
+  .badge-chip{background:#eef5f0;border:1px solid #d6e8dc;border-radius:20px;padding:6px 12px;font-size:14px;font-weight:700;color:var(--green);}
+  @media print{ .topbar,.progression-bar,.hero,.module-nav,.print-btn-wrap,footer{display:none !important;} .wrap{padding:0;} body{background:#fff;} }
+
+  .diagram-box{ background:var(--white);border:2px solid #ece7d9;border-radius:14px;padding:18px 20px;margin:18px 0;text-align:center; }
+  .diagram-box .diagram-title{font-family:'Sora',sans-serif;font-weight:700;font-size:15px;color:var(--green);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px;}
+  .diagram-box svg{max-width:100%;height:auto;}
+  .diagram-caption{font-size:15px;color:var(--gray);margin-top:10px;font-style:italic;}
+  footer{text-align:center;padding:24px;font-size:14px;color:var(--gray);}
+</style>
+
+<style id="sha-enhancement-css">
+  .sha-lab{margin:26px 0;background:#fff;border:1px solid #ece7d9;border-radius:18px;box-shadow:0 4px 24px rgba(22,36,29,.06);overflow:hidden}
+  .sha-lab-head{background:linear-gradient(135deg,#16241D,#2D6A4F);color:#fff;padding:22px 26px}
+  .sha-lab-head h2{margin:0 0 6px;font-size:24px}.sha-lab-head p{margin:0;color:#e4f0e8;line-height:1.55;font-size:16px}
+  .sha-tabs{display:flex;flex-wrap:wrap;gap:8px;padding:14px 18px;border-bottom:1px solid #ece7d9;background:#fbfaf4}
+  .sha-tab{border:2px solid #d6e8dc;background:#fff;color:#16241D;border-radius:999px;padding:8px 13px;font:700 14px 'DM Sans',sans-serif;cursor:pointer}.sha-tab.active{background:#2D6A4F;color:#fff;border-color:#2D6A4F}
+  .sha-panel{display:none;padding:24px 26px}.sha-panel.active{display:block}.sha-panel h3{color:#2D6A4F;margin:0 0 8px;font-size:20px}.sha-panel p{line-height:1.65;font-size:16px;margin:0 0 12px}.sha-note{background:#FBF3E0;border-left:4px solid #D4A017;border-radius:8px;padding:12px 14px;font-size:15px;line-height:1.55;margin:14px 0}
+  .sha-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:14px 0}.sha-field{display:flex;flex-direction:column;gap:5px}.sha-field label{font-weight:700;font-size:14px}.sha-field input,.sha-field select{border:2px solid #e3ded1;border-radius:8px;padding:9px;font:16px 'DM Sans',sans-serif;background:#fff}.sha-output{background:#16241D;color:#FAFAF5;border-radius:10px;padding:14px 16px;line-height:1.6;margin-top:14px}.sha-output strong{color:#D4A017}.sha-output table{width:100%;border-collapse:collapse;margin-top:8px}.sha-output td{padding:5px 4px;border-bottom:1px solid #405047}.sha-output td:last-child{text-align:right;color:#D4A017;font-weight:700}.sha-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}.sha-small{font-size:13px;color:#6b7a72;line-height:1.5}.sha-range{width:100%;accent-color:#2D6A4F}.sha-meter{height:12px;background:#e3ded1;border-radius:10px;overflow:hidden;margin:8px 0}.sha-meter span{display:block;height:100%;background:#D4A017;width:0;transition:width .25s}.sha-quiz-option{display:block;width:100%;text-align:left;border:2px solid #e3ded1;border-radius:8px;background:#FAFAF5;padding:9px 11px;margin:7px 0;font:15px 'DM Sans',sans-serif;cursor:pointer}.sha-quiz-option.correct{border-color:#2D6A4F;background:#e3f2e8}.sha-quiz-option.wrong{border-color:#c0392b;background:#fbe9e7}.sha-badge{display:inline-block;background:#eef5f0;color:#2D6A4F;border:1px solid #d6e8dc;border-radius:999px;padding:5px 10px;margin:3px;font-size:13px;font-weight:700}
+  @media(max-width:600px){.sha-panel,.sha-lab-head{padding:18px}.sha-tabs{padding:12px}.sha-tab{font-size:13px}.sha-output{font-size:14px}}
+</style>
+
+
+<style id="sha-extension-css">
+.sha-people{display:flex;align-items:flex-end;gap:12px;background:linear-gradient(90deg,#eef5f0,#fbf3e0);border-radius:12px;padding:14px 16px;margin:14px 0}.sha-person{font-size:38px;line-height:1}.sha-person small{display:block;font:700 11px 'DM Sans',sans-serif;color:#2D6A4F;text-align:center}.sha-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:15px 0}.sha-flow div{background:#eef5f0;border:1px solid #d6e8dc;border-radius:9px;padding:9px 5px;text-align:center;font-weight:700;font-size:13px}.sha-flow b{display:block;font-size:22px;margin-bottom:4px}.sha-visual{background:#fff;border:2px solid #ece7d9;border-radius:12px;padding:14px;margin:14px 0}.sha-visual canvas{display:block;width:100%;max-width:560px;height:210px;margin:auto}.sha-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:8px;font-size:13px}.sha-legend span{display:inline-flex;align-items:center;gap:5px}.sha-dot{width:10px;height:10px;border-radius:50%;display:inline-block}.sha-goal-card{background:#eef5f0;border:2px solid #d6e8dc;border-radius:10px;padding:12px;margin-top:12px}.sha-checkpoint{background:#fbfaf4;border:2px solid #d6cdb0;border-radius:12px;padding:16px;margin-top:20px}.sha-checkpoint h4{margin:0 0 10px;color:#2D6A4F;font-size:18px}.sha-checkpoint .sha-q{margin:12px 0}.sha-checkpoint .sha-q strong{display:block;margin-bottom:6px}.sha-checkpoint button{display:block;width:100%;text-align:left;border:2px solid #e3ded1;border-radius:8px;background:#fff;padding:8px 10px;margin:6px 0;font:15px 'DM Sans',sans-serif;cursor:pointer}.sha-checkpoint button.correct{border-color:#2D6A4F;background:#e3f2e8}.sha-checkpoint button.wrong{border-color:#c0392b;background:#fbe9e7}.sha-score{font-weight:700;color:#2D6A4F;margin-top:10px}.sha-pill-note{display:inline-block;background:#16241D;color:#FAFAF5;border-radius:999px;padding:5px 9px;font-size:12px;margin:2px}.sha-lab .sha-tabs{overflow-x:auto}
+</style>
+
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">SMARTER HUSTLE <span>ACADEMY</span><span style="font-size:11px;vertical-align:super;color:#cfe0d6;margin-left:2px;">™</span></div>
+  <div class="progress-wrap">
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-label" id="progressLabel">0 of 12 chapters complete</div>
+  </div>
+</div>
+
+<div class="progression-bar">
+  <div class="prog-step current">
+    <div class="prog-circle">1</div>
+    <div class="prog-label">Money Starter</div>
+    <div class="prog-sub">Ages 13–17 · You are here</div>
+  </div>
+  <div class="prog-line"></div>
+  <div class="prog-step">
+    <div class="prog-circle">2</div>
+    <div class="prog-label">Money Independent</div>
+    <div class="prog-sub">Ages 18–25</div>
+  </div>
+  <div class="prog-line"></div>
+  <div class="prog-step">
+    <div class="prog-circle">3</div>
+    <div class="prog-label">Money Builder</div>
+    <div class="prog-sub">Ages 26+</div>
+  </div>
+</div>
+
+<div class="hero">
+  <span class="eyebrow">⭐ Money Starter · Level 1 of 3 · Ages 13–17</span>
+  <h1>Learn How Money Works Before Adulthood</h1>
+  <p>Twelve short chapters with Jordan, Maya, and Chris. Cartoons, money stories, calculators, and challenges — finish all twelve to earn your Money Starter certificate.</p>
+</div>
+
+<div class="wrap">
+  <div class="module-nav" id="moduleNav"></div>
+
+<section class="sha-lab" id="shaLearningLab" aria-labelledby="shaLabTitle">
+  <div class="sha-lab-head"><h2 id="shaLabTitle">Learning Lab: Make the Next Money Decision</h2><p>Go beyond memorizing terms. Use the tools below to connect cash flow, trade-offs, uncertainty, and long-term compounding.</p></div>
+  <div class="sha-tabs" role="tablist"><button class="sha-tab active" data-tab="context">Financial context</button><button class="sha-tab" data-tab="scenario">Decision simulator</button><button class="sha-tab" data-tab="compound">Compound calculator</button><button class="sha-tab" data-tab="profile">Learning profile</button></div>
+  <div class="sha-panel active" data-panel="context"><h3>Why small choices matter</h3><p>Money decisions have an <b>opportunity cost</b>: choosing one use of a dollar means giving up another use. A purchase can be worth it, but a learner should be able to explain what the dollar is doing today and what future goal it delays.</p><div class="sha-note"><b>Illustrative context:</b> A $15 weekly habit equals about $780 over 52 weeks. That is not a prediction of what any investment will earn; it is a reminder that frequency and consistency make small amounts visible.</div><div class="sha-grid"><div class="sha-field"><label for="starterNeed">Monthly money received ($)</label><input id="starterNeed" type="number" min="0" value="400"></div><div class="sha-field"><label for="starterSave">Percent assigned to saving</label><input id="starterSave" type="number" min="0" max="100" value="25"></div></div><div class="sha-output" id="starterContextOut"></div></div>
+  <div class="sha-panel" data-panel="scenario"><h3>Three-month trade-off simulator</h3><p>Choose a priority and see how a fixed monthly amount could be assigned. The result is an educational scenario, not a recommendation.</p><div class="sha-grid"><div class="sha-field"><label for="starterMonthly">Monthly amount ($)</label><input id="starterMonthly" type="number" min="0" value="120"></div><div class="sha-field"><label for="starterChoice">Priority</label><select id="starterChoice"><option value="save">Build savings</option><option value="spend">Spend now</option><option value="grow">Learn about growth</option></select></div></div><div class="sha-output" id="starterScenarioOut"></div></div>
+  <div class="sha-panel" data-panel="compound"><h3>Consistency and time calculator</h3><p>Explore how regular contributions can accumulate under a chosen illustrative annual return. Actual results vary, and returns can be negative.</p><div class="sha-grid"><div class="sha-field"><label for="starterContribution">Monthly contribution ($)</label><input id="starterContribution" type="number" min="0" value="25"></div><div class="sha-field"><label for="starterYears">Years</label><input id="starterYears" type="number" min="1" max="60" value="10"></div><div class="sha-field"><label for="starterRate">Illustrative annual return (%)</label><input id="starterRate" type="number" min="-20" max="30" step="0.1" value="5"></div></div><div class="sha-output" id="starterCompoundOut"></div><p class="sha-small">Assumption: monthly contributions at month-end, monthly compounding, before taxes and fees. This is an educational model, not a forecast.</p></div>
+  <div class="sha-panel" data-panel="profile"><h3>How do you learn risk?</h3><p>This short questionnaire describes a <b>learning profile</b>. It does not determine a suitable investment allocation.</p><div id="starterProfileQuestions"></div><button class="btn btn-primary" type="button" id="starterProfileBtn">Show profile</button><div class="sha-output" id="starterProfileOut" style="display:none"></div></div>
+
+<button class="sha-tab" data-tab="goals">🎯 Goals questionnaire</button><button class="sha-tab" data-tab="portfolio">📊 Portfolio builder</button><button class="sha-tab" data-tab="visuals">🧑‍🤝‍🧑 Visual lesson</button>
+<div class="sha-panel" data-panel="goals"><h3>🎯 Build a goals map</h3><p>Turn a vague intention into a measurable target. The result is a planning exercise, not individualized financial advice.</p><div class="sha-grid"><div class="sha-field"><label for="goalName">Goal name</label><input id="goalName" type="text" value="Emergency fund"></div><div class="sha-field"><label for="goalAmount">Target amount ($)</label><input id="goalAmount" type="number" min="0" value="3000"></div><div class="sha-field"><label for="goalCurrent">Already saved ($)</label><input id="goalCurrent" type="number" min="0" value="600"></div><div class="sha-field"><label for="goalMonths">Months to target</label><input id="goalMonths" type="number" min="1" value="12"></div><div class="sha-field"><label for="goalPriority">Priority</label><select id="goalPriority"><option value="now">Now: protect stability</option><option value="soon">Soon: prepare for a purchase</option><option value="later">Later: build long-term wealth</option></select></div></div><div class="sha-output" id="goalOut"></div><div class="sha-goal-card" id="goalPlanCard"></div><div class="sha-actions"><button class="btn btn-primary" type="button" id="saveGoalBtn">Save goal locally</button></div></div>
+<div class="sha-panel" data-panel="portfolio"><h3>📊 Portfolio building workspace</h3><p>Choose a learning profile, set target weights, and introduce a market move to see drift. This tool teaches diversification and rebalancing mechanics; it does not recommend an allocation.</p><div class="sha-grid"><div class="sha-field"><label for="portfolioValue">Portfolio value ($)</label><input id="portfolioValue" type="number" min="0" value="10000"></div><div class="sha-field"><label for="portfolioCash">Cash target (%)</label><input id="portfolioCash" type="number" min="0" max="100" value="20"></div><div class="sha-field"><label for="portfolioBonds">Bonds target (%)</label><input id="portfolioBonds" type="number" min="0" max="100" value="30"></div><div class="sha-field"><label for="portfolioStocks">Stocks target (%)</label><input id="portfolioStocks" type="number" min="0" max="100" value="50"></div><div class="sha-field"><label for="portfolioMove">Stock move (%)</label><input id="portfolioMove" type="number" min="-80" max="100" value="-20"></div></div><div class="sha-output" id="portfolioOut"></div><div class="sha-visual"><canvas id="portfolioChart" width="560" height="210" aria-label="Portfolio allocation chart"></canvas><div class="sha-legend"><span><i class="sha-dot" style="background:#2D6A4F"></i>Cash</span><span><i class="sha-dot" style="background:#D4A017"></i>Bonds</span><span><i class="sha-dot" style="background:#7B8F86"></i>Stocks</span></div></div><div class="sha-actions"><button class="btn btn-primary" type="button" id="savePortfolioBtn">Save portfolio locally</button><button class="btn btn-secondary" type="button" id="resetPortfolioBtn">Reset example</button></div><p class="sha-small">Educational assumptions: three asset buckets, one stock shock, no taxes, fees, transaction costs, or changing correlations.</p></div>
+<div class="sha-panel" data-panel="visuals"><h3>🧑‍🤝‍🧑 People, process, and perspective</h3><p>Meet the academy’s fictional coaching group. Each person asks a different question before acting.</p><div class="sha-people"><div class="sha-person">🧑🏽‍🎓<small>Jordan<br>“What is my goal?”</small></div><div class="sha-person">👩🏾‍💼<small>Maya<br>“What is the trade-off?”</small></div><div class="sha-person">🧔🏻‍♂️<small>Chris<br>“What could go wrong?”</small></div><div class="sha-person">👩🏻‍🏫<small>Coach<br>“What does the math say?”</small></div></div><div class="sha-flow"><div><b>🎯</b>Goal</div><div><b>🧮</b>Numbers</div><div><b>⚖️</b>Trade-off</div><div><b>✅</b>Review</div></div><div class="sha-visual"><canvas id="goalChart" width="560" height="210" aria-label="Goal progress chart"></canvas><div class="sha-legend"><span><i class="sha-dot" style="background:#2D6A4F"></i>Already saved</span><span><i class="sha-dot" style="background:#D4A017"></i>Still needed</span></div></div><div class="sha-note"><b>Reflection:</b> A good financial decision is not the one with the most exciting story. It is the one whose assumptions, downside, time horizon, and next action you can explain.</div></div>
+
+</section>
+
+
+  <!-- MODULE 1 -->
+  <div class="module" data-index="0">
+    <div class="module-head"><span class="badge-icon">🐷</span><div><div class="tag">Chapter 1 of 12</div><h2>Where Did My Money Go?</h2></div></div>
+    <div class="module-body">
+      <p>Have you ever had money and then wondered — wait, where did it all go? Money usually doesn't disappear. It leaves in small pieces. Today you'll learn how to control where it goes.</p>
+      <div class="story"><div class="story-avatar">J</div><div><div class="story-name">Jordan's $80 Weekend</div>
+      <p>Jordan helps his uncle clean out a garage and earns $80. By Sunday: pizza $16, game add-on $12, snacks $8, phone case $20, convenience trip $11 — $67 spent. Jordan has $13 left and says, "How did I spend almost all of it?" Nothing mysterious happened — Jordan just spent without a plan first.</p></div></div>
+      <h3>Three Jobs for Your Money</h3>
+      <ul><li><b>SPEND</b> — money you use now (food, games, clothes)</li><li><b>SAVE</b> — money you keep for later (laptop, car, college)</li><li><b>GROW</b> — money you use to try to make more money (investing, a small business)</li></ul>
+      <div class="diagram-box">
+        <div class="diagram-title">📊 Diagram — Give Every Dollar a Job</div>
+        <svg viewBox="0 0 340 170" xmlns="http://www.w3.org/2000/svg">
+          <text x="45" y="18" text-anchor="middle" font-family="Sora,sans-serif" font-size="11" font-weight="700" fill="#16241D">🛍️ SPEND</text>
+          <rect x="15" y="25" width="60" height="120" rx="8" fill="#eef5f0" stroke="#2D6A4F" stroke-width="2"/>
+          <rect x="15" y="85" width="60" height="60" rx="8" fill="#2D6A4F"/>
+          <text x="45" y="118" text-anchor="middle" font-family="Sora,sans-serif" font-size="13" font-weight="800" fill="#FAFAF5">50%</text>
+          <text x="170" y="18" text-anchor="middle" font-family="Sora,sans-serif" font-size="11" font-weight="700" fill="#16241D">🐷 SAVE</text>
+          <rect x="140" y="25" width="60" height="120" rx="8" fill="#eef5f0" stroke="#D4A017" stroke-width="2"/>
+          <rect x="140" y="65" width="60" height="80" rx="8" fill="#D4A017"/>
+          <text x="170" y="98" text-anchor="middle" font-family="Sora,sans-serif" font-size="13" font-weight="800" fill="#16241D">30%</text>
+          <text x="295" y="18" text-anchor="middle" font-family="Sora,sans-serif" font-size="11" font-weight="700" fill="#16241D">🌱 GROW</text>
+          <rect x="265" y="25" width="60" height="120" rx="8" fill="#eef5f0" stroke="#6b7a72" stroke-width="2"/>
+          <rect x="265" y="105" width="60" height="40" rx="8" fill="#6b7a72"/>
+          <text x="295" y="128" text-anchor="middle" font-family="Sora,sans-serif" font-size="13" font-weight="800" fill="#FAFAF5">20%</text>
+        </svg>
+        <div class="diagram-caption">A simple starting split — spend on what you need, save for what's next, grow for your future.</div>
+      </div>
+      <div class="cartoon"><span class="tag">Cartoon Money Moment</span>
+        <div class="panel"><b>Jordan:</b> I have $80!</div>
+        <div class="panel"><b>Jordan</b> makes several small purchases: $8, $12, $16, $20.</div>
+        <div class="panel"><b>Jordan:</b> Did somebody rob me? <b>Friend:</b> Yeah. <b>Jordan:</b> WHO?! <b>Friend:</b> You.</div></div>
+      <div class="calc"><div class="calc-tag">Try it — Weekly Savings Calculator</div>
+        <div class="calc-row"><label>Save per week ($)</label><input type="number" id="c1-week" placeholder="0"></div>
+        <button class="btn btn-primary" type="button" onclick="calc1()" style="padding:7px 18px;font-size:14px;">Calculate yearly total</button>
+        <div class="calc-result" id="c1-result" style="display:none;"></div></div>
+      <div class="challenge"><span class="tag">This Week's Challenge</span><p>Save at least $10 this week — skip one purchase, earn extra, or save part of money you receive.</p></div>
+      <div class="quiz"><h3>Quick Check</h3>
+        <div class="q-block" data-answer="1"><div class="q-text">1. Which money bucket is meant for future goals?</div><div class="q-opts"><div class="q-opt" data-i="0">Spend</div><div class="q-opt" data-i="1">Save</div><div class="q-opt" data-i="2">Throw away</div></div></div>
+        <div class="q-block" data-answer="2"><div class="q-text">2. You earn $50 and save $15. How much is left for other purposes?</div><div class="q-opts"><div class="q-opt" data-i="0">$15</div><div class="q-opt" data-i="1">$25</div><div class="q-opt" data-i="2">$35</div></div></div>
+      
+        <div class="q-block" data-answer="2"><div class="q-text">3. What would you do? You just earned $80 and feel excited to spend all of it right away.</div><div class="q-opts"><div class="q-opt" data-i="0">Spend it fast before you change your mind</div><div class="q-opt" data-i="1">Hide it and forget about it</div><div class="q-opt" data-i="2">Split it into Spend, Save, and Grow before buying anything</div></div></div>
+      </div>
+      <div class="nav-buttons"><button class="btn btn-secondary" disabled>Back</button><button class="btn btn-primary" onclick="completeModule(0)">Mark Complete & Continue</button></div>
+    </div>
+  </div>
+
+  <!-- MODULE 2 -->
+  <div class="module" data-index="1">
+    <div class="module-head"><span class="badge-icon">💵</span><div><div class="tag">Chapter 2 of 12</div><h2>How Can I Make Money?</h2></div></div>
+    <div class="module-body">
+      <p>Before you can manage money, there's another question: where does it come from? Money usually starts with solving a problem for someone.</p>
+      <div class="story"><div class="story-avatar">M</div><div><div class="story-name">Maya's Saturday Side Hustle</div>
+      <p>Maya wants $300 for a tablet. She lists what she's good at, then tries dog walking at $15 a walk, 4 walks each weekend. $15 × 4 = $60 per weekend. After 5 weekends: $60 × 5 = $300. Goal reached.</p></div></div>
+      <h3>Teen Income Ideas</h3>
+      <ul><li>Babysitting, pet/dog walking, yard work, cleaning, tutoring</li><li>Digital design, video editing, photography, reselling</li><li>Helping seniors with technology, custom artwork</li></ul>
+      <p>Always follow local laws, platform age requirements, and parent/guardian rules.</p>
+      <div class="cartoon"><span class="tag">Cartoon Money Moment</span>
+        <div class="panel"><b>Teen:</b> I need money. <b>Friend:</b> What can you do? <b>Teen:</b> Lots of things.</div>
+        <div class="panel"><b>Friend:</b> Which one would somebody PAY you to do? <b>Teen:</b> Ohhhhh.</div></div>
+      <div class="calc"><div class="calc-tag">Try it — Turn a Skill Into Income</div>
+        <div class="calc-row"><label>Price per job ($)</label><input type="number" id="c2-price" placeholder="0"></div>
+        <div class="calc-row"><label>Number of jobs</label><input type="number" id="c2-jobs" placeholder="0"></div>
+        <button class="btn btn-primary" type="button" onclick="calc2()" style="padding:7px 18px;font-size:14px;">Estimate income</button>
+        <div class="calc-result" id="c2-result" style="display:none;"></div></div>
+      <div class="challenge"><span class="tag">Challenge — Make Your First $20</span><p>Choose one safe, age-appropriate way to earn $20. What will you do, what will you charge, how many customers do you need?</p></div>
+      <div class="quiz"><h3>Quick Check</h3>
+        <div class="q-block" data-answer="0"><div class="q-text">1. Income often starts with:</div><div class="q-opts"><div class="q-opt" data-i="0">Solving a problem for someone</div><div class="q-opt" data-i="1">Waiting for a birthday</div><div class="q-opt" data-i="2">Winning a contest</div></div></div>
+      
+        <div class="q-block" data-answer="0"><div class="q-text">2. Maya's dog-walking business worked because she:</div><div class="q-opts"><div class="q-opt" data-i="0">Picked something people would actually pay for</div><div class="q-opt" data-i="1">Waited for money to appear</div><div class="q-opt" data-i="2">Borrowed money from a friend</div></div></div>
+        <div class="q-block" data-answer="1"><div class="q-text">3. What would you do? You want to earn $50 but aren't sure what to offer.</div><div class="q-opts"><div class="q-opt" data-i="0">Wait until an idea appears on its own</div><div class="q-opt" data-i="1">List three things you're good at, then pick one someone would pay for</div><div class="q-opt" data-i="2">Ask your parents for the money instead</div></div></div>
+      </div>
+      <div class="nav-buttons"><button class="btn btn-secondary" onclick="goTo(0)">Back</button><button class="btn btn-primary" onclick="completeModule(1)">Mark Complete & Continue</button></div>
+    </div>
+  </div>
+
+  <!-- MODULE 3 -->
+  <div class="module" data-index="2">
+    <div class="module-head"><span class="badge-icon">🏅</span><div><div class="tag">Chapter 3 of 12</div><h2>Spend It or Save It?</h2></div></div>
+    <div class="module-body">
+      <p>Saving doesn't mean never having fun, and spending doesn't mean you're bad with money. The goal is balance.</p>
+      <div class="story"><div class="story-avatar">C</div><div><div class="story-name">Chris Wants New Sneakers</div>
+      <p>Chris has $150. Sneakers cost $140. He's also saving for a $400 gaming system. Buying the sneakers leaves only $10. Chris's choices: buy now, wait and save more, or find a cheaper pair.</p></div></div>
+      <h3>The 24-Hour Rule</h3>
+      <p>For something you want but don't need: wait 24 hours, then decide. You may still want it — or you may realize you don't.</p>
+      <div class="cartoon"><span class="tag">Cartoon Money Moment</span>
+        <div class="panel"><b>Chris:</b> They're only $140! <b>Friend:</b> You only have $150.</div>
+        <div class="panel"><b>Chris:</b> Why are you bringing math into this?</div></div>
+      <div class="example"><b>Before buying, ask:</b> Do I need it? Do I really want it? Can I afford it? Will buying it hurt another goal?</div>
+      <div class="challenge"><span class="tag">The Pause Before You Purchase Challenge</span><p>Choose one thing you want this week. Wait 24 hours before buying it. Did you still want it? Did you buy it? What did you learn?</p></div>
+      <div class="quiz"><h3>Quick Check</h3>
+        <div class="q-block" data-answer="1"><div class="q-text">1. Saving money means you can never spend. True or False?</div><div class="q-opts"><div class="q-opt" data-i="0">True</div><div class="q-opt" data-i="1">False</div></div></div>
+        <div class="q-block" data-answer="1"><div class="q-text">2. What can help with impulse buying?</div><div class="q-opts"><div class="q-opt" data-i="0">Buying immediately</div><div class="q-opt" data-i="1">Waiting 24 hours</div><div class="q-opt" data-i="2">Borrowing money</div></div></div>
+      
+        <div class="q-block" data-answer="1"><div class="q-text">3. What would you do? You see something you want but you're also saving for something bigger.</div><div class="q-opts"><div class="q-opt" data-i="0">Buy it immediately, no matter what</div><div class="q-opt" data-i="1">Wait 24 hours and check if it still matters after</div><div class="q-opt" data-i="2">Never buy anything fun, ever</div></div></div>
+      </div>
+      <div class="nav-buttons"><button class="btn btn-secondary" onclick="goTo(1)">Back</button><button class="btn btn-primary" onclick="completeModule(2)">Mark Complete & Continue</button></div>
+    </div>
+  </div>
+
+  <!-- MODULE 4 -->
+  <div class="module" data-index="3">
+    <div class="module-head"><span class="badge-icon">📊</span><div><div class="tag">Chapter 4 of 12</div><h2>Your First Budget</h2></div></div>
+    <div class="module-body">
+      <p>Budget sounds boring, but here's what it really means: a plan for your money. You're telling your money what to do.</p>
+      <div class="story"><div class="story-avatar">M</div><div><div class="story-name">Maya Gets Paid</div>
+      <p>Maya earns $120 and decides: Spend $60, Save $40, Grow $20. Now Maya knows exactly where her money is going.</p></div></div>
+      <div class="cartoon"><span class="tag">Cartoon Money Moment</span>
+        <div class="panel"><b>Money:</b> Where are we going? <b>Maya:</b> I already made a plan.</div>
+        <div class="panel"><b>Money:</b> Wow. We're organized now.</div></div>
+      <div class="calc"><div class="calc-tag">Try it — Three-Bucket Budget</div>
+        <div class="calc-row"><label>Money coming in ($)</label><input type="number" id="c4-income" placeholder="0"></div>
+        <button class="btn btn-primary" type="button" onclick="calc4()" style="padding:7px 18px;font-size:14px;">Suggest a split</button>
+        <div class="calc-result" id="c4-result" style="display:none;"></div></div>
+      <div class="challenge"><span class="tag">Challenge</span><p>Create a plan for the next money you receive, split across Spend, Save, and Grow.</p></div>
+      <div class="quiz"><h3>Quick Check</h3>
+        <div class="q-block" data-answer="1"><div class="q-text">1. A budget is:</div><div class="q-opts"><div class="q-opt" data-i="0">Punishment</div><div class="q-opt" data-i="1">A money plan</div><div class="q-opt" data-i="2">A loan</div></div></div>
+      
+        <div class="q-block" data-answer="0"><div class="q-text">2. Maya split her $120 into:</div><div class="q-opts"><div class="q-opt" data-i="0">$60 spend, $40 save, $20 grow</div><div class="q-opt" data-i="1">All $120 spend</div><div class="q-opt" data-i="2">All $120 save</div></div></div>
+        <div class="q-block" data-answer="2"><div class="q-text">3. What would you do? You get money and have no plan yet for it.</div><div class="q-opts"><div class="q-opt" data-i="0">Spend until it runs out</div><div class="q-opt" data-i="1">Put it all in one place with no plan</div><div class="q-opt" data-i="2">Decide the Spend/Save/Grow split before spending anything</div></div></div>
+      </div>
+      <div class="nav-buttons"><button class="btn btn-secondary" onclick="goTo(2)">Back</button><button class="btn btn-primary" onclick="completeModule(3)">Mark Complete & Continue</button></div>
+    </div>
+  </div>
+
+  <!-- MODULE 5 -->
+  <div class="module" data-index="4">
+    <div class="module-head"><span class="badge-icon">🏦</span><div><div class="tag">Chapter 5 of 12</div><h2>Banks Without the Confusion</h2></div></div>
+    <div class="module-body">
+      <p>Banks are tools. You don't need every banking term — just what the basic tools do.</p>
+      <div class="story"><div class="story-avatar">J</div><div><div class="story-name">Jordan's First Bank Account</div>
+      <p>Jordan opens his first account with a parent and deposits $300. He spends $45 with his debit card. New balance: $255. The debit card didn't give him extra money — it used money he already had.</p></div></div>
+      <h3>The Basics</h3>
+      <ul><li><b>Checking</b> = everyday spending money</li><li><b>Savings</b> = money you're keeping</li><li><b>Debit card</b> = money leaves your account immediately</li><li><b>ATM</b> = a machine to withdraw or deposit cash</li></ul>
+      <div class="cartoon"><span class="tag">Cartoon Money Moment</span>
+        <div class="panel"><b>Jordan</b> swipes debit card. <b>Jordan:</b> Free money!</div>
+        <div class="panel"><b>Bank app:</b> Absolutely not.</div></div>
+      <div class="example"><b>Never:</b> share your PIN, share passwords, give strangers account info, click suspicious bank links, or send money because someone pressures you.</div>
+      <div class="challenge"><span class="tag">Challenge</span><p>Compare two pretend bank accounts by fees, minimum balance, ATM access, and savings options. Choose the better one.</p></div>
+      <div class="quiz"><h3>Quick Check</h3>
+        <div class="q-block" data-answer="0"><div class="q-text">1. A debit card normally uses:</div><div class="q-opts"><div class="q-opt" data-i="0">Your own bank balance</div><div class="q-opt" data-i="1">Free money</div></div></div>
+      
+        <div class="q-block" data-answer="1"><div class="q-text">2. A debit card:</div><div class="q-opts"><div class="q-opt" data-i="0">Gives you free extra money</div><div class="q-opt" data-i="1">Uses money already in your account</div><div class="q-opt" data-i="2">Is the same as a savings account</div></div></div>
+        <div class="q-block" data-answer="0"><div class="q-text">3. What would you do? A text claims to be your bank and asks you to click a link and enter your PIN.</div><div class="q-opts"><div class="q-opt" data-i="0">Don't click it — contact your bank directly through the official app instead</div><div class="q-opt" data-i="1">Reply with your PIN since it says it's the bank</div><div class="q-opt" data-i="2">Forward it to a friend to ask what to do</div></div></div>
+      </div>
+      <div class="nav-buttons"><button class="btn btn-secondary" onclick="goTo(3)">Back</button><button class="btn btn-primary" onclick="completeModule(4)">Mark Complete & Continue</button></div>
+    </div>
+  </div>
+
+  <!-- MODULE 6 -->
+  <div class="module" data-index="5">
+    <div class="module-head"><span class="badge-icon">💳</span><div><div class="tag">Chapter 6 of 12</div><h2>Credit Isn't Free Money</h2></div></div>
+    <div class="module-body">
+      <p>Here's the most important credit lesson: credit is borrowed money. It is not extra income. You have to repay it.</p>
+      <div class="story"><div class="story-avatar">C</div><div><div class="story-name">Chris Buys Headphones</div>
+      <p>Chris wants $200 headphones and uses credit. Now he owes $200 — and if interest is added because the balance is carried, he could repay more than $200.</p></div></div>
+      <div class="cartoon"><span class="tag">Cartoon Money Moment</span>
+        <div class="panel"><b>Credit card:</b> You can buy it now! <b>Chris:</b> Great!</div>
+        <div class="panel">Bill arrives. <b>Credit card:</b> Remember me?</div></div>
+      <div class="example"><b>Simple credit rules:</b> pay on time, don't borrow more than you can afford, don't treat your limit like a spending goal, read the terms.</div>
+      <div class="challenge"><span class="tag">Challenge — Credit Detective</span><p>Look at a sample credit offer and find the APR, late fee, annual fee, and payment due date.</p></div>
+      <div class="quiz"><h3>Quick Check</h3>
+        <div class="q-block" data-answer="1"><div class="q-text">1. Credit is:</div><div class="q-opts"><div class="q-opt" data-i="0">Free money</div><div class="q-opt" data-i="1">Borrowed money</div></div></div>
+        <div class="q-block" data-answer="0"><div class="q-text">2. Interest can make borrowing:</div><div class="q-opts"><div class="q-opt" data-i="0">More expensive</div><div class="q-opt" data-i="1">Free</div></div></div>
+      
+        <div class="q-block" data-answer="0"><div class="q-text">3. What would you do? You want $200 headphones but only have $100.</div><div class="q-opts"><div class="q-opt" data-i="0">Save the rest first, or look for a cheaper option</div><div class="q-opt" data-i="1">Put it all on credit without a repayment plan</div><div class="q-opt" data-i="2">Borrow from a friend and avoid talking about paying it back</div></div></div>
+      </div>
+      <div class="nav-buttons"><button class="btn btn-secondary" onclick="goTo(4)">Back</button><button class="btn btn-primary" onclick="completeModule(5)">Mark Complete & Continue</button></div>
+    </div>
+  </div>
+
+  <!-- MODULE 7 -->
+  <div class="module" data-index="6">
+    <div class="module-head"><span class="badge-icon">🧾</span><div><div class="tag">Chapter 7 of 12</div><h2>Why Does My Paycheck Look Smaller?</h2></div></div>
+    <div class="module-body">
+      <p>You worked 10 hours and earned $150 — then your paycheck arrives smaller. Welcome to taxes and deductions.</p>
+      <div class="story"><div class="story-avatar">M</div><div><div class="story-name">Maya's First Paycheck</div>
+      <p>Maya earns $300 gross pay. After taxes and deductions, she receives $257 net pay. Lesson: plan spending with the money you actually receive, not gross income.</p></div></div>
+      <div class="cartoon"><span class="tag">Cartoon Money Moment</span>
+        <div class="panel"><b>Maya:</b> I made $300! <b>Paycheck:</b> Here's $257.</div>
+        <div class="panel"><b>Maya:</b> We need to talk.</div></div>
+      <div class="calc"><div class="calc-tag">Try it — Gross to Net Calculator</div>
+        <div class="calc-row"><label>Gross pay ($)</label><input type="number" id="c7-gross" placeholder="0"></div>
+        <div class="calc-row"><label>Deductions ($)</label><input type="number" id="c7-ded" placeholder="0"></div>
+        <button class="btn btn-primary" type="button" onclick="calc7()" style="padding:7px 18px;font-size:14px;">Calculate net pay</button>
+        <div class="calc-result" id="c7-result" style="display:none;"></div></div>
+      <div class="challenge"><span class="tag">Challenge</span><p>Review a sample paycheck and identify gross pay, taxes, deductions, and net pay.</p></div>
+      <div class="quiz"><h3>Quick Check</h3>
+        <div class="q-block" data-answer="0"><div class="q-text">1. Gross pay is:</div><div class="q-opts"><div class="q-opt" data-i="0">Before deductions</div><div class="q-opt" data-i="1">After deductions</div></div></div>
+      
+        <div class="q-block" data-answer="1"><div class="q-text">2. Net pay is:</div><div class="q-opts"><div class="q-opt" data-i="0">Pay before any deductions</div><div class="q-opt" data-i="1">What you actually receive after deductions</div><div class="q-opt" data-i="2">Your hourly rate</div></div></div>
+        <div class="q-block" data-answer="2"><div class="q-text">3. What would you do? You're planning spending based on your gross pay, not your net pay.</div><div class="q-opts"><div class="q-opt" data-i="0">Keep planning with the bigger number — it's more motivating</div><div class="q-opt" data-i="1">Ignore your paycheck entirely</div><div class="q-opt" data-i="2">Switch your plan to the smaller, net-pay number you actually receive</div></div></div>
+      </div>
+      <div class="nav-buttons"><button class="btn btn-secondary" onclick="goTo(5)">Back</button><button class="btn btn-primary" onclick="completeModule(6)">Mark Complete & Continue</button></div>
+    </div>
+  </div>
+
+  <!-- MODULE 8 -->
+  <div class="module" data-index="7">
+    <div class="module-head"><span class="badge-icon">🎯</span><div><div class="tag">Chapter 8 of 12</div><h2>Saving for Something Big</h2></div></div>
+    <div class="module-body">
+      <p>Big goals become easier when you turn them into small steps. You don't save $1,000 all at once — you save $10, then another $10.</p>
+      <div class="story"><div class="story-avatar">J</div><div><div class="story-name">Jordan Wants a Laptop</div>
+      <p>Laptop costs $600. Jordan has $120 saved, needs $480 more. Saving $40/month: $480 ÷ $40 = 12 months. Now the goal has a plan.</p></div></div>
+      <div class="cartoon"><span class="tag">Cartoon Money Moment</span>
+        <div class="panel"><b>Jordan</b> looks at $600 laptop: "That's impossible."</div>
+        <div class="panel">He writes $40 × 12 months. <b>Jordan:</b> "Oh. It's a plan."</div></div>
+      <div class="calc"><div class="calc-tag">Try it — Goal Calculator</div>
+        <div class="calc-row"><label>Still needed ($)</label><input type="number" id="c8-need" placeholder="0"></div>
+        <div class="calc-row"><label>Saved per month ($)</label><input type="number" id="c8-month" placeholder="0"></div>
+        <button class="btn btn-primary" type="button" onclick="calc8()" style="padding:7px 18px;font-size:14px;">Estimate months</button>
+        <div class="calc-result" id="c8-result" style="display:none;"></div></div>
+      <div class="challenge"><span class="tag">Challenge — Pick One Real Goal</span><p>Name your goal, its cost, a deadline, and your weekly savings target.</p></div>
+      <div class="quiz"><h3>Quick Check</h3>
+        <div class="q-block" data-answer="1"><div class="q-text">You need $300. You already have $100. How much is left?</div><div class="q-opts"><div class="q-opt" data-i="0">$100</div><div class="q-opt" data-i="1">$200</div><div class="q-opt" data-i="2">$300</div></div></div>
+      
+        <div class="q-block" data-answer="0"><div class="q-text">2. Jordan reached his $600 laptop goal by:</div><div class="q-opts"><div class="q-opt" data-i="0">Saving $40/month for 12 months</div><div class="q-opt" data-i="1">Winning a contest</div><div class="q-opt" data-i="2">Borrowing the full amount</div></div></div>
+        <div class="q-block" data-answer="1"><div class="q-text">3. What would you do? Your goal feels too big and far away to start.</div><div class="q-opts"><div class="q-opt" data-i="0">Give up since it'll take too long</div><div class="q-opt" data-i="1">Break it into a monthly savings amount and a deadline</div><div class="q-opt" data-i="2">Wait for a bigger chunk of money to appear</div></div></div>
+      </div>
+      <div class="nav-buttons"><button class="btn btn-secondary" onclick="goTo(6)">Back</button><button class="btn btn-primary" onclick="completeModule(7)">Mark Complete & Continue</button></div>
+    </div>
+  </div>
+
+  <!-- MODULE 9 -->
+  <div class="module" data-index="8">
+    <div class="module-head"><span class="badge-icon">📈</span><div><div class="tag">Chapter 9 of 12</div><h2>Make Your Money Grow</h2></div></div>
+    <div class="module-body">
+      <p>Saving is important, but there's another skill: investing — putting money into something that you hope will grow in value over time. Investing also involves risk.</p>
+      <div class="story"><div class="story-avatar">M</div><div><div class="story-name">Maya's Pretend Portfolio</div>
+      <p>Maya has $500 pretend dollars. Instead of one company, she spreads it among several investments — she learns spreading risk can help protect you from relying on one investment.</p></div></div>
+      <div class="cartoon"><span class="tag">Cartoon Money Moment</span>
+        <div class="panel"><b>Chris:</b> I'm putting everything into one stock. <b>Maya:</b> Why?</div>
+        <div class="panel"><b>Chris:</b> A guy online used six rocket emojis. <b>Maya:</b> That's not research.</div></div>
+      <div class="example"><b>Simple words:</b> Stock = a small ownership piece of a company. Bond = lending money. ETF = a basket of investments. Diversification = not putting all your money in one place.</div>
+      <div class="challenge"><span class="tag">Challenge — Pretend Portfolio</span><p>Pretend you have $1,000. Divide it across 3 investments and explain why.</p></div>
+      <div class="quiz"><h3>Quick Check</h3>
+        <div class="q-block" data-answer="0"><div class="q-text">1. Investing includes risk. True or False?</div><div class="q-opts"><div class="q-opt" data-i="0">True</div><div class="q-opt" data-i="1">False</div></div></div>
+      
+        <div class="q-block" data-answer="1"><div class="q-text">2. Diversification means:</div><div class="q-opts"><div class="q-opt" data-i="0">Putting all your money in one stock</div><div class="q-opt" data-i="1">Spreading money across different investments</div><div class="q-opt" data-i="2">Never investing at all</div></div></div>
+        <div class="q-block" data-answer="0"><div class="q-text">3. What would you do? Someone online says a stock is guaranteed to explode in value.</div><div class="q-opts"><div class="q-opt" data-i="0">Treat "guaranteed" as a red flag and research independently</div><div class="q-opt" data-i="1">Invest right away before you miss out</div><div class="q-opt" data-i="2">Tell all your friends to invest too</div></div></div>
+      </div>
+      <div class="nav-buttons"><button class="btn btn-secondary" onclick="goTo(7)">Back</button><button class="btn btn-primary" onclick="completeModule(8)">Mark Complete & Continue</button></div>
+    </div>
+  </div>
+
+  <!-- MODULE 10 -->
+  <div class="module" data-index="9">
+    <div class="module-head"><span class="badge-icon">🕵️</span><div><div class="tag">Chapter 10 of 12</div><h2>Can You Spot the Scam?</h2></div></div>
+    <div class="module-body">
+      <p>Scammers want you to act before you think. They use fear, pressure, excitement, and urgency. Your job is to slow down.</p>
+      <div class="story"><div class="story-avatar">C</div><div><div class="story-name">Chris Gets a Message</div>
+      <p>"Congratulations! You won $5,000. Pay a $50 fee to receive your prize." Chris never entered a contest. Red flags: unexpected money, payment required, urgency, unknown sender.</p></div></div>
+      <h3>The Four-Step Scam Check</h3>
+      <p><b>STOP</b> — don't rush. <b>CHECK</b> — look carefully. <b>VERIFY</b> — contact the real organization another way. <b>DECIDE</b> — only act after checking.</p>
+      <div class="cartoon"><span class="tag">Cartoon Money Moment</span>
+        <div class="panel"><b>Message:</b> YOU WON $1 MILLION!!! <b>Chris:</b> I didn't enter anything.</div>
+        <div class="panel"><b>Message:</b> Please stop asking smart questions.</div></div>
+      <div class="challenge"><span class="tag">Challenge — Scam Spotter</span><p>Find three warning signs in a pretend scam message.</p></div>
+      <div class="quiz"><h3>Quick Check</h3>
+        <div class="q-block" data-answer="0"><div class="q-text">1. A stranger promises guaranteed profits — red flag?</div><div class="q-opts"><div class="q-opt" data-i="0">Yes</div><div class="q-opt" data-i="1">No</div></div></div>
+      
+        <div class="q-block" data-answer="1"><div class="q-text">2. The four-step scam check is:</div><div class="q-opts"><div class="q-opt" data-i="0">Click, Pay, Share, Trust</div><div class="q-opt" data-i="1">Stop, Check, Verify, Decide</div><div class="q-opt" data-i="2">Ignore, Delete, Forget, Move on</div></div></div>
+        <div class="q-block" data-answer="2"><div class="q-text">3. What would you do? A message says you won a prize but must pay a fee first.</div><div class="q-opts"><div class="q-opt" data-i="0">Pay the small fee — the prize is worth more</div><div class="q-opt" data-i="1">Share your bank info to "verify" you're real</div><div class="q-opt" data-i="2">Stop, don't pay, and verify independently before doing anything</div></div></div>
+      </div>
+      <div class="nav-buttons"><button class="btn btn-secondary" onclick="goTo(8)">Back</button><button class="btn btn-primary" onclick="completeModule(9)">Mark Complete & Continue</button></div>
+    </div>
+  </div>
+
+  <!-- MODULE 11 -->
+  <div class="module" data-index="10">
+    <div class="module-head"><span class="badge-icon">💼</span><div><div class="tag">Chapter 11 of 12</div><h2>Could You Make Your Own Money?</h2></div></div>
+    <div class="module-body">
+      <p>A business begins when someone solves a problem for someone else and gets paid — it can start with one skill, one customer, one sale.</p>
+      <div class="story"><div class="story-avatar">M</div><div><div class="story-name">Maya's Flyer Business</div>
+      <p>Maya offers $20 digital flyers and gets 5 customers: $20 × 5 = $100 revenue. Costs total $20. $100 − $20 = $80 profit.</p></div></div>
+      <div class="example"><b>Revenue</b> = money coming in. <b>Expenses</b> = money spent. <b>Profit</b> = Revenue − Expenses.</div>
+      <div class="cartoon"><span class="tag">Cartoon Money Moment</span>
+        <div class="panel"><b>Teen:</b> My business made $100! <b>Friend:</b> What did it cost you?</div>
+        <div class="panel"><b>Teen:</b> Why does everybody keep bringing up math?</div></div>
+      <div class="challenge"><span class="tag">Challenge — $20 Business Challenge</span><p>Create one safe, age-appropriate way to earn $20. Name your idea, your customer, and your price.</p></div>
+      <div class="quiz"><h3>Quick Check</h3>
+        <div class="q-block" data-answer="0"><div class="q-text">1. Profit equals:</div><div class="q-opts"><div class="q-opt" data-i="0">Revenue minus expenses</div><div class="q-opt" data-i="1">Revenue plus expenses</div></div></div>
+      
+        <div class="q-block" data-answer="0"><div class="q-text">2. Profit equals:</div><div class="q-opts"><div class="q-opt" data-i="0">Revenue minus expenses</div><div class="q-opt" data-i="1">Revenue plus expenses</div><div class="q-opt" data-i="2">Total sales only</div></div></div>
+        <div class="q-block" data-answer="1"><div class="q-text">3. What would you do? Your mini-business made $100 in sales.</div><div class="q-opts"><div class="q-opt" data-i="0">Assume it's all profit and spend it</div><div class="q-opt" data-i="1">Subtract your costs first to find your real profit</div><div class="q-opt" data-i="2">Ignore expenses since sales are what matter</div></div></div>
+      </div>
+      <div class="nav-buttons"><button class="btn btn-secondary" onclick="goTo(9)">Back</button><button class="btn btn-primary" onclick="completeModule(10)">Mark Complete & Continue</button></div>
+    </div>
+  </div>
+
+  <!-- MODULE 12 -->
+  <div class="module" data-index="11">
+    <div class="module-head"><span class="badge-icon">🏆</span><div><div class="tag">Chapter 12 of 12</div><h2>Your Money Plan for Age 18</h2></div></div>
+    <div class="module-body">
+      <p>You've learned how to earn, spend, save, bank, use credit, read a paycheck, invest, spot scams, and run a mini business. Now let's put it together.</p>
+      <div class="calc"><div class="calc-tag">Final Challenge — Plan a $1,500/Month Budget</div>
+        <div class="calc-row"><label>Monthly income ($)</label><input type="number" id="c12-income" value="1500" placeholder="1500"></div>
+        <button class="btn btn-primary" type="button" onclick="calc12()" style="padding:7px 18px;font-size:14px;">Suggest needs/fun/save/grow split</button>
+        <div class="calc-result" id="c12-result" style="display:none;"></div></div>
+      <div class="example"><b>My Age-18 Plan should include:</b> a savings goal, an income goal, three personal credit rules, one investing learning goal, one business idea, and your money safety rule (STOP → CHECK → VERIFY → DECIDE).</div>
+      <div class="challenge"><span class="tag">Final Challenge</span><p>Write your three money rules and your first big money goal in your Money Starter Planner.</p></div>
+      <div class="quiz"><h3>Final Quick Check</h3>
+        <div class="q-block" data-answer="0"><div class="q-text">1. A promise of guaranteed huge investment returns should make you:</div><div class="q-opts"><div class="q-opt" data-i="0">Stop and verify</div><div class="q-opt" data-i="1">Hurry and send money</div></div></div>
+        <div class="q-block" data-answer="0"><div class="q-text">2. Diversification means:</div><div class="q-opts"><div class="q-opt" data-i="0">Spreading investments</div><div class="q-opt" data-i="1">Putting everything in one place</div></div></div>
+      
+        <div class="q-block" data-answer="0"><div class="q-text">3. What would you do? You're building your Age-18 plan and feel like you need to have it all figured out.</div><div class="q-opts"><div class="q-opt" data-i="0">Write down what you know now, and treat the plan as something you'll keep updating</div><div class="q-opt" data-i="1">Wait until you're 18 to think about any of it</div><div class="q-opt" data-i="2">Copy someone else's plan exactly</div></div></div>
+      </div>
+      <div class="nav-buttons"><button class="btn btn-secondary" onclick="goTo(10)">Back</button><button class="btn btn-primary" onclick="completeModule(11)">Finish Level 1</button></div>
+    </div>
+  </div>
+
+  <!-- COMPLETE / CERTIFICATE -->
+  <div class="complete-screen" id="completeScreen">
+    <svg width="72" height="72" viewBox="0 0 72 72" fill="none" style="margin:0 auto 10px;">
+      <circle cx="36" cy="30" r="22" fill="#D4A017"/><circle cx="36" cy="30" r="22" stroke="#2D6A4F" stroke-width="3"/>
+      <path d="M24 30l8 8 16-16" stroke="#FAFAF5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M26 48 L20 66 L36 58 L52 66 L46 48" fill="#2D6A4F"/></svg>
+    <h2>You Finished Money Starter — Level 1 of 3</h2>
+    <p>Twelve chapters down. You now know how to earn, budget, bank, use credit, save, invest, and spot a scam. Enter your name for your certificate, then keep going with your Money Starter Planner.</p>
+    <div class="badge-strip">
+      <span class="badge-chip">🐷 First Savings Step</span><span class="badge-chip">💵 Income Builder</span><span class="badge-chip">🏅 Smart Spender</span>
+      <span class="badge-chip">📊 Budget Boss</span><span class="badge-chip">🏦 Banking Basics</span><span class="badge-chip">💳 Credit Smart</span>
+      <span class="badge-chip">🧾 Paycheck Pro</span><span class="badge-chip">🎯 Goal Getter</span><span class="badge-chip">📈 Investor in Training</span>
+      <span class="badge-chip">🕵️ Scam Spotter</span><span class="badge-chip">💼 Young Entrepreneur</span>
+    </div>
+    <div class="cert-form"><label for="certNameInput">Your name, for the certificate</label><input type="text" id="certNameInput" placeholder="Type your full name" oninput="updateCertName()"></div>
+    <div class="certificate" id="certificate">
+      <div class="cert-eyebrow">Smarter Hustle Academy &middot; Money Moves Academy&trade;</div>
+      <div class="cert-title">Certificate of Completion</div>
+      <div style="font-size:14px;color:#6b7a72;">This certifies that</div>
+      <div class="cert-name" id="certNameDisplay">Your Name Here</div>
+      <div class="cert-desc">has successfully completed all twelve chapters of Money Starter, Level 1 of the Money Moves Academy financial literacy series, covering earning, budgeting, banking, credit, saving, investing basics, scam safety, and entrepreneurship.</div>
+      <div class="cert-level">🌱 Level 1 of 3 — Money Starter</div>
+      <div style="font-size:12px;color:#8a9690;max-width:420px;margin:14px auto 0;line-height:1.5;">This certificate recognizes completion of educational activities. It is not a professional license and does not certify income, creditworthiness, investment performance, or financial success.</div>
+      <div class="cert-footer"><span id="certDate"></span><span>Smarter Hustle Academy</span></div>
+    </div>
+    <div class="print-btn-wrap"><button class="btn btn-primary" onclick="window.print()" type="button">Print / Save Certificate as PDF</button></div>
+  </div>
+</div>
+
+<footer>Money Moves Academy&trade; is a trademark of Smarter Hustle Academy. &copy; 2026 Smarter Hustle Academy. All rights reserved.<br>Money Starter™ &middot; Level 1 of 3 &middot; Series: Money Starter&trade; (13&ndash;17) &rarr; Money Independent&trade; (18&ndash;25) &rarr; Money Builder&trade; (26+)</footer>
+
+<script>
+  const total = 12;
+  let completed = new Set();
+  let current = 0;
+  function buildNav(){
+    const nav = document.getElementById('moduleNav'); nav.innerHTML = '';
+    for(let i=0;i<total;i++){
+      const pill = document.createElement('div');
+      pill.className = 'module-pill' + (i===current?' active':'') + (completed.has(i)?' done':'');
+      pill.innerHTML = `<span class="num">${i+1}</span>Ch.`;
+      pill.onclick = () => goTo(i);
+      nav.appendChild(pill);
+    }
+  }
+  function goTo(i){
+    current = i;
+    document.querySelectorAll('.module').forEach(m => m.classList.remove('active'));
+    document.getElementById('completeScreen').classList.remove('active');
+    document.querySelector(`.module[data-index="${i}"]`).classList.add('active');
+    buildNav(); window.scrollTo({top:0, behavior:'smooth'});
+  }
+  function completeModule(i){
+    completed.add(i); updateProgress();
+    if(i < total-1){ goTo(i+1); } else {
+      document.querySelectorAll('.module').forEach(m => m.classList.remove('active'));
+      document.getElementById('completeScreen').classList.add('active');
+      buildNav();
+      const d = new Date();
+      document.getElementById('certDate').textContent = d.toLocaleDateString('en-US', {year:'numeric', month:'long', day:'numeric'});
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+  }
+  function updateProgress(){
+    const pct = Math.round((completed.size/total)*100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    let milestone = '';
+    if(completed.size >= total) milestone = ' — 🌱 Stage Complete!';
+    else if(completed.size >= 8) milestone = ' — On the Way';
+    else if(completed.size >= 4) milestone = ' — Getting Started';
+    document.getElementById('progressLabel').textContent = `${completed.size} of ${total} chapters complete${milestone}`;
+  }
+  function updateCertName(){
+    const v = document.getElementById('certNameInput').value.trim();
+    document.getElementById('certNameDisplay').textContent = v.length ? v : 'Your Name Here';
+  }
+  document.querySelectorAll('.q-block').forEach(block => {
+    const answer = parseInt(block.dataset.answer);
+    const opts = block.querySelectorAll('.q-opt');
+    opts.forEach(opt => {
+      opt.addEventListener('click', () => {
+        if(block.dataset.answered) return;
+        block.dataset.answered = 'true';
+        const chosen = parseInt(opt.dataset.i);
+        opts.forEach(o => o.style.pointerEvents = 'none');
+        if(chosen === answer){
+          opt.classList.add('correct');
+          const fb = document.createElement('div'); fb.className='q-feedback ok'; fb.textContent='✓ Correct!';
+          block.appendChild(fb);
+        } else {
+          opt.classList.add('wrong'); opts[answer].classList.add('correct');
+          const fb = document.createElement('div'); fb.className='q-feedback no'; fb.textContent='Not quite — correct answer highlighted above.';
+          block.appendChild(fb);
+        }
+      });
+    });
+  });
+  function calc1(){ const w=parseFloat(document.getElementById('c1-week').value)||0; const el=document.getElementById('c1-result'); el.style.display='block'; el.innerHTML=`Save $${w}/week → <span>$${(w*52).toLocaleString()}</span> in a year`; }
+  function calc2(){ const p=parseFloat(document.getElementById('c2-price').value)||0; const j=parseFloat(document.getElementById('c2-jobs').value)||0; const el=document.getElementById('c2-result'); el.style.display='block'; el.innerHTML=`Estimated income: <span>$${(p*j).toLocaleString()}</span>`; }
+  function calc4(){ const inc=parseFloat(document.getElementById('c4-income').value)||0; const el=document.getElementById('c4-result'); el.style.display='block'; el.innerHTML=`Spend <span>$${(inc*0.5).toFixed(0)}</span> · Save <span>$${(inc*0.3).toFixed(0)}</span> · Grow <span>$${(inc*0.2).toFixed(0)}</span>`; }
+  function calc7(){ const g=parseFloat(document.getElementById('c7-gross').value)||0; const d=parseFloat(document.getElementById('c7-ded').value)||0; const el=document.getElementById('c7-result'); el.style.display='block'; el.innerHTML=`Net pay: <span>$${(g-d).toLocaleString()}</span>`; }
+  function calc8(){ const n=parseFloat(document.getElementById('c8-need').value)||0; const m=parseFloat(document.getElementById('c8-month').value)||1; const el=document.getElementById('c8-result'); el.style.display='block'; el.innerHTML=`Estimated time: <span>${Math.ceil(n/m)} months</span>`; }
+  function calc12(){ const inc=parseFloat(document.getElementById('c12-income').value)||0; const el=document.getElementById('c12-result'); el.style.display='block'; el.innerHTML=`Needs <span>$${(inc*0.5).toFixed(0)}</span> · Fun <span>$${(inc*0.2).toFixed(0)}</span> · Save <span>$${(inc*0.2).toFixed(0)}</span> · Grow <span>$${(inc*0.1).toFixed(0)}</span>`; }
+  buildNav(); goTo(0); updateProgress();
+</script>
+
+<script id="sha-enhancement-js">
+(function(){
+  const root=document.getElementById('shaLearningLab'); if(!root)return;
+  const $=id=>document.getElementById(id), money=n=>'$'+Math.round(Number(n)||0).toLocaleString(), num=id=>Math.max(0,Number($(id)?.value)||0);
+  const clamp=(n,a,b)=>Math.min(b,Math.max(a,n));
+  const fmt=(n,d=0)=>Number(n||0).toLocaleString(undefined,{maximumFractionDigits:d});
+  const monthlyFV=(c,y,rate)=>{const n=Math.max(0,Math.round(y*12)),r=Number(rate)/100/12;return r===0?c*n:c*((Math.pow(1+r,n)-1)/r)};
+  root.querySelectorAll('.sha-tab').forEach(btn=>btn.addEventListener('click',()=>{root.querySelectorAll('.sha-tab').forEach(x=>x.classList.toggle('active',x===btn));root.querySelectorAll('.sha-panel').forEach(p=>p.classList.toggle('active',p.dataset.panel===btn.dataset.tab));}));
+  function persist(key,obj){try{localStorage.setItem(key,JSON.stringify(obj))}catch(e){}}
+  function updateStarter(){const income=num('starterNeed'), pct=clamp(num('starterSave'),0,100), saved=income*pct/100; $('starterContextOut').innerHTML=`At ${pct}% saving, <strong>${money(saved)}</strong> per month is assigned to a future goal, leaving <strong>${money(income-saved)}</strong> for current spending or other jobs.`;const amt=num('starterMonthly'),choice=$('starterChoice').value,labels={save:'saving',spend:'spending now',grow:'learning about growth'};$('starterScenarioOut').innerHTML=`Over three months, <strong>${money(amt*3)}</strong> would be directed toward <strong>${labels[choice]}</strong>. The trade-off is three months of progress in that priority and less available for the other two.`;const v=monthlyFV(num('starterContribution'),num('starterYears'),Number($('starterRate').value));$('starterCompoundOut').innerHTML=`Contributions: <strong>${money(num('starterContribution')*num('starterYears')*12)}</strong><br>Illustrative ending value: <strong>${money(v)}</strong><br>Illustrative growth difference: <strong>${money(v-num('starterContribution')*num('starterYears')*12)}</strong>`;}
+  function updateIndependent(){const income=num('indIncome'),fixed=num('indFixed'),buffer=num('indBuffer'),surplus=income-fixed;$('indContextOut').innerHTML=`Monthly surplus before flexible spending: <strong>${money(surplus)}</strong><br>Cash buffer measured against essential costs: <strong>${fixed?fmt(buffer/fixed,1):'0'} months</strong>. A buffer is liquid, while a long-term investment may fluctuate or be costly to sell.`;const base=num('indIncome2'), ess=num('indEssentials'), shock=num('indShock'), cash=num('indCash'), reduced=base*(1-shock/100), gap=Math.max(0,ess-reduced), months=gap?cash/gap:Infinity;$('indShockOut').value=shock+'%';$('indStressOut').innerHTML=`Income after shock: <strong>${money(reduced)}</strong><br>Monthly shortfall against essentials: <strong>${money(gap)}</strong><br>Illustrative buffer coverage: <strong>${gap?fmt(months,1)+' months':'no shortfall in this scenario'}</strong>`;let bal=num('indDebt'),apr=num('indAPR')/100/12,pay=num('indPay'),monthsDebt=0,totalPaid=0;while(bal>0.01&&monthsDebt<1200&&pay>bal*apr){const interest=bal*apr;bal=bal+interest-pay;totalPaid+=Math.min(pay,bal+pay-interest);monthsDebt++}$('indDebtOut').innerHTML=monthsDebt>=1200||pay<=num('indDebt')*num('indAPR')/100/12?`Payment may not cover the first month's interest. Increase the payment or review the terms.`:`Estimated payoff: <strong>${monthsDebt} months</strong><br>Approximate paid: <strong>${money(totalPaid)}</strong><br>Approximate interest: <strong>${money(totalPaid-num('indDebt'))}</strong>`;const iv=monthlyFV(num('indContrib'),num('indYears'),num('indRate'));$('indInvestOut').innerHTML=`Contributions: <strong>${money(num('indContrib')*num('indYears')*12)}</strong><br>Illustrative ending value: <strong>${money(iv)}</strong>`;}
+  function updateBuilder(){const assets=num('buildAssets'),debt=num('buildDebt'),income=num('buildIncome'),service=num('buildDebtPay'),nw=assets-debt,ratio=income?service/income*100:0;$('buildContextOut').innerHTML=`Illustrative net worth: <strong>${money(nw)}</strong><br>Debt service as a share of monthly income: <strong>${fmt(ratio,1)}%</strong><br>Read the pair together: net worth describes a balance sheet; debt service describes monthly cash-flow pressure.`;const inf=Number($('macroInflation').value),rate=Number($('macroRate').value),growth=Number($('macroGrowth').value);$('macroInflationOut').value=inf.toFixed(1)+'%';$('macroRateOut').value=rate.toFixed(1)+'%';$('macroGrowthOut').value=growth.toFixed(1)+'%';const real=(((1+growth/100)/(1+inf/100))-1)*100,pressure=rate-inf;$('macroOut').innerHTML=`Illustrative real growth: <strong>${fmt(real,1)}%</strong><br>Policy-rate minus inflation: <strong>${fmt(pressure,1)} percentage points</strong><br><span class="sha-small" style="color:#e4f0e8">Higher rates can raise borrowing costs; inflation can erode purchasing power; weaker growth can pressure earnings. These are relationships, not market predictions.</span>`;const value=num('portValue'),cash=clamp(num('portCash'),0,100),bond=clamp(num('portBond'),0,100),stock=clamp(num('portStock'),0,100),sum=cash+bond+stock,shock=Number($('portShock').value),post=value*(cash/100+bond/100+stock/100*(1+shock/100)),postStock=value*stock/100*(1+shock/100),cashVal=value*cash/100,bondVal=value*bond/100,actual=[cashVal/post*100,bondVal/post*100,postStock/post*100],targets=[cash,bond,stock],rows=['Cash','Bonds','Stocks'].map((l,i)=>`<tr><td>${l}</td><td>${fmt(actual[i],1)}%</td><td>${targets[i]}%</td><td>${money(post*(targets[i]/100)-[cashVal,bondVal,postStock][i])}</td></tr>`).join('');$('portOut').innerHTML=`Post-move portfolio value: <strong>${money(post)}</strong><table><tr><td>Holding</td><td>Actual</td><td>Target</td><td>Dollar action</td></tr>${rows}</table><div class="sha-small" style="color:#e4f0e8">Dollar action is the amount that would move toward the target in this simplified model; transaction costs, taxes, and personal constraints are excluded.</div>`;const rv=num('retireStart'),rc=num('retireContrib'),rw=num('retireWithdraw'),ry=Math.round(num('retireYears')),rr=Number($('retireRate').value)/100/12;let bal=rv;for(let i=0;i<ry*12;i++)bal=bal*(1+rr)+rc-rw;$('retireOut').innerHTML=`Illustrative ending balance: <strong>${money(Math.max(0,bal))}</strong><br>Total contributions: <strong>${money(rc*ry*12)}</strong><br>Total withdrawals: <strong>${money(rw*ry*12)}</strong>`;}
+  function makeStarterProfile(){const qs=[['When a result is uncertain, I prefer to…',['learn more before acting','try a small, reversible experiment','avoid the topic entirely']],['When plans change, I usually…',['keep a cash cushion','adjust gradually','make a big change quickly']]];$('starterProfileQuestions').innerHTML=qs.map((q,i)=>`<div class="sha-field" style="margin:12px 0"><label>${i+1}. ${q[0]}</label><select class="starter-q">${q[1].map((x,j)=>`<option value="${j}">${x}</option>`).join('')}</select></div>`).join('');$('starterProfileBtn').addEventListener('click',()=>{const score=[...root.querySelectorAll('.starter-q')].reduce((s,x)=>s+Number(x.value),0),label=score<=1?'Cautious learner':score<=3?'Balanced learner':'Experiment-minded learner';$('starterProfileOut').style.display='block';$('starterProfileOut').innerHTML=`Your learning profile: <strong>${label}</strong><br>Use this as a reflection prompt: which risks need more information, which decisions are reversible, and which goals need a cash reserve?`;persist('sha_starter_learning_profile',{label,score})});}
+  root.querySelectorAll('input,select').forEach(el=>el.addEventListener('input',()=>{if(el.id.startsWith('starter'))updateStarter();if(el.id.startsWith('ind'))updateIndependent();if(el.id.startsWith('build')||el.id.startsWith('macro')||el.id.startsWith('port')||el.id.startsWith('retire'))updateBuilder();}));
+  const title=document.title.toLowerCase();if(title.includes('starter')){makeStarterProfile();updateStarter()}else if(title.includes('independent'))updateIndependent();else updateBuilder();
+  const save=$('savePlanBtn');if(save)save.addEventListener('click',()=>{persist('sha_builder_saved_plan',{value:num('portValue'),cash:num('portCash'),bond:num('portBond'),stock:num('portStock'),shock:Number($('portShock').value)});save.textContent='Saved locally';setTimeout(()=>save.textContent='Save local plan',1600)});const reset=$('resetPlanBtn');if(reset)reset.addEventListener('click',()=>{['portValue','portCash','portBond','portStock','portShock'].forEach((id,i)=>$(id).value=[10000,20,30,50,-20][i]);updateBuilder()});
+})();
+</script>
+
+
+<script id="sha-extension-js">
+(function(){
+  const lab=document.getElementById('shaLearningLab'); if(!lab)return;
+  const $=id=>document.getElementById(id), n=id=>Math.max(0,Number($(id)?.value)||0), money=x=>'$'+Math.round(Number(x)||0).toLocaleString(), clamp=(x,a,b)=>Math.min(b,Math.max(a,x));
+  function store(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+  function drawDonut(canvas,vals,colors){if(!canvas)return;const c=canvas.getContext('2d'),w=canvas.width,h=canvas.height,cx=w/2,cy=h/2,r=72; c.clearRect(0,0,w,h);let start=-Math.PI/2,total=vals.reduce((a,b)=>a+b,0)||1;vals.forEach((v,i)=>{const end=start+(v/total)*Math.PI*2;c.beginPath();c.moveTo(cx,cy);c.arc(cx,cy,r,start,end);c.closePath();c.fillStyle=colors[i];c.fill();start=end});c.beginPath();c.arc(cx,cy,38,0,Math.PI*2);c.fillStyle='#fff';c.fill();c.fillStyle='#16241D';c.font='700 15px DM Sans';c.textAlign='center';c.fillText('Targets',cx,cy+5)}
+  function drawBars(canvas,current,needed){if(!canvas)return;const c=canvas.getContext('2d'),w=canvas.width,h=canvas.height;c.clearRect(0,0,w,h);const max=Math.max(current,needed,1),base=h-35,barW=120;[['Saved',current,'#2D6A4F'],['Needed',needed,'#D4A017']].forEach((x,i)=>{const bh=(x[1]/max)*(h-70),px=145+i*180;c.fillStyle=x[2];c.fillRect(px,base-bh,barW,bh);c.fillStyle='#16241D';c.font='700 14px DM Sans';c.textAlign='center';c.fillText(x[0],px+barW/2,h-14);c.fillText(money(x[1]),px+barW/2,base-bh-8)})}
+  function updateGoal(){const target=n('goalAmount'),current=Math.min(n('goalCurrent'),target),months=Math.max(1,n('goalMonths')),needed=Math.max(0,target-current),monthly=needed/months,priority=$('goalPriority').value;const label={now:'Protect stability first',soon:'Prepare with a defined deadline',later:'Build patiently over a longer horizon'}[priority];$('goalOut').innerHTML=`<strong>${money(needed)}</strong> remains. A straight-line plan would assign <strong>${money(monthly)}</strong> per month for ${months} months.`;$('goalPlanCard').innerHTML=`<span class="sha-pill-note">${$('goalName').value||'My goal'}</span> <b>${label}</b><br><span class="sha-small">Next action: choose where the monthly amount comes from, then review the target at the end of each month.</span>`;drawBars($('goalChart'),current,needed)}
+  function updatePortfolio(){const value=n('portfolioValue'),cash=clamp(n('portfolioCash'),0,100),bonds=clamp(n('portfolioBonds'),0,100),stocks=clamp(n('portfolioStocks'),0,100),move=Number($('portfolioMove').value)||0,sum=cash+bonds+stocks,post=value*(cash/100+bonds/100+(stocks/100)*(1+move/100)),cv=value*cash/100,bv=value*bonds/100,sv=value*stocks/100*(1+move/100),actual=[cv/post*100,bv/post*100,sv/post*100],targets=[cash,bonds,stocks],names=['Cash','Bonds','Stocks'],actions=actual.map((a,i)=>post*(targets[i]/100)-[cv,bv,sv][i]);let rows=names.map((x,i)=>`<tr><td>${x}</td><td>${actual[i].toFixed(1)}%</td><td>${targets[i]}%</td><td>${money(actions[i])}</td></tr>`).join('');$('portfolioOut').innerHTML=`Post-move value: <strong>${money(post)}</strong><table><tr><td>Bucket</td><td>Actual</td><td>Target</td><td>Rebalance action</td></tr>${rows}</table><div class="sha-small" style="color:#e4f0e8">Target total: ${sum}%. If it differs from 100%, the model shows that gap instead of silently changing your inputs.</div>`;drawDonut($('portfolioChart'),[cash,bonds,stocks],['#2D6A4F','#D4A017','#7B8F86'])}
+  function addSectionCheckpoints(){const modules=[...document.querySelectorAll('.module')];modules.forEach((m,i)=>{const body=m.querySelector('.module-body');if(!body||body.querySelector('.sha-section-checkpoint'))return;const title=m.querySelector('h2')?.textContent||`Chapter ${i+1}`;const wrap=document.createElement('div');wrap.className='sha-checkpoint';wrap.innerHTML=`<h4>🧠 Section checkpoint: ${title}</h4><div class="sha-q"><strong>1. What should a learner do first in this section?</strong><button data-answer="1">Slow down, identify the goal, and check the numbers.</button><button data-answer="0">Choose the most exciting option immediately.</button></div><div class="sha-q"><strong>2. Which habit makes this lesson transferable?</strong><button data-answer="1">Explain the trade-off and write one next action.</button><button data-answer="0">Rely on a promise of guaranteed results.</button></div><div class="sha-score" aria-live="polite">Score: 0/2</div>`;const nav=body.querySelector('.nav-buttons');body.insertBefore(wrap,nav||null);let score=0,answered=0;wrap.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>{const q=btn.closest('.sha-q');if(q.dataset.done)return;q.dataset.done='1';answered++;const ok=btn.dataset.answer==='1';btn.classList.add(ok?'correct':'wrong');if(ok)score++;q.querySelectorAll('button').forEach(b=>b.disabled=true);wrap.querySelector('.sha-score').textContent=`Score: ${score}/2${answered===2?' · checkpoint complete':''}`;store('sha_section_checkpoint_'+i,{score,answered,title})}))})}
+  lab.querySelectorAll('.sha-tab').forEach(btn=>btn.addEventListener('click',()=>{if(btn.dataset.tab==='visuals')updateGoal()}));
+  [...lab.querySelectorAll('input,select')].forEach(el=>el.addEventListener('input',()=>{if(el.id.startsWith('goal'))updateGoal();if(el.id.startsWith('portfolio'))updatePortfolio()}));
+  $('saveGoalBtn')?.addEventListener('click',()=>{store('sha_financial_goal',{name:$('goalName').value,target:n('goalAmount'),current:n('goalCurrent'),months:n('goalMonths'),priority:$('goalPriority').value});$('saveGoalBtn').textContent='Goal saved locally';setTimeout(()=>$('saveGoalBtn').textContent='Save goal locally',1400)});
+  $('savePortfolioBtn')?.addEventListener('click',()=>{store('sha_portfolio_plan',{value:n('portfolioValue'),cash:n('portfolioCash'),bonds:n('portfolioBonds'),stocks:n('portfolioStocks'),move:Number($('portfolioMove').value)||0});$('savePortfolioBtn').textContent='Portfolio saved locally';setTimeout(()=>$('savePortfolioBtn').textContent='Save portfolio locally',1400)});
+  $('resetPortfolioBtn')?.addEventListener('click',()=>{[['portfolioValue',10000],['portfolioCash',20],['portfolioBonds',30],['portfolioStocks',50],['portfolioMove',-20]].forEach(x=>$(x[0]).value=x[1]);updatePortfolio()});
+  addSectionCheckpoints();updateGoal();updatePortfolio();
+})();
+</script>
+
+</body>
+</html>

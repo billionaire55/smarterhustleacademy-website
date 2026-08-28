@@ -1,0 +1,1141 @@
+<!-- ENHANCED VERSION — includes interactive Learning Lab; educational use only, not individualized financial advice. -->
+<!--
+  WEBSITE EMBED — SHA site: host this file at smarterhustleacademy.com/courses/money-independent.html
+  then embed with:
+  <iframe src="/courses/money-independent.html" title="Money Independent Course" width="100%" height="1400"
+          style="border:0;max-width:960px;display:block;margin:0 auto;" loading="lazy"></iframe>
+  Self-contained: no external assets besides the Google Fonts CDN link below. Responsive down to mobile width.
+  Increase the iframe height if the certificate screen gets cut off on short viewports.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Money Independent™ — Level 2: The 18-25 Money Course | Smarter Hustle Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#2D6A4F;
+    --green-dark:#16241D;
+    --gold:#D4A017;
+    --cream:#FAFAF5;
+    --white:#ffffff;
+    --gray:#6b7a72;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'DM Sans', sans-serif;
+    background:var(--cream);
+    color:var(--green-dark);
+  }
+  h1,h2,h3,h4{font-family:'Sora', sans-serif;}
+  svg{display:block;}
+
+  /* HEADER */
+  .topbar{
+    background:var(--green-dark);
+    color:var(--cream);
+    padding:14px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .topbar .brand{font-weight:800;font-size:17px;letter-spacing:0.5px;}
+  .topbar .brand span{color:var(--gold);}
+  .progress-wrap{flex:1;max-width:340px;margin:0 20px;}
+  .progress-track{background:#2f4038;border-radius:20px;height:10px;overflow:hidden;}
+  .progress-fill{background:var(--gold);height:100%;width:0%;transition:width .4s ease;}
+  .progress-label{font-size:14px;margin-top:4px;color:#cfe0d6;}
+
+  /* PROGRESSION BAR */
+  .progression-bar{
+    background:var(--white);border-bottom:1px solid #ece7d9;
+    padding:16px 24px;display:flex;align-items:center;justify-content:center;gap:0;
+    flex-wrap:wrap;
+  }
+  .prog-step{display:flex;flex-direction:column;align-items:center;position:relative;width:150px;}
+  .prog-circle{
+    width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-family:'Sora',sans-serif;font-weight:800;font-size:17px;border:3px solid #e3ded1;color:var(--gray);background:var(--cream);
+  }
+  .prog-step.done .prog-circle{background:var(--green);border-color:var(--green);color:var(--white);}
+  .prog-step.current .prog-circle{background:var(--gold);border-color:var(--gold);color:var(--green-dark);box-shadow:0 0 0 4px #fbf3e0;}
+  .prog-label{font-size:14px;font-weight:700;margin-top:8px;text-align:center;color:var(--green-dark);}
+  .prog-sub{font-size:12px;color:var(--gray);text-transform:uppercase;letter-spacing:0.5px;}
+  .prog-line{height:3px;background:#e3ded1;flex:1;max-width:70px;margin-top:22px;}
+  .prog-line.done{background:var(--green);}
+
+  .hero{
+    background:linear-gradient(135deg, var(--green) 0%, #1f4d38 100%);
+    color:var(--white);
+    padding:44px 24px 36px;
+    text-align:center;
+  }
+  .hero .eyebrow{
+    display:inline-block;background:var(--gold);color:var(--green-dark);
+    font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;
+    padding:6px 14px;border-radius:20px;margin-bottom:16px;
+  }
+  .hero h1{font-size:clamp(26px,5vw,42px);margin:0 0 12px;line-height:1.15;}
+  .hero p{font-size:20px;max-width:560px;margin:0 auto;opacity:.92;}
+
+  .wrap{max-width:900px;margin:0 auto;padding:32px 20px 80px;}
+
+  /* MODULE NAV */
+  .module-nav{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+    gap:10px;margin-bottom:32px;
+  }
+  .module-pill{
+    background:var(--white);border:2px solid #e3ded1;border-radius:12px;
+    padding:12px 10px;text-align:center;cursor:pointer;font-size:14px;font-weight:700;
+    color:var(--green-dark);transition:all .15s ease;
+  }
+  .module-pill .num{
+    display:block;font-family:'Sora',sans-serif;font-size:20px;color:var(--green);margin-bottom:2px;
+  }
+  .module-pill.active{border-color:var(--green);background:#eef5f0;}
+  .module-pill.done{border-color:var(--gold);}
+  .module-pill.done .num::after{content:" ✓";color:var(--gold);}
+
+  /* MODULE CARD */
+  .module{
+    display:none;background:var(--white);border-radius:18px;
+    box-shadow:0 4px 24px rgba(22,36,29,0.06);overflow:hidden;
+    border:1px solid #ece7d9;
+  }
+  .module.active{display:block;}
+  .module-head{
+    background:var(--green);color:var(--white);padding:22px 28px;
+    display:flex;align-items:center;gap:16px;
+  }
+  .module-icon{
+    width:56px;height:56px;border-radius:14px;background:rgba(255,255,255,0.14);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .module-head .tag{font-size:14px;text-transform:uppercase;letter-spacing:1px;color:var(--gold);font-weight:700;}
+  .module-head h2{margin:4px 0 0;font-size:25px;}
+  .module-body{padding:28px;}
+  .module-body h3{color:var(--green);font-size:20px;margin:22px 0 8px;}
+  .module-body h3:first-child{margin-top:0;}
+  .module-body p{line-height:1.7;font-size:21px;margin:0 0 14px;}
+  .module-body ul{padding-left:22px;line-height:1.75;font-size:21px;}
+  .module-body li{margin-bottom:6px;}
+
+  /* STORY */
+  .story{
+    background:#FBF3E0;border-radius:12px;padding:18px 20px;margin:18px 0;
+    display:flex;gap:14px;align-items:flex-start;
+  }
+  .story-avatar{
+    width:44px;height:44px;border-radius:50%;background:var(--gold);flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:800;color:var(--green-dark);font-size:18px;
+  }
+  .story-name{font-weight:700;font-size:15px;color:#8a6a10;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;}
+  .story p{margin:0;font-size:19.5px;line-height:1.6;font-style:italic;}
+
+  /* SCENARIO */
+  .scenario{
+    background:#eef5f0;border:2px solid #d6e8dc;border-radius:12px;padding:18px 20px;margin:18px 0;
+  }
+  .scenario-tag{font-weight:700;font-size:14px;color:var(--green);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;}
+  .scenario p{font-size:16.5px;line-height:1.6;margin:0 0 12px;}
+  .scenario-opts{display:grid;gap:8px;}
+  .scenario-opt{
+    background:var(--white);border:2px solid #d6e8dc;border-radius:8px;padding:10px 14px;
+    cursor:pointer;font-size:16px;text-align:left;font-family:'DM Sans',sans-serif;
+  }
+  .scenario-opt:hover{border-color:var(--green);}
+  .scenario-opt.good{border-color:var(--green);background:#e3f2e8;}
+  .scenario-opt.meh{border-color:var(--gold);background:#fbf3e0;}
+  .scenario-feedback{font-size:15.5px;margin-top:10px;padding:10px 12px;border-radius:8px;background:var(--white);line-height:1.5;}
+
+  .callout{
+    background:#FBF3E0;border-left:4px solid var(--gold);
+    padding:14px 18px;border-radius:8px;margin:18px 0;font-size:19.5px;
+  }
+  .callout b{color:#8a6a10;}
+
+  .example{
+    background:#eef5f0;border-radius:10px;padding:16px 18px;margin:16px 0;font-size:18px;
+  }
+  .example b{color:var(--green);}
+
+  /* CALCULATOR */
+  .calc{
+    background:var(--cream);border:2px dashed #d6cdb0;border-radius:12px;padding:18px 20px;margin:20px 0;
+  }
+  .calc-tag{font-weight:700;font-size:14px;color:#8a6a10;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px;}
+  .calc-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;}
+  .calc-row label{font-size:15.5px;font-weight:600;min-width:170px;}
+  .calc-row input{
+    border:2px solid #e3ded1;border-radius:8px;padding:8px 10px;font-size:16px;width:140px;font-family:'DM Sans',sans-serif;
+  }
+  .calc-result{
+    margin-top:12px;background:var(--green);color:var(--white);border-radius:8px;padding:12px 16px;font-size:16.5px;font-weight:600;
+  }
+  .calc-result span{color:var(--gold);font-family:'Sora',sans-serif;font-size:19px;}
+
+  /* CHALLENGE */
+  .challenge{
+    background:var(--green-dark);color:var(--cream);border-radius:12px;
+    padding:18px 20px;margin-top:22px;
+  }
+  .challenge .tag{color:var(--gold);font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;}
+  .challenge p{margin:8px 0 0;font-size:19.5px;line-height:1.6;}
+  .challenge label{display:flex;gap:8px;align-items:center;margin-top:10px;font-size:15.5px;cursor:pointer;}
+
+  .action-step{
+    background:#fff;border:2px solid var(--green);color:var(--green-dark);border-radius:12px;
+    padding:16px 20px;margin-top:16px;
+  }
+  .action-step .tag{color:var(--green);font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;}
+  .action-step p{margin:8px 0 0;font-size:16.5px;line-height:1.6;}
+
+  /* QUIZ */
+  .quiz{margin-top:26px;border-top:2px dashed #e3ded1;padding-top:22px;}
+  .quiz h3{color:var(--green-dark);}
+  .q-block{margin-bottom:18px;}
+  .q-text{font-weight:700;font-size:19.5px;margin-bottom:10px;}
+  .q-opts{display:grid;gap:8px;}
+  .q-opt{
+    text-align:left;background:var(--cream);border:2px solid #e3ded1;border-radius:8px;
+    padding:10px 14px;cursor:pointer;font-size:17.5px;font-family:'DM Sans',sans-serif;
+  }
+  .q-opt:hover{border-color:var(--green);}
+  .q-opt.correct{border-color:#2D6A4F;background:#e3f2e8;font-weight:700;}
+  .q-opt.wrong{border-color:#c0392b;background:#fbe9e7;}
+  .q-feedback{font-size:15px;margin-top:6px;font-weight:600;}
+  .q-feedback.ok{color:var(--green);}
+  .q-feedback.no{color:#c0392b;}
+
+  .nav-buttons{display:flex;justify-content:space-between;margin-top:28px;}
+  .btn{
+    font-family:'Sora',sans-serif;font-weight:700;font-size:16px;
+    border:none;border-radius:30px;padding:12px 24px;cursor:pointer;
+  }
+  .btn-primary{background:var(--gold);color:var(--green-dark);}
+  .btn-secondary{background:transparent;color:var(--green);border:2px solid var(--green);}
+  .btn:disabled{opacity:.4;cursor:not-allowed;}
+
+  /* COMPLETE / CERTIFICATE */
+  .complete-screen{
+    display:none;text-align:center;background:var(--white);border-radius:18px;
+    padding:44px 30px;box-shadow:0 4px 24px rgba(22,36,29,0.06);
+  }
+  .complete-screen.active{display:block;}
+  .badge-medal{margin:0 auto 10px;}
+  .complete-screen h2{color:var(--green);margin:10px 0;}
+  .complete-screen > p{max-width:520px;margin:0 auto 24px;font-size:16.5px;line-height:1.6;color:var(--gray);}
+
+  .cert-form{max-width:420px;margin:0 auto 28px;}
+  .cert-form input{
+    width:100%;border:2px solid #e3ded1;border-radius:8px;padding:12px 14px;font-size:17px;
+    font-family:'DM Sans',sans-serif;text-align:center;
+  }
+  .cert-form label{display:block;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--gray);margin-bottom:6px;}
+
+  .certificate{
+    border:3px solid var(--green);border-radius:16px;padding:40px 30px;background:var(--cream);
+    max-width:640px;margin:0 auto;position:relative;
+  }
+  .certificate::before{
+    content:"";position:absolute;inset:10px;border:1px solid var(--gold);border-radius:10px;pointer-events:none;
+  }
+  .cert-eyebrow{font-size:14px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+  .cert-title{font-family:'Sora',sans-serif;font-size:28px;color:var(--green);margin:8px 0 18px;font-weight:800;}
+  .cert-presented{font-size:15px;color:var(--gray);}
+  .cert-name{
+    font-family:'Sora',sans-serif;font-size:34px;color:var(--green-dark);margin:10px 0;font-weight:800;
+    border-bottom:2px solid var(--gold);display:inline-block;padding-bottom:6px;min-width:280px;
+  }
+  .cert-desc{font-size:17px;color:var(--green-dark);max-width:440px;margin:16px auto;line-height:1.6;}
+  .cert-level{
+    display:inline-block;background:var(--green);color:var(--white);font-family:'Sora',sans-serif;
+    font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;padding:8px 18px;border-radius:20px;margin-top:10px;
+  }
+  .cert-footer{display:flex;justify-content:space-between;margin-top:30px;font-size:13px;color:var(--gray);}
+
+  .print-btn-wrap{margin-top:24px;}
+
+  @media print{
+    .topbar,.progression-bar,.hero,.module-nav,.print-btn-wrap,footer{display:none !important;}
+    .wrap{padding:0;}
+    .complete-screen{box-shadow:none;}
+    body{background:#fff;}
+  }
+
+
+  .diagram-box{ background:var(--white);border:2px solid #ece7d9;border-radius:14px;padding:18px 20px;margin:18px 0;text-align:center; }
+  .diagram-box .diagram-title{font-family:'Sora',sans-serif;font-weight:700;font-size:15px;color:var(--green);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px;}
+  .diagram-box svg{max-width:100%;height:auto;}
+  .diagram-caption{font-size:15px;color:var(--gray);margin-top:10px;font-style:italic;}
+  footer{text-align:center;padding:24px;font-size:14px;color:var(--gray);}
+</style>
+
+<style id="sha-enhancement-css">
+  .sha-lab{margin:26px 0;background:#fff;border:1px solid #ece7d9;border-radius:18px;box-shadow:0 4px 24px rgba(22,36,29,.06);overflow:hidden}
+  .sha-lab-head{background:linear-gradient(135deg,#16241D,#2D6A4F);color:#fff;padding:22px 26px}
+  .sha-lab-head h2{margin:0 0 6px;font-size:24px}.sha-lab-head p{margin:0;color:#e4f0e8;line-height:1.55;font-size:16px}
+  .sha-tabs{display:flex;flex-wrap:wrap;gap:8px;padding:14px 18px;border-bottom:1px solid #ece7d9;background:#fbfaf4}
+  .sha-tab{border:2px solid #d6e8dc;background:#fff;color:#16241D;border-radius:999px;padding:8px 13px;font:700 14px 'DM Sans',sans-serif;cursor:pointer}.sha-tab.active{background:#2D6A4F;color:#fff;border-color:#2D6A4F}
+  .sha-panel{display:none;padding:24px 26px}.sha-panel.active{display:block}.sha-panel h3{color:#2D6A4F;margin:0 0 8px;font-size:20px}.sha-panel p{line-height:1.65;font-size:16px;margin:0 0 12px}.sha-note{background:#FBF3E0;border-left:4px solid #D4A017;border-radius:8px;padding:12px 14px;font-size:15px;line-height:1.55;margin:14px 0}
+  .sha-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:14px 0}.sha-field{display:flex;flex-direction:column;gap:5px}.sha-field label{font-weight:700;font-size:14px}.sha-field input,.sha-field select{border:2px solid #e3ded1;border-radius:8px;padding:9px;font:16px 'DM Sans',sans-serif;background:#fff}.sha-output{background:#16241D;color:#FAFAF5;border-radius:10px;padding:14px 16px;line-height:1.6;margin-top:14px}.sha-output strong{color:#D4A017}.sha-output table{width:100%;border-collapse:collapse;margin-top:8px}.sha-output td{padding:5px 4px;border-bottom:1px solid #405047}.sha-output td:last-child{text-align:right;color:#D4A017;font-weight:700}.sha-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}.sha-small{font-size:13px;color:#6b7a72;line-height:1.5}.sha-range{width:100%;accent-color:#2D6A4F}.sha-meter{height:12px;background:#e3ded1;border-radius:10px;overflow:hidden;margin:8px 0}.sha-meter span{display:block;height:100%;background:#D4A017;width:0;transition:width .25s}.sha-quiz-option{display:block;width:100%;text-align:left;border:2px solid #e3ded1;border-radius:8px;background:#FAFAF5;padding:9px 11px;margin:7px 0;font:15px 'DM Sans',sans-serif;cursor:pointer}.sha-quiz-option.correct{border-color:#2D6A4F;background:#e3f2e8}.sha-quiz-option.wrong{border-color:#c0392b;background:#fbe9e7}.sha-badge{display:inline-block;background:#eef5f0;color:#2D6A4F;border:1px solid #d6e8dc;border-radius:999px;padding:5px 10px;margin:3px;font-size:13px;font-weight:700}
+  @media(max-width:600px){.sha-panel,.sha-lab-head{padding:18px}.sha-tabs{padding:12px}.sha-tab{font-size:13px}.sha-output{font-size:14px}}
+</style>
+
+
+<style id="sha-extension-css">
+.sha-people{display:flex;align-items:flex-end;gap:12px;background:linear-gradient(90deg,#eef5f0,#fbf3e0);border-radius:12px;padding:14px 16px;margin:14px 0}.sha-person{font-size:38px;line-height:1}.sha-person small{display:block;font:700 11px 'DM Sans',sans-serif;color:#2D6A4F;text-align:center}.sha-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:15px 0}.sha-flow div{background:#eef5f0;border:1px solid #d6e8dc;border-radius:9px;padding:9px 5px;text-align:center;font-weight:700;font-size:13px}.sha-flow b{display:block;font-size:22px;margin-bottom:4px}.sha-visual{background:#fff;border:2px solid #ece7d9;border-radius:12px;padding:14px;margin:14px 0}.sha-visual canvas{display:block;width:100%;max-width:560px;height:210px;margin:auto}.sha-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:8px;font-size:13px}.sha-legend span{display:inline-flex;align-items:center;gap:5px}.sha-dot{width:10px;height:10px;border-radius:50%;display:inline-block}.sha-goal-card{background:#eef5f0;border:2px solid #d6e8dc;border-radius:10px;padding:12px;margin-top:12px}.sha-checkpoint{background:#fbfaf4;border:2px solid #d6cdb0;border-radius:12px;padding:16px;margin-top:20px}.sha-checkpoint h4{margin:0 0 10px;color:#2D6A4F;font-size:18px}.sha-checkpoint .sha-q{margin:12px 0}.sha-checkpoint .sha-q strong{display:block;margin-bottom:6px}.sha-checkpoint button{display:block;width:100%;text-align:left;border:2px solid #e3ded1;border-radius:8px;background:#fff;padding:8px 10px;margin:6px 0;font:15px 'DM Sans',sans-serif;cursor:pointer}.sha-checkpoint button.correct{border-color:#2D6A4F;background:#e3f2e8}.sha-checkpoint button.wrong{border-color:#c0392b;background:#fbe9e7}.sha-score{font-weight:700;color:#2D6A4F;margin-top:10px}.sha-pill-note{display:inline-block;background:#16241D;color:#FAFAF5;border-radius:999px;padding:5px 9px;font-size:12px;margin:2px}.sha-lab .sha-tabs{overflow-x:auto}
+</style>
+
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">SMARTER HUSTLE <span>ACADEMY</span><span style="font-size:11px;vertical-align:super;color:#cfe0d6;margin-left:2px;">™</span></div>
+  <div class="progress-wrap">
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-label" id="progressLabel">0 of 6 modules complete</div>
+  </div>
+</div>
+
+<div class="progression-bar">
+  <div class="prog-step done">
+    <div class="prog-circle">✓</div>
+    <div class="prog-label">Money Starter</div>
+    <div class="prog-sub">Ages 13–17</div>
+  </div>
+  <div class="prog-line done"></div>
+  <div class="prog-step current">
+    <div class="prog-circle">2</div>
+    <div class="prog-label">Money Independent</div>
+    <div class="prog-sub">Ages 18–25 · You are here</div>
+  </div>
+  <div class="prog-line"></div>
+  <div class="prog-step">
+    <div class="prog-circle">3</div>
+    <div class="prog-label">Money Builder</div>
+    <div class="prog-sub">Ages 26+</div>
+  </div>
+</div>
+
+<div class="hero">
+  <span class="eyebrow">⭐ Money Independent · Level 2 of 3 · Ages 18–25</span>
+  <h1>Run Your Money Before It Runs You</h1>
+  <p>Six short modules. Real stories, real scenarios, real numbers — no jargon. Finish all six to earn your Money Independent certificate.</p>
+</div>
+
+<div class="wrap">
+
+  <div class="module-nav" id="moduleNav"></div>
+
+<section class="sha-lab" id="shaLearningLab" aria-labelledby="shaLabTitle"><div class="sha-lab-head"><h2 id="shaLabTitle">Learning Lab: Build a Resilient Money System</h2><p>Test the relationship between income, fixed costs, debt payments, liquidity, and compounding before making a plan.</p></div><div class="sha-tabs" role="tablist"><button class="sha-tab active" data-tab="context">Financial context</button><button class="sha-tab" data-tab="stress">Budget stress test</button><button class="sha-tab" data-tab="debt">Debt payoff lab</button><button class="sha-tab" data-tab="invest">Growth calculator</button></div>
+<div class="sha-panel active" data-panel="context"><h3>Liquidity is a shock absorber</h3><p>A budget is not only a spending list. It is a system that must keep working when hours fall, a bill arrives early, or a device breaks. <b>Liquidity</b> means having money available without selling a long-term asset or taking expensive new debt.</p><div class="sha-note"><b>Context:</b> A high-interest balance can grow faster than a low-return asset. Compare the rate, fees, tax treatment, and flexibility of each decision rather than focusing only on the headline number.</div><div class="sha-grid"><div class="sha-field"><label for="indIncome">Monthly take-home pay ($)</label><input id="indIncome" type="number" min="0" value="3000"></div><div class="sha-field"><label for="indFixed">Essential fixed costs ($)</label><input id="indFixed" type="number" min="0" value="1700"></div><div class="sha-field"><label for="indBuffer">Cash buffer ($)</label><input id="indBuffer" type="number" min="0" value="1500"></div></div><div class="sha-output" id="indContextOut"></div></div>
+<div class="sha-panel" data-panel="stress"><h3>Income-shock simulator</h3><p>Change the income shock and see how many months the example buffer could cover essential costs. This is an illustrative resilience exercise.</p><div class="sha-grid"><div class="sha-field"><label for="indIncome2">Normal monthly income ($)</label><input id="indIncome2" type="number" min="0" value="3000"></div><div class="sha-field"><label for="indEssentials">Essential monthly costs ($)</label><input id="indEssentials" type="number" min="0" value="1900"></div><div class="sha-field"><label for="indShock">Income reduction (%)</label><input id="indShock" type="range" class="sha-range" min="0" max="100" value="30"><output id="indShockOut">30%</output></div><div class="sha-field"><label for="indCash">Available cash buffer ($)</label><input id="indCash" type="number" min="0" value="3800"></div></div><div class="sha-output" id="indStressOut"></div></div>
+<div class="sha-panel" data-panel="debt"><h3>Debt payoff lab</h3><p>Compare a simplified payoff path. Interest is included to make the trade-off visible; lenders may calculate interest and fees differently.</p><div class="sha-grid"><div class="sha-field"><label for="indDebt">Starting balance ($)</label><input id="indDebt" type="number" min="0" value="2500"></div><div class="sha-field"><label for="indAPR">Annual interest rate (%)</label><input id="indAPR" type="number" min="0" max="100" step="0.1" value="24"></div><div class="sha-field"><label for="indPay">Monthly payment ($)</label><input id="indPay" type="number" min="0" value="150"></div></div><div class="sha-output" id="indDebtOut"></div></div>
+<div class="sha-panel" data-panel="invest"><h3>Long-term contribution calculator</h3><p>Test time, contribution, and an illustrative return. The model excludes taxes, fees, inflation, and changing returns.</p><div class="sha-grid"><div class="sha-field"><label for="indContrib">Monthly contribution ($)</label><input id="indContrib" type="number" min="0" value="200"></div><div class="sha-field"><label for="indYears">Years</label><input id="indYears" type="number" min="1" max="60" value="20"></div><div class="sha-field"><label for="indRate">Illustrative annual return (%)</label><input id="indRate" type="number" min="-20" max="30" step="0.1" value="6"></div></div><div class="sha-output" id="indInvestOut"></div></div>
+<button class="sha-tab" data-tab="goals">🎯 Goals questionnaire</button><button class="sha-tab" data-tab="portfolio">📊 Portfolio builder</button><button class="sha-tab" data-tab="visuals">🧑‍🤝‍🧑 Visual lesson</button>
+<div class="sha-panel" data-panel="goals"><h3>🎯 Build a goals map</h3><p>Turn a vague intention into a measurable target. The result is a planning exercise, not individualized financial advice.</p><div class="sha-grid"><div class="sha-field"><label for="goalName">Goal name</label><input id="goalName" type="text" value="Emergency fund"></div><div class="sha-field"><label for="goalAmount">Target amount ($)</label><input id="goalAmount" type="number" min="0" value="3000"></div><div class="sha-field"><label for="goalCurrent">Already saved ($)</label><input id="goalCurrent" type="number" min="0" value="600"></div><div class="sha-field"><label for="goalMonths">Months to target</label><input id="goalMonths" type="number" min="1" value="12"></div><div class="sha-field"><label for="goalPriority">Priority</label><select id="goalPriority"><option value="now">Now: protect stability</option><option value="soon">Soon: prepare for a purchase</option><option value="later">Later: build long-term wealth</option></select></div></div><div class="sha-output" id="goalOut"></div><div class="sha-goal-card" id="goalPlanCard"></div><div class="sha-actions"><button class="btn btn-primary" type="button" id="saveGoalBtn">Save goal locally</button></div></div>
+<div class="sha-panel" data-panel="portfolio"><h3>📊 Portfolio building workspace</h3><p>Choose a learning profile, set target weights, and introduce a market move to see drift. This tool teaches diversification and rebalancing mechanics; it does not recommend an allocation.</p><div class="sha-grid"><div class="sha-field"><label for="portfolioValue">Portfolio value ($)</label><input id="portfolioValue" type="number" min="0" value="10000"></div><div class="sha-field"><label for="portfolioCash">Cash target (%)</label><input id="portfolioCash" type="number" min="0" max="100" value="20"></div><div class="sha-field"><label for="portfolioBonds">Bonds target (%)</label><input id="portfolioBonds" type="number" min="0" max="100" value="30"></div><div class="sha-field"><label for="portfolioStocks">Stocks target (%)</label><input id="portfolioStocks" type="number" min="0" max="100" value="50"></div><div class="sha-field"><label for="portfolioMove">Stock move (%)</label><input id="portfolioMove" type="number" min="-80" max="100" value="-20"></div></div><div class="sha-output" id="portfolioOut"></div><div class="sha-visual"><canvas id="portfolioChart" width="560" height="210" aria-label="Portfolio allocation chart"></canvas><div class="sha-legend"><span><i class="sha-dot" style="background:#2D6A4F"></i>Cash</span><span><i class="sha-dot" style="background:#D4A017"></i>Bonds</span><span><i class="sha-dot" style="background:#7B8F86"></i>Stocks</span></div></div><div class="sha-actions"><button class="btn btn-primary" type="button" id="savePortfolioBtn">Save portfolio locally</button><button class="btn btn-secondary" type="button" id="resetPortfolioBtn">Reset example</button></div><p class="sha-small">Educational assumptions: three asset buckets, one stock shock, no taxes, fees, transaction costs, or changing correlations.</p></div>
+<div class="sha-panel" data-panel="visuals"><h3>🧑‍🤝‍🧑 People, process, and perspective</h3><p>Meet the academy’s fictional coaching group. Each person asks a different question before acting.</p><div class="sha-people"><div class="sha-person">🧑🏽‍🎓<small>Jordan<br>“What is my goal?”</small></div><div class="sha-person">👩🏾‍💼<small>Maya<br>“What is the trade-off?”</small></div><div class="sha-person">🧔🏻‍♂️<small>Chris<br>“What could go wrong?”</small></div><div class="sha-person">👩🏻‍🏫<small>Coach<br>“What does the math say?”</small></div></div><div class="sha-flow"><div><b>🎯</b>Goal</div><div><b>🧮</b>Numbers</div><div><b>⚖️</b>Trade-off</div><div><b>✅</b>Review</div></div><div class="sha-visual"><canvas id="goalChart" width="560" height="210" aria-label="Goal progress chart"></canvas><div class="sha-legend"><span><i class="sha-dot" style="background:#2D6A4F"></i>Already saved</span><span><i class="sha-dot" style="background:#D4A017"></i>Still needed</span></div></div><div class="sha-note"><b>Reflection:</b> A good financial decision is not the one with the most exciting story. It is the one whose assumptions, downside, time horizon, and next action you can explain.</div></div>
+
+</section>
+
+
+  <!-- MODULE 1 -->
+  <div class="module" data-index="0">
+    <div class="module-head">
+      <div class="module-icon">
+        <svg width="30" height="30" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="16" r="9" stroke="#FAFAF5" stroke-width="3"/><path d="M8 40c2-9 8-14 16-14s14 5 16 14" stroke="#FAFAF5" stroke-width="3" stroke-linecap="round"/><circle cx="24" cy="16" r="3" fill="#D4A017"/></svg>
+      </div>
+      <div>
+        <div class="tag">Module 1 of 6 · 5 min read</div>
+        <h2>Where You Actually Stand</h2>
+      </div>
+    </div>
+    <div class="module-body">
+      <p>Most people avoid checking their money because it feels bad. That's exactly why nothing changes — you can't fix what you won't look at.</p>
+
+      <div class="story">
+        <div class="story-avatar">J</div>
+        <div>
+          <div class="story-name">Jordan, 23 · Money Story</div>
+          <p>"I avoided my banking app for four months because I was scared of the number. When I finally opened it, my balance was better than I thought — my anxiety was worse than my actual math."</p>
+        </div>
+      </div>
+
+      <h3>Your Net Worth Snapshot</h3>
+      <p>Net worth isn't just for rich people. It's one number that tells you the truth: everything you own, minus everything you owe.</p>
+      <div class="example">
+        <b>The math:</b> (Cash + savings + anything you could sell) − (credit card debt + loans) = Net Worth<br>
+        It's normal for this number to be low or negative at 18–25. What matters is the direction it moves, not where it starts.
+      </div>
+
+      <div class="calc">
+        <div class="calc-tag">Try it — Net Worth Calculator</div>
+        <div class="calc-row"><label>Cash + savings ($)</label><input type="number" id="nw-assets" placeholder="0"></div>
+        <div class="calc-row"><label>Total debt owed ($)</label><input type="number" id="nw-debt" placeholder="0"></div>
+        <button class="btn btn-primary" onclick="calcNetWorth()" type="button" style="padding:8px 20px;font-size:15px;">Calculate</button>
+        <div class="calc-result" id="nw-result" style="display:none;">Your net worth: <span id="nw-value"></span></div>
+      </div>
+
+      <div class="scenario" data-correct="1">
+        <div class="scenario-tag">Scenario</div>
+        <p>Jordan just got a $400 tax refund. They're excited and thinking about a new pair of sneakers. What's the money-smart first move?</p>
+        <div class="scenario-opts">
+          <div class="scenario-opt" data-i="0">Buy the sneakers — you earned it</div>
+          <div class="scenario-opt" data-i="1">Put it toward an emergency fund, then decide on the sneakers</div>
+          <div class="scenario-opt" data-i="2">Ignore it and let it sit in checking</div>
+        </div>
+        <div class="scenario-feedback" style="display:none;"></div>
+      </div>
+
+      <div class="callout"><b>Reality check:</b> 56% of Americans can't cover a $1,000 emergency in cash. If that's you right now, you are not behind — you're average. This course exists to move you off average.</div>
+
+      <div class="action-step">
+        <div class="tag">Do this now</div>
+        <p>Open your banking app. Write down: total cash across all accounts, total debt across all cards/loans. Log it in your Money Moves Planner on the Net Worth Tracker page.</p>
+      </div>
+
+      <div class="challenge">
+        <div class="tag">7-Day Challenge</div>
+        <p>Check your account balance every day for 7 days straight — just look, no judgment. Building the habit of looking matters more than what you see.</p>
+        <label><input type="checkbox"> I'm in — starting today</label>
+      </div>
+
+      <div class="quiz" id="quiz-0">
+        <h3>Quick Check</h3>
+        <div class="q-block" data-answer="1">
+          <div class="q-text">1. Net worth is calculated as:</div>
+          <div class="q-opts">
+            <div class="q-opt" data-i="0">Your monthly income</div>
+            <div class="q-opt" data-i="1">What you own minus what you owe</div>
+            <div class="q-opt" data-i="2">Your credit score</div>
+          </div>
+        </div>
+        <div class="q-block" data-answer="2">
+          <div class="q-text">2. A negative net worth in your early 20s means:</div>
+          <div class="q-opts">
+            <div class="q-opt" data-i="0">You've failed at money</div>
+            <div class="q-opt" data-i="1">You should stop checking it</div>
+            <div class="q-opt" data-i="2">It's common — focus on the trend, not the starting point</div>
+          </div>
+        </div>
+      
+        <div class="q-block" data-answer="1"><div class="q-text">3. What would you do? You finally check your accounts and your net worth is negative.</div><div class="q-opts"><div class="q-opt" data-i="0">Avoid checking again for a while</div><div class="q-opt" data-i="1">Log the number anyway and track it monthly to watch the trend</div><div class="q-opt" data-i="2">Assume it will fix itself</div></div></div>
+      </div>
+
+      <div class="nav-buttons">
+        <button class="btn btn-secondary" disabled>Back</button>
+        <button class="btn btn-primary" onclick="completeModule(0)">Mark Complete & Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 2 -->
+  <div class="module" data-index="1">
+    <div class="module-head">
+      <div class="module-icon">
+        <svg width="30" height="30" viewBox="0 0 48 48" fill="none"><rect x="6" y="18" width="10" height="22" rx="2" stroke="#FAFAF5" stroke-width="3"/><rect x="19" y="10" width="10" height="30" rx="2" stroke="#FAFAF5" stroke-width="3"/><rect x="32" y="22" width="10" height="18" rx="2" stroke="#FAFAF5" stroke-width="3"/><circle cx="24" cy="6" r="2" fill="#D4A017"/></svg>
+      </div>
+      <div>
+        <div class="tag">Module 2 of 6 · 5 min read</div>
+        <h2>Budgeting That Doesn't Suck</h2>
+      </div>
+    </div>
+    <div class="module-body">
+      <p>Forget the word "budget" if it stresses you out. Think of it as telling your money where to go before it disappears on its own.</p>
+
+      <div class="story">
+        <div class="story-avatar">M</div>
+        <div>
+          <div class="story-name">Maya, 24 · Money Story</div>
+          <p>"I thought budgeting meant no fun ever. Turns out it meant I finally had money for the fun stuff, guilt-free, because it already had a job."</p>
+        </div>
+      </div>
+
+      <h3>The 50/30/20 Split</h3>
+      <ul>
+        <li><b>50% Needs</b> — rent, groceries, transportation, minimum debt payments</li>
+        <li><b>30% Wants</b> — eating out, subscriptions, fun money</li>
+        <li><b>20% Future You</b> — savings, extra debt payoff, investing</li>
+      </ul>
+      <div class="diagram-box">
+        <div class="diagram-title">📊 Diagram — The 50/30/20 Split</div>
+        <svg viewBox="0 0 320 60" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="15" width="160" height="30" fill="#2D6A4F"/>
+          <text x="80" y="35" text-anchor="middle" font-family="Sora,sans-serif" font-size="13" font-weight="800" fill="#FAFAF5">NEEDS 50%</text>
+          <rect x="160" y="15" width="96" height="30" fill="#D4A017"/>
+          <text x="208" y="35" text-anchor="middle" font-family="Sora,sans-serif" font-size="13" font-weight="800" fill="#16241D">WANTS 30%</text>
+          <rect x="256" y="15" width="64" height="30" fill="#16241D"/>
+          <text x="288" y="35" text-anchor="middle" font-family="Sora,sans-serif" font-size="11" font-weight="800" fill="#FAFAF5">FUTURE 20%</text>
+        </svg>
+        <div class="diagram-caption">💵 Every paycheck, split it the same way before it disappears into "wherever."</div>
+      </div>
+
+      <div class="calc">
+        <div class="calc-tag">Try it — 50/30/20 Calculator</div>
+        <div class="calc-row"><label>Monthly take-home pay ($)</label><input type="number" id="bud-income" placeholder="0"></div>
+        <button class="btn btn-primary" onclick="calcBudget()" type="button" style="padding:8px 20px;font-size:15px;">Split it</button>
+        <div class="calc-result" id="bud-result" style="display:none;"></div>
+      </div>
+
+      <h3>Zero-Based Budgeting (For When You Want Tighter Control)</h3>
+      <p>Every dollar gets a job — income minus all planned spending equals zero. Not because you spend it all, but because "savings" and "debt payoff" are jobs too.</p>
+
+      <div class="scenario" data-correct="2">
+        <div class="scenario-tag">Scenario</div>
+        <p>Maya's rent + bills add up to 65% of her paycheck — over the 50% target. What should she do?</p>
+        <div class="scenario-opts">
+          <div class="scenario-opt" data-i="0">Give up on budgeting, the split doesn't apply to her</div>
+          <div class="scenario-opt" data-i="1">Cut her grocery budget to zero</div>
+          <div class="scenario-opt" data-i="2">Look for a way to shrink a fixed cost, like a roommate or cheaper plan</div>
+        </div>
+        <div class="scenario-feedback" style="display:none;"></div>
+      </div>
+
+      <div class="callout"><b>The #1 budget killer:</b> Not planning for irregular costs (car repairs, birthdays, annual subscriptions). Add a "Misc/Irregular" line at 5% of income so surprises stop wrecking your month.</div>
+
+      <div class="action-step">
+        <div class="tag">Do this now</div>
+        <p>In your planner, build one month using the 50/30/20 split with your real numbers. Don't aim for perfect — aim for written down.</p>
+      </div>
+
+      <div class="challenge">
+        <div class="tag">7-Day Challenge</div>
+        <p>Track every dollar you spend for one week in your Weekly Spend Log. No changing habits yet — just see where it actually goes.</p>
+        <label><input type="checkbox"> I'm in — starting today</label>
+      </div>
+
+      <div class="quiz" id="quiz-1">
+        <h3>Quick Check</h3>
+        <div class="q-block" data-answer="1">
+          <div class="q-text">1. In the 50/30/20 method, the 20% goes to:</div>
+          <div class="q-opts">
+            <div class="q-opt" data-i="0">Wants and fun spending</div>
+            <div class="q-opt" data-i="1">Savings, extra debt payoff, and investing</div>
+            <div class="q-opt" data-i="2">Rent and groceries</div>
+          </div>
+        </div>
+        <div class="q-block" data-answer="0">
+          <div class="q-text">2. A "Misc/Irregular" budget line exists to:</div>
+          <div class="q-opts">
+            <div class="q-opt" data-i="0">Cover surprise costs like car repairs or annual fees</div>
+            <div class="q-opt" data-i="1">Replace your savings goal</div>
+            <div class="q-opt" data-i="2">Track your income</div>
+          </div>
+        </div>
+      
+        <div class="q-block" data-answer="2"><div class="q-text">3. What would you do? Your "wants" spending keeps creeping above 30% of your paycheck.</div><div class="q-opts"><div class="q-opt" data-i="0">Delete the budget — it is not working anyway</div><div class="q-opt" data-i="1">Ignore it since you are not in debt</div><div class="q-opt" data-i="2">Track it for a week to see exactly where it is going, then adjust</div></div></div>
+      </div>
+
+      <div class="nav-buttons">
+        <button class="btn btn-secondary" onclick="goTo(0)">Back</button>
+        <button class="btn btn-primary" onclick="completeModule(1)">Mark Complete & Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 3 -->
+  <div class="module" data-index="2">
+    <div class="module-head">
+      <div class="module-icon">
+        <svg width="30" height="30" viewBox="0 0 48 48" fill="none"><path d="M6 30a18 18 0 0 1 36 0" stroke="#FAFAF5" stroke-width="3" stroke-linecap="round"/><path d="M24 30 L33 18" stroke="#D4A017" stroke-width="3" stroke-linecap="round"/><circle cx="24" cy="30" r="3" fill="#FAFAF5"/></svg>
+      </div>
+      <div>
+        <div class="tag">Module 3 of 6 · 5 min read</div>
+        <h2>Banking & Credit, Decoded</h2>
+      </div>
+    </div>
+    <div class="module-body">
+      <p>Credit sounds complicated because companies profit when you're confused. Here's the plain-English version.</p>
+
+      <div class="story">
+        <div class="story-avatar">D</div>
+        <div>
+          <div class="story-name">Devon, 22 · Money Story</div>
+          <p>"I thought carrying a balance built credit faster. It doesn't — it just cost me interest. Paying in full every month did the same job for free."</p>
+        </div>
+      </div>
+
+      <h3>Checking vs. Savings</h3>
+      <p>Checking = your spending hub, easy access. Savings = money you're not touching, ideally in a High-Yield Savings Account (HYSA) earning real interest instead of the ~0.01% big banks pay.</p>
+
+      <h3>What a Credit Score Actually Measures</h3>
+      <ul>
+        <li><b>Payment history (35%)</b> — pay on time, every time</li>
+        <li><b>Amounts owed (30%)</b> — keep credit card balances under 30% of your limit</li>
+        <li><b>Length of credit history (15%)</b> — older accounts help, don't close your oldest card</li>
+        <li><b>New credit (10%)</b> — too many new applications at once hurts you</li>
+        <li><b>Credit mix (10%)</b> — a mix of card + loan types, over time</li>
+      </ul>
+
+      <div class="calc">
+        <div class="calc-tag">Try it — Credit Utilization Calculator</div>
+        <div class="calc-row"><label>Card balance ($)</label><input type="number" id="cr-balance" placeholder="0"></div>
+        <div class="calc-row"><label>Credit limit ($)</label><input type="number" id="cr-limit" placeholder="0"></div>
+        <button class="btn btn-primary" onclick="calcUtilization()" type="button" style="padding:8px 20px;font-size:15px;">Calculate</button>
+        <div class="calc-result" id="cr-result" style="display:none;"></div>
+      </div>
+
+      <div class="scenario" data-correct="1">
+        <div class="scenario-tag">Scenario</div>
+        <p>Devon has a $500 limit card with a $400 balance, paid off in full every month. What's his real move to improve his score?</p>
+        <div class="scenario-opts">
+          <div class="scenario-opt" data-i="0">Nothing — paying it off in full is all that matters</div>
+          <div class="scenario-opt" data-i="1">Pay the balance down before the statement closes so reported utilization is lower</div>
+          <div class="scenario-opt" data-i="2">Close the card and open a new one</div>
+        </div>
+        <div class="scenario-feedback" style="display:none;"></div>
+      </div>
+
+      <div class="callout"><b>Watch for:</b> "Buy Now, Pay Later" apps count as debt too. Missed payments can hit your credit report just like a credit card.</div>
+
+      <div class="action-step">
+        <div class="tag">Do this now</div>
+        <p>Check your credit score for free (many banking apps offer this at no cost). Log it in your planner's Credit Tracker so you can watch it move over time.</p>
+      </div>
+
+      <div class="quiz" id="quiz-2">
+        <h3>Quick Check</h3>
+        <div class="q-block" data-answer="0">
+          <div class="q-text">1. The single biggest factor in your credit score is:</div>
+          <div class="q-opts">
+            <div class="q-opt" data-i="0">Payment history — paying on time</div>
+            <div class="q-opt" data-i="1">How many cards you have</div>
+            <div class="q-opt" data-i="2">Your income</div>
+          </div>
+        </div>
+        <div class="q-block" data-answer="1">
+          <div class="q-text">2. To avoid interest on a credit card, you should:</div>
+          <div class="q-opts">
+            <div class="q-opt" data-i="0">Pay the minimum every month</div>
+            <div class="q-opt" data-i="1">Pay the full statement balance every month</div>
+            <div class="q-opt" data-i="2">Only use it for emergencies</div>
+          </div>
+        </div>
+      
+        <div class="q-block" data-answer="0"><div class="q-text">3. What would you do? A "Buy Now, Pay Later" app offers to split a purchase into four payments.</div><div class="q-opts"><div class="q-opt" data-i="0">Treat it like real debt and check whether you could pay it off today anyway</div><div class="q-opt" data-i="1">Use it freely since it is not a credit card</div><div class="q-opt" data-i="2">Assume it never affects your credit report</div></div></div>
+      </div>
+
+      <div class="nav-buttons">
+        <button class="btn btn-secondary" onclick="goTo(1)">Back</button>
+        <button class="btn btn-primary" onclick="completeModule(2)">Mark Complete & Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 4 -->
+  <div class="module" data-index="3">
+    <div class="module-head">
+      <div class="module-icon">
+        <svg width="30" height="30" viewBox="0 0 48 48" fill="none"><circle cx="16" cy="32" r="6" stroke="#FAFAF5" stroke-width="3"/><circle cx="30" cy="20" r="10" stroke="#D4A017" stroke-width="3"/><path d="M6 40 Q24 40 42 40" stroke="#FAFAF5" stroke-width="3" stroke-linecap="round"/></svg>
+      </div>
+      <div>
+        <div class="tag">Module 4 of 6 · 5 min read</div>
+        <h2>Debt & Student Loans, Handled</h2>
+      </div>
+    </div>
+    <div class="module-body">
+      <p>Debt isn't a character flaw. It's a math problem with a plan. Let's build yours.</p>
+
+      <div class="story">
+        <div class="story-avatar">P</div>
+        <div>
+          <div class="story-name">Priya, 25 · Money Story</div>
+          <p>"I had five small debts and felt frozen. Ranking them by interest rate and attacking one at a time made it feel like a plan instead of a pile."</p>
+        </div>
+      </div>
+
+      <h3>Two Proven Payoff Strategies</h3>
+      <ul>
+        <li><b>Debt Snowball:</b> Pay minimums on everything, throw extra at your smallest balance first. Best if you need quick wins to stay motivated.</li>
+        <li><b>Debt Avalanche:</b> Pay minimums on everything, throw extra at your highest-interest debt first. Saves you the most money mathematically.</li>
+      </ul>
+      <div class="example"><b>Example:</b> $500 credit card at 24% APR and $3,000 car loan at 6% APR. Avalanche attacks the credit card first — it's costing you the most per month, even though it's the smaller balance.</div>
+
+      <div class="calc">
+        <div class="calc-tag">Try it — Payoff Time Estimator</div>
+        <div class="calc-row"><label>Debt balance ($)</label><input type="number" id="debt-balance" placeholder="0"></div>
+        <div class="calc-row"><label>Monthly payment ($)</label><input type="number" id="debt-payment" placeholder="0"></div>
+        <button class="btn btn-primary" onclick="calcPayoff()" type="button" style="padding:8px 20px;font-size:15px;">Estimate</button>
+        <div class="calc-result" id="debt-result" style="display:none;"></div>
+      </div>
+
+      <h3>Student Loans: Know Your Type</h3>
+      <ul>
+        <li><b>Federal loans</b> — have income-driven repayment options and forgiveness programs; check studentaid.gov before doing anything else</li>
+        <li><b>Private loans</b> — fewer flexible options, usually higher rates; refinancing can help once your credit is solid</li>
+      </ul>
+
+      <div class="callout"><b>Before you panic-pay extra:</b> If you have zero emergency savings, build a small starter fund ($500–$1,000) before aggressively attacking debt. One car repair shouldn't send you back to the credit card.</div>
+
+      <div class="action-step">
+        <div class="tag">Do this now</div>
+        <p>List every debt you have with balance, interest rate, and minimum payment in your planner's Debt Payoff Tracker. Circle whichever one your chosen strategy says to attack first.</p>
+      </div>
+
+      <div class="challenge">
+        <div class="tag">7-Day Challenge</div>
+        <p>Call one lender and ask if your interest rate can be lowered. It works more often than people expect, and it costs nothing to ask.</p>
+        <label><input type="checkbox"> I'm in — starting today</label>
+      </div>
+
+      <div class="quiz" id="quiz-3">
+        <h3>Quick Check</h3>
+        <div class="q-block" data-answer="1">
+          <div class="q-text">1. The debt avalanche method targets first:</div>
+          <div class="q-opts">
+            <div class="q-opt" data-i="0">Your smallest balance</div>
+            <div class="q-opt" data-i="1">Your highest-interest debt</div>
+            <div class="q-opt" data-i="2">Whichever debt is oldest</div>
+          </div>
+        </div>
+        <div class="q-block" data-answer="2">
+          <div class="q-text">2. Before aggressively paying off debt, it's smart to:</div>
+          <div class="q-opts">
+            <div class="q-opt" data-i="0">Close all your credit cards</div>
+            <div class="q-opt" data-i="1">Stop checking your balance</div>
+            <div class="q-opt" data-i="2">Build a small emergency starter fund first</div>
+          </div>
+        </div>
+      
+        <div class="q-block" data-answer="1"><div class="q-text">3. What would you do? You have a $500 card at 24% and a $3,000 loan at 6%.</div><div class="q-opts"><div class="q-opt" data-i="0">Pay the loan first since it is the bigger number</div><div class="q-opt" data-i="1">Attack the card first — it is costing you the most per month</div><div class="q-opt" data-i="2">Split payments evenly with no real plan</div></div></div>
+      </div>
+
+      <div class="nav-buttons">
+        <button class="btn btn-secondary" onclick="goTo(2)">Back</button>
+        <button class="btn btn-primary" onclick="completeModule(3)">Mark Complete & Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 5 -->
+  <div class="module" data-index="4">
+    <div class="module-head">
+      <div class="module-icon">
+        <svg width="30" height="30" viewBox="0 0 48 48" fill="none"><path d="M8 26c0-8 7-14 16-14s16 6 16 14-3 10-3 10H11s-3-2-3-10Z" stroke="#FAFAF5" stroke-width="3"/><rect x="20" y="8" width="8" height="6" rx="2" fill="#D4A017"/><circle cx="30" cy="22" r="2" fill="#D4A017"/></svg>
+      </div>
+      <div>
+        <div class="tag">Module 5 of 6 · 5 min read</div>
+        <h2>Saving Without White-Knuckling It</h2>
+      </div>
+    </div>
+    <div class="module-body">
+      <p>Willpower is a bad savings strategy. Automation is a great one. This module builds a system that saves without you having to think about it.</p>
+
+      <div class="story">
+        <div class="story-avatar">S</div>
+        <div>
+          <div class="story-name">Sam, 21 · Money Story</div>
+          <p>"I tried to save 'whatever's left' for years and it was always zero. The month I set up a $25 auto-transfer, I stopped noticing it was even gone."</p>
+        </div>
+      </div>
+
+      <h3>Build Your Emergency Fund in Stages</h3>
+      <ul>
+        <li><b>Stage 1:</b> $500–$1,000 starter fund — covers most small emergencies</li>
+        <li><b>Stage 2:</b> 1 month of expenses</li>
+        <li><b>Stage 3:</b> 3–6 months of expenses — full safety net</li>
+      </ul>
+      <p>You don't need Stage 3 before you start investing (Module 6). Stage 1 is enough to move forward on both tracks at once.</p>
+
+      <div class="calc">
+        <div class="calc-tag">Try it — Savings Goal Calculator</div>
+        <div class="calc-row"><label>Goal amount ($)</label><input type="number" id="sav-goal" placeholder="0"></div>
+        <div class="calc-row"><label>Months to reach it</label><input type="number" id="sav-months" placeholder="0"></div>
+        <button class="btn btn-primary" onclick="calcSavings()" type="button" style="padding:8px 20px;font-size:15px;">Calculate</button>
+        <div class="calc-result" id="sav-result" style="display:none;"></div>
+      </div>
+
+      <div class="scenario" data-correct="0">
+        <div class="scenario-tag">Scenario</div>
+        <p>Sam gets paid Friday and always spends more than planned by Sunday. What's the highest-leverage fix?</p>
+        <div class="scenario-opts">
+          <div class="scenario-opt" data-i="0">Auto-transfer savings the day payday hits, before spending happens</div>
+          <div class="scenario-opt" data-i="1">Try harder to feel motivated on Fridays</div>
+          <div class="scenario-opt" data-i="2">Wait until the end of the month to save whatever's left</div>
+        </div>
+        <div class="scenario-feedback" style="display:none;"></div>
+      </div>
+
+      <div class="callout"><b>Goal-based saving:</b> Give savings buckets a name and number — "$1,200 for a car repair fund by June" beats a vague "save more." Your planner's Savings Goal Tracker is built for exactly this.</div>
+
+      <div class="action-step">
+        <div class="tag">Do this now</div>
+        <p>Set up one automatic transfer, even a small one, from checking to savings. Then write your Stage 1 target and target date in your planner.</p>
+      </div>
+
+      <div class="quiz" id="quiz-4">
+        <h3>Quick Check</h3>
+        <div class="q-block" data-answer="0">
+          <div class="q-text">1. The most reliable way to save consistently is to:</div>
+          <div class="q-opts">
+            <div class="q-opt" data-i="0">Automate a transfer right after payday</div>
+            <div class="q-opt" data-i="1">Save whatever is left at the end of the month</div>
+            <div class="q-opt" data-i="2">Only save when you feel motivated</div>
+          </div>
+        </div>
+        <div class="q-block" data-answer="1">
+          <div class="q-text">2. A good Stage 1 emergency fund target is:</div>
+          <div class="q-opts">
+            <div class="q-opt" data-i="0">$10,000</div>
+            <div class="q-opt" data-i="1">$500–$1,000</div>
+            <div class="q-opt" data-i="2">One full year of expenses</div>
+          </div>
+        </div>
+      
+        <div class="q-block" data-answer="2"><div class="q-text">3. What would you do? You just got a small raise.</div><div class="q-opts"><div class="q-opt" data-i="0">Increase spending to match, dollar for dollar</div><div class="q-opt" data-i="1">Leave your automatic savings transfer exactly the same forever</div><div class="q-opt" data-i="2">Bump up your automatic transfer so the raise partly builds your goal</div></div></div>
+      </div>
+
+      <div class="nav-buttons">
+        <button class="btn btn-secondary" onclick="goTo(3)">Back</button>
+        <button class="btn btn-primary" onclick="completeModule(4)">Mark Complete & Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 6 -->
+  <div class="module" data-index="5">
+    <div class="module-head">
+      <div class="module-icon">
+        <svg width="30" height="30" viewBox="0 0 48 48" fill="none"><path d="M24 42V22" stroke="#FAFAF5" stroke-width="3" stroke-linecap="round"/><path d="M24 22c0-8-8-8-8-16 8 0 8 8 8 8s0-8 8-8c0 8-8 8-8 16Z" stroke="#D4A017" stroke-width="3" stroke-linejoin="round"/><path d="M10 42h28" stroke="#FAFAF5" stroke-width="3" stroke-linecap="round"/></svg>
+      </div>
+      <div>
+        <div class="tag">Module 6 of 6 · 5 min read</div>
+        <h2>Investing 101 — Your First Move</h2>
+      </div>
+    </div>
+    <div class="module-body">
+      <p>You don't need to be rich, or an expert, to start investing. You need time — and time is the one advantage you have more of right now than you ever will again.</p>
+
+      <div class="story">
+        <div class="story-avatar">A</div>
+        <div>
+          <div class="story-name">Alex, 24 · Money Story</div>
+          <p>"I put off investing for two years because it felt too complicated. Turning on my employer match took five minutes and I wish I'd done it on day one."</p>
+        </div>
+      </div>
+
+      <h3>Why Starting Early Wins</h3>
+      <div class="example"><b>Example:</b> Investing $200/month starting at 22 vs. starting at 32, both earning an average 7%/year, until age 62: the 22-year-old starter ends up with roughly double the money of the 32-year-old starter — despite only contributing 10 extra years' worth. That gap is compound interest doing the work for you.</div>
+
+      <div class="calc">
+        <div class="calc-tag">Try it — Compound Growth Estimator</div>
+        <div class="calc-row"><label>Monthly investment ($)</label><input type="number" id="inv-monthly" placeholder="0"></div>
+        <div class="calc-row"><label>Years invested</label><input type="number" id="inv-years" placeholder="0"></div>
+        <button class="btn btn-primary" onclick="calcInvest()" type="button" style="padding:8px 20px;font-size:15px;">Estimate at 7%/yr</button>
+        <div class="calc-result" id="inv-result" style="display:none;"></div>
+      </div>
+
+      <h3>Know Your Accounts</h3>
+      <ul>
+        <li><b>401(k) / 403(b):</b> Through your employer. If they match contributions, that's free money — contribute at least enough to get the full match before anything else.</li>
+        <li><b>Roth IRA:</b> You contribute after-tax dollars now; it grows and comes out tax-free in retirement. Great option if you're in a lower tax bracket now than you expect later.</li>
+        <li><b>Traditional IRA:</b> Contributions may lower your taxable income now; you pay tax when you withdraw in retirement.</li>
+      </ul>
+
+      <div class="callout"><b>The order of operations:</b> 1) Get your employer 401(k) match if offered. 2) Build your Stage 1 emergency fund. 3) Pay off high-interest debt (above ~7-8%). 4) Max out a Roth IRA if eligible. 5) Increase your 401(k) contribution.</div>
+
+      <div class="action-step">
+        <div class="tag">Do this now</div>
+        <p>If your employer offers a 401(k) match and you're not contributing enough to get it, log in and increase your contribution today. If you're self-employed or have no employer plan, research opening a Roth IRA this week.</p>
+      </div>
+
+      <div class="challenge">
+        <div class="tag">7-Day Challenge</div>
+        <p>Find out — this week — whether your employer offers a 401(k) match, and what percent it is. If you're not sure, ask HR or check your benefits portal.</p>
+        <label><input type="checkbox"> I'm in — starting today</label>
+      </div>
+
+      <div class="quiz" id="quiz-5">
+        <h3>Quick Check</h3>
+        <div class="q-block" data-answer="2">
+          <div class="q-text">1. The biggest advantage a 22-year-old investor has is:</div>
+          <div class="q-opts">
+            <div class="q-opt" data-i="0">A higher income</div>
+            <div class="q-opt" data-i="1">Better stock picks</div>
+            <div class="q-opt" data-i="2">Time — compound growth needs years to work</div>
+          </div>
+        </div>
+        <div class="q-block" data-answer="0">
+          <div class="q-text">2. Before anything else, you should try to capture:</div>
+          <div class="q-opts">
+            <div class="q-opt" data-i="0">Your full employer 401(k) match</div>
+            <div class="q-opt" data-i="1">The highest-return stock you can find</div>
+            <div class="q-opt" data-i="2">A financial advisor's commission</div>
+          </div>
+        </div>
+      
+        <div class="q-block" data-answer="0"><div class="q-text">3. What would you do? Your employer offers a 401(k) match but you are contributing $0.</div><div class="q-opts"><div class="q-opt" data-i="0">Start contributing at least enough to get the full match</div><div class="q-opt" data-i="1">Wait until you are debt-free to contribute anything</div><div class="q-opt" data-i="2">Assume it does not matter until retirement is closer</div></div></div>
+      </div>
+
+      <div class="nav-buttons">
+        <button class="btn btn-secondary" onclick="goTo(4)">Back</button>
+        <button class="btn btn-primary" onclick="completeModule(5)">Finish Level 2</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPLETE / CERTIFICATE -->
+  <div class="complete-screen" id="completeScreen">
+    <svg class="badge-medal" width="72" height="72" viewBox="0 0 72 72" fill="none">
+      <circle cx="36" cy="30" r="22" fill="#D4A017"/>
+      <circle cx="36" cy="30" r="22" stroke="#2D6A4F" stroke-width="3"/>
+      <path d="M24 30l8 8 16-16" stroke="#FAFAF5" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M26 48 L20 66 L36 58 L52 66 L46 48" fill="#2D6A4F"/>
+    </svg>
+    <h2>You Finished Money Independent — Level 2 of 3</h2>
+    <p>Six modules down. You now know more about running your money than most adults ever get taught. Enter your name below for your certificate, then keep the momentum going with your Money Moves Planner.</p>
+
+    <div class="cert-form">
+      <label for="certNameInput">Your name, for the certificate</label>
+      <input type="text" id="certNameInput" placeholder="Type your full name" oninput="updateCertName()">
+    </div>
+
+    <div class="certificate" id="certificate">
+      <div class="cert-eyebrow">Smarter Hustle Academy &middot; Money Moves Academy&trade;</div>
+      <div class="cert-title">Certificate of Completion</div>
+      <div class="cert-presented">This certifies that</div>
+      <div class="cert-name" id="certNameDisplay">Your Name Here</div>
+      <div class="cert-desc">has successfully completed all six modules of Money Independent, Level 2 of the Money Moves Academy financial literacy series, covering budgeting, credit, debt, saving, and investing fundamentals.</div>
+      <div class="cert-level">🧭 Level 2 of 3 — Money Independent</div>
+      <div style="font-size:12px;color:#8a9690;max-width:420px;margin:14px auto 0;line-height:1.5;">This certificate recognizes completion of educational activities. It is not a professional license and does not certify income, creditworthiness, investment performance, or financial success.</div>
+      <div class="cert-footer">
+        <span id="certDate"></span>
+        <span>Smarter Hustle Academy</span>
+      </div>
+    </div>
+
+    <div class="print-btn-wrap">
+      <button class="btn btn-primary" onclick="window.print()" type="button">Print / Save Certificate as PDF</button>
+    </div>
+  </div>
+
+</div>
+
+<footer>Money Moves Academy&trade; is a trademark of Smarter Hustle Academy. &copy; 2026 Smarter Hustle Academy. All rights reserved.<br>Money Independent™ &middot; Level 2 of 3 &middot; Series: Money Starter&trade; (13&ndash;17) &rarr; Money Independent&trade; (18&ndash;25) &rarr; Money Builder&trade; (26+)</footer>
+
+<script>
+  const total = 6;
+  let completed = new Set();
+  let current = 0;
+
+  function buildNav(){
+    const nav = document.getElementById('moduleNav');
+    nav.innerHTML = '';
+    for(let i=0;i<total;i++){
+      const pill = document.createElement('div');
+      pill.className = 'module-pill' + (i===current?' active':'') + (completed.has(i)?' done':'');
+      pill.innerHTML = `<span class="num">${i+1}</span>Module`;
+      pill.onclick = () => goTo(i);
+      nav.appendChild(pill);
+    }
+  }
+
+  function goTo(i){
+    current = i;
+    document.querySelectorAll('.module').forEach(m => m.classList.remove('active'));
+    document.getElementById('completeScreen').classList.remove('active');
+    document.querySelector(`.module[data-index="${i}"]`).classList.add('active');
+    buildNav();
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  function completeModule(i){
+    completed.add(i);
+    updateProgress();
+    if(i < total-1){
+      goTo(i+1);
+    } else {
+      document.querySelectorAll('.module').forEach(m => m.classList.remove('active'));
+      document.getElementById('completeScreen').classList.add('active');
+      buildNav();
+      const d = new Date();
+      document.getElementById('certDate').textContent = d.toLocaleDateString('en-US', {year:'numeric', month:'long', day:'numeric'});
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+  }
+
+  function updateProgress(){
+    const pct = Math.round((completed.size/total)*100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    let milestone = '';
+    if(completed.size >= total) milestone = ' — 🧭 Stage Complete!';
+    else if(completed.size >= 4) milestone = ' — On the Way';
+    else if(completed.size >= 2) milestone = ' — Getting Started';
+    document.getElementById('progressLabel').textContent = `${completed.size} of ${total} modules complete${milestone}`;
+  }
+
+  function updateCertName(){
+    const v = document.getElementById('certNameInput').value.trim();
+    document.getElementById('certNameDisplay').textContent = v.length ? v : 'Your Name Here';
+  }
+
+  document.querySelectorAll('.q-block').forEach(block => {
+    const answer = parseInt(block.dataset.answer);
+    const opts = block.querySelectorAll('.q-opt');
+    opts.forEach(opt => {
+      opt.addEventListener('click', () => {
+        if(block.dataset.answered) return;
+        block.dataset.answered = 'true';
+        const chosen = parseInt(opt.dataset.i);
+        opts.forEach(o => o.style.pointerEvents = 'none');
+        if(chosen === answer){
+          opt.classList.add('correct');
+          const fb = document.createElement('div');
+          fb.className = 'q-feedback ok';
+          fb.textContent = '✓ Correct!';
+          block.appendChild(fb);
+        } else {
+          opt.classList.add('wrong');
+          opts[answer].classList.add('correct');
+          const fb = document.createElement('div');
+          fb.className = 'q-feedback no';
+          fb.textContent = 'Not quite — correct answer highlighted above.';
+          block.appendChild(fb);
+        }
+      });
+    });
+  });
+
+  document.querySelectorAll('.scenario').forEach(block => {
+    const correct = parseInt(block.dataset.correct);
+    const opts = block.querySelectorAll('.scenario-opt');
+    const feedback = block.querySelector('.scenario-feedback');
+    const messages = {
+      good: "Good call — that's the money-smart move.",
+      meh: "That could work, but there's a stronger option here — see the highlighted choice."
+    };
+    opts.forEach(opt => {
+      opt.addEventListener('click', () => {
+        if(block.dataset.answered) return;
+        block.dataset.answered = 'true';
+        const chosen = parseInt(opt.dataset.i);
+        opts.forEach(o => o.style.pointerEvents = 'none');
+        if(chosen === correct){
+          opt.classList.add('good');
+          feedback.textContent = messages.good;
+        } else {
+          opt.classList.add('meh');
+          opts[correct].classList.add('good');
+          feedback.textContent = messages.meh;
+        }
+        feedback.style.display = 'block';
+      });
+    });
+  });
+
+  function calcNetWorth(){
+    const a = parseFloat(document.getElementById('nw-assets').value) || 0;
+    const d = parseFloat(document.getElementById('nw-debt').value) || 0;
+    const nw = a - d;
+    const el = document.getElementById('nw-result');
+    el.style.display = 'block';
+    el.innerHTML = `Your net worth: <span>$${nw.toLocaleString()}</span>`;
+  }
+
+  function calcBudget(){
+    const income = parseFloat(document.getElementById('bud-income').value) || 0;
+    const needs = (income*0.5).toFixed(0);
+    const wants = (income*0.3).toFixed(0);
+    const future = (income*0.2).toFixed(0);
+    const el = document.getElementById('bud-result');
+    el.style.display = 'block';
+    el.innerHTML = `Needs: <span>$${needs}</span> &nbsp; Wants: <span>$${wants}</span> &nbsp; Future You: <span>$${future}</span>`;
+  }
+
+  function calcUtilization(){
+    const bal = parseFloat(document.getElementById('cr-balance').value) || 0;
+    const lim = parseFloat(document.getElementById('cr-limit').value) || 1;
+    const util = ((bal/lim)*100).toFixed(1);
+    const el = document.getElementById('cr-result');
+    el.style.display = 'block';
+    el.innerHTML = `Utilization: <span>${util}%</span> ${util>30 ? '— above the 30% target' : '— within the healthy range'}`;
+  }
+
+  function calcPayoff(){
+    const bal = parseFloat(document.getElementById('debt-balance').value) || 0;
+    const pay = parseFloat(document.getElementById('debt-payment').value) || 1;
+    const months = Math.ceil(bal/pay);
+    const el = document.getElementById('debt-result');
+    el.style.display = 'block';
+    el.innerHTML = `Estimated payoff time: <span>${months} months</span> (interest not included)`;
+  }
+
+  function calcSavings(){
+    const goal = parseFloat(document.getElementById('sav-goal').value) || 0;
+    const months = parseFloat(document.getElementById('sav-months').value) || 1;
+    const perMonth = (goal/months).toFixed(2);
+    const el = document.getElementById('sav-result');
+    el.style.display = 'block';
+    el.innerHTML = `Save <span>$${perMonth}</span> per month to hit your goal`;
+  }
+
+  function calcInvest(){
+    const monthly = parseFloat(document.getElementById('inv-monthly').value) || 0;
+    const years = parseFloat(document.getElementById('inv-years').value) || 0;
+    const rate = 0.07/12;
+    const n = years*12;
+    let fv = 0;
+    if(rate > 0 && n > 0){
+      fv = monthly * ((Math.pow(1+rate, n) - 1)/rate);
+    }
+    const el = document.getElementById('inv-result');
+    el.style.display = 'block';
+    el.innerHTML = `Estimated value: <span>$${fv.toLocaleString(undefined,{maximumFractionDigits:0})}</span> at ~7%/year`;
+  }
+
+  buildNav();
+  goTo(0);
+  updateProgress();
+</script>
+
+
+<script id="sha-enhancement-js">
+(function(){
+  const root=document.getElementById('shaLearningLab'); if(!root)return;
+  const $=id=>document.getElementById(id), money=n=>'$'+Math.round(Number(n)||0).toLocaleString(), num=id=>Math.max(0,Number($(id)?.value)||0);
+  const clamp=(n,a,b)=>Math.min(b,Math.max(a,n));
+  const fmt=(n,d=0)=>Number(n||0).toLocaleString(undefined,{maximumFractionDigits:d});
+  const monthlyFV=(c,y,rate)=>{const n=Math.max(0,Math.round(y*12)),r=Number(rate)/100/12;return r===0?c*n:c*((Math.pow(1+r,n)-1)/r)};
+  root.querySelectorAll('.sha-tab').forEach(btn=>btn.addEventListener('click',()=>{root.querySelectorAll('.sha-tab').forEach(x=>x.classList.toggle('active',x===btn));root.querySelectorAll('.sha-panel').forEach(p=>p.classList.toggle('active',p.dataset.panel===btn.dataset.tab));}));
+  function persist(key,obj){try{localStorage.setItem(key,JSON.stringify(obj))}catch(e){}}
+  function updateStarter(){const income=num('starterNeed'), pct=clamp(num('starterSave'),0,100), saved=income*pct/100; $('starterContextOut').innerHTML=`At ${pct}% saving, <strong>${money(saved)}</strong> per month is assigned to a future goal, leaving <strong>${money(income-saved)}</strong> for current spending or other jobs.`;const amt=num('starterMonthly'),choice=$('starterChoice').value,labels={save:'saving',spend:'spending now',grow:'learning about growth'};$('starterScenarioOut').innerHTML=`Over three months, <strong>${money(amt*3)}</strong> would be directed toward <strong>${labels[choice]}</strong>. The trade-off is three months of progress in that priority and less available for the other two.`;const v=monthlyFV(num('starterContribution'),num('starterYears'),Number($('starterRate').value));$('starterCompoundOut').innerHTML=`Contributions: <strong>${money(num('starterContribution')*num('starterYears')*12)}</strong><br>Illustrative ending value: <strong>${money(v)}</strong><br>Illustrative growth difference: <strong>${money(v-num('starterContribution')*num('starterYears')*12)}</strong>`;}
+  function updateIndependent(){const income=num('indIncome'),fixed=num('indFixed'),buffer=num('indBuffer'),surplus=income-fixed;$('indContextOut').innerHTML=`Monthly surplus before flexible spending: <strong>${money(surplus)}</strong><br>Cash buffer measured against essential costs: <strong>${fixed?fmt(buffer/fixed,1):'0'} months</strong>. A buffer is liquid, while a long-term investment may fluctuate or be costly to sell.`;const base=num('indIncome2'), ess=num('indEssentials'), shock=num('indShock'), cash=num('indCash'), reduced=base*(1-shock/100), gap=Math.max(0,ess-reduced), months=gap?cash/gap:Infinity;$('indShockOut').value=shock+'%';$('indStressOut').innerHTML=`Income after shock: <strong>${money(reduced)}</strong><br>Monthly shortfall against essentials: <strong>${money(gap)}</strong><br>Illustrative buffer coverage: <strong>${gap?fmt(months,1)+' months':'no shortfall in this scenario'}</strong>`;let bal=num('indDebt'),apr=num('indAPR')/100/12,pay=num('indPay'),monthsDebt=0,totalPaid=0;while(bal>0.01&&monthsDebt<1200&&pay>bal*apr){const interest=bal*apr;bal=bal+interest-pay;totalPaid+=Math.min(pay,bal+pay-interest);monthsDebt++}$('indDebtOut').innerHTML=monthsDebt>=1200||pay<=num('indDebt')*num('indAPR')/100/12?`Payment may not cover the first month's interest. Increase the payment or review the terms.`:`Estimated payoff: <strong>${monthsDebt} months</strong><br>Approximate paid: <strong>${money(totalPaid)}</strong><br>Approximate interest: <strong>${money(totalPaid-num('indDebt'))}</strong>`;const iv=monthlyFV(num('indContrib'),num('indYears'),num('indRate'));$('indInvestOut').innerHTML=`Contributions: <strong>${money(num('indContrib')*num('indYears')*12)}</strong><br>Illustrative ending value: <strong>${money(iv)}</strong>`;}
+  function updateBuilder(){const assets=num('buildAssets'),debt=num('buildDebt'),income=num('buildIncome'),service=num('buildDebtPay'),nw=assets-debt,ratio=income?service/income*100:0;$('buildContextOut').innerHTML=`Illustrative net worth: <strong>${money(nw)}</strong><br>Debt service as a share of monthly income: <strong>${fmt(ratio,1)}%</strong><br>Read the pair together: net worth describes a balance sheet; debt service describes monthly cash-flow pressure.`;const inf=Number($('macroInflation').value),rate=Number($('macroRate').value),growth=Number($('macroGrowth').value);$('macroInflationOut').value=inf.toFixed(1)+'%';$('macroRateOut').value=rate.toFixed(1)+'%';$('macroGrowthOut').value=growth.toFixed(1)+'%';const real=(((1+growth/100)/(1+inf/100))-1)*100,pressure=rate-inf;$('macroOut').innerHTML=`Illustrative real growth: <strong>${fmt(real,1)}%</strong><br>Policy-rate minus inflation: <strong>${fmt(pressure,1)} percentage points</strong><br><span class="sha-small" style="color:#e4f0e8">Higher rates can raise borrowing costs; inflation can erode purchasing power; weaker growth can pressure earnings. These are relationships, not market predictions.</span>`;const value=num('portValue'),cash=clamp(num('portCash'),0,100),bond=clamp(num('portBond'),0,100),stock=clamp(num('portStock'),0,100),sum=cash+bond+stock,shock=Number($('portShock').value),post=value*(cash/100+bond/100+stock/100*(1+shock/100)),postStock=value*stock/100*(1+shock/100),cashVal=value*cash/100,bondVal=value*bond/100,actual=[cashVal/post*100,bondVal/post*100,postStock/post*100],targets=[cash,bond,stock],rows=['Cash','Bonds','Stocks'].map((l,i)=>`<tr><td>${l}</td><td>${fmt(actual[i],1)}%</td><td>${targets[i]}%</td><td>${money(post*(targets[i]/100)-[cashVal,bondVal,postStock][i])}</td></tr>`).join('');$('portOut').innerHTML=`Post-move portfolio value: <strong>${money(post)}</strong><table><tr><td>Holding</td><td>Actual</td><td>Target</td><td>Dollar action</td></tr>${rows}</table><div class="sha-small" style="color:#e4f0e8">Dollar action is the amount that would move toward the target in this simplified model; transaction costs, taxes, and personal constraints are excluded.</div>`;const rv=num('retireStart'),rc=num('retireContrib'),rw=num('retireWithdraw'),ry=Math.round(num('retireYears')),rr=Number($('retireRate').value)/100/12;let bal=rv;for(let i=0;i<ry*12;i++)bal=bal*(1+rr)+rc-rw;$('retireOut').innerHTML=`Illustrative ending balance: <strong>${money(Math.max(0,bal))}</strong><br>Total contributions: <strong>${money(rc*ry*12)}</strong><br>Total withdrawals: <strong>${money(rw*ry*12)}</strong>`;}
+  function makeStarterProfile(){const qs=[['When a result is uncertain, I prefer to…',['learn more before acting','try a small, reversible experiment','avoid the topic entirely']],['When plans change, I usually…',['keep a cash cushion','adjust gradually','make a big change quickly']]];$('starterProfileQuestions').innerHTML=qs.map((q,i)=>`<div class="sha-field" style="margin:12px 0"><label>${i+1}. ${q[0]}</label><select class="starter-q">${q[1].map((x,j)=>`<option value="${j}">${x}</option>`).join('')}</select></div>`).join('');$('starterProfileBtn').addEventListener('click',()=>{const score=[...root.querySelectorAll('.starter-q')].reduce((s,x)=>s+Number(x.value),0),label=score<=1?'Cautious learner':score<=3?'Balanced learner':'Experiment-minded learner';$('starterProfileOut').style.display='block';$('starterProfileOut').innerHTML=`Your learning profile: <strong>${label}</strong><br>Use this as a reflection prompt: which risks need more information, which decisions are reversible, and which goals need a cash reserve?`;persist('sha_starter_learning_profile',{label,score})});}
+  root.querySelectorAll('input,select').forEach(el=>el.addEventListener('input',()=>{if(el.id.startsWith('starter'))updateStarter();if(el.id.startsWith('ind'))updateIndependent();if(el.id.startsWith('build')||el.id.startsWith('macro')||el.id.startsWith('port')||el.id.startsWith('retire'))updateBuilder();}));
+  const title=document.title.toLowerCase();if(title.includes('starter')){makeStarterProfile();updateStarter()}else if(title.includes('independent'))updateIndependent();else updateBuilder();
+  const save=$('savePlanBtn');if(save)save.addEventListener('click',()=>{persist('sha_builder_saved_plan',{value:num('portValue'),cash:num('portCash'),bond:num('portBond'),stock:num('portStock'),shock:Number($('portShock').value)});save.textContent='Saved locally';setTimeout(()=>save.textContent='Save local plan',1600)});const reset=$('resetPlanBtn');if(reset)reset.addEventListener('click',()=>{['portValue','portCash','portBond','portStock','portShock'].forEach((id,i)=>$(id).value=[10000,20,30,50,-20][i]);updateBuilder()});
+})();
+</script>
+
+
+<script id="sha-extension-js">
+(function(){
+  const lab=document.getElementById('shaLearningLab'); if(!lab)return;
+  const $=id=>document.getElementById(id), n=id=>Math.max(0,Number($(id)?.value)||0), money=x=>'$'+Math.round(Number(x)||0).toLocaleString(), clamp=(x,a,b)=>Math.min(b,Math.max(a,x));
+  function store(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+  function drawDonut(canvas,vals,colors){if(!canvas)return;const c=canvas.getContext('2d'),w=canvas.width,h=canvas.height,cx=w/2,cy=h/2,r=72; c.clearRect(0,0,w,h);let start=-Math.PI/2,total=vals.reduce((a,b)=>a+b,0)||1;vals.forEach((v,i)=>{const end=start+(v/total)*Math.PI*2;c.beginPath();c.moveTo(cx,cy);c.arc(cx,cy,r,start,end);c.closePath();c.fillStyle=colors[i];c.fill();start=end});c.beginPath();c.arc(cx,cy,38,0,Math.PI*2);c.fillStyle='#fff';c.fill();c.fillStyle='#16241D';c.font='700 15px DM Sans';c.textAlign='center';c.fillText('Targets',cx,cy+5)}
+  function drawBars(canvas,current,needed){if(!canvas)return;const c=canvas.getContext('2d'),w=canvas.width,h=canvas.height;c.clearRect(0,0,w,h);const max=Math.max(current,needed,1),base=h-35,barW=120;[['Saved',current,'#2D6A4F'],['Needed',needed,'#D4A017']].forEach((x,i)=>{const bh=(x[1]/max)*(h-70),px=145+i*180;c.fillStyle=x[2];c.fillRect(px,base-bh,barW,bh);c.fillStyle='#16241D';c.font='700 14px DM Sans';c.textAlign='center';c.fillText(x[0],px+barW/2,h-14);c.fillText(money(x[1]),px+barW/2,base-bh-8)})}
+  function updateGoal(){const target=n('goalAmount'),current=Math.min(n('goalCurrent'),target),months=Math.max(1,n('goalMonths')),needed=Math.max(0,target-current),monthly=needed/months,priority=$('goalPriority').value;const label={now:'Protect stability first',soon:'Prepare with a defined deadline',later:'Build patiently over a longer horizon'}[priority];$('goalOut').innerHTML=`<strong>${money(needed)}</strong> remains. A straight-line plan would assign <strong>${money(monthly)}</strong> per month for ${months} months.`;$('goalPlanCard').innerHTML=`<span class="sha-pill-note">${$('goalName').value||'My goal'}</span> <b>${label}</b><br><span class="sha-small">Next action: choose where the monthly amount comes from, then review the target at the end of each month.</span>`;drawBars($('goalChart'),current,needed)}
+  function updatePortfolio(){const value=n('portfolioValue'),cash=clamp(n('portfolioCash'),0,100),bonds=clamp(n('portfolioBonds'),0,100),stocks=clamp(n('portfolioStocks'),0,100),move=Number($('portfolioMove').value)||0,sum=cash+bonds+stocks,post=value*(cash/100+bonds/100+(stocks/100)*(1+move/100)),cv=value*cash/100,bv=value*bonds/100,sv=value*stocks/100*(1+move/100),actual=[cv/post*100,bv/post*100,sv/post*100],targets=[cash,bonds,stocks],names=['Cash','Bonds','Stocks'],actions=actual.map((a,i)=>post*(targets[i]/100)-[cv,bv,sv][i]);let rows=names.map((x,i)=>`<tr><td>${x}</td><td>${actual[i].toFixed(1)}%</td><td>${targets[i]}%</td><td>${money(actions[i])}</td></tr>`).join('');$('portfolioOut').innerHTML=`Post-move value: <strong>${money(post)}</strong><table><tr><td>Bucket</td><td>Actual</td><td>Target</td><td>Rebalance action</td></tr>${rows}</table><div class="sha-small" style="color:#e4f0e8">Target total: ${sum}%. If it differs from 100%, the model shows that gap instead of silently changing your inputs.</div>`;drawDonut($('portfolioChart'),[cash,bonds,stocks],['#2D6A4F','#D4A017','#7B8F86'])}
+  function addSectionCheckpoints(){const modules=[...document.querySelectorAll('.module')];modules.forEach((m,i)=>{const body=m.querySelector('.module-body');if(!body||body.querySelector('.sha-section-checkpoint'))return;const title=m.querySelector('h2')?.textContent||`Chapter ${i+1}`;const wrap=document.createElement('div');wrap.className='sha-checkpoint';wrap.innerHTML=`<h4>🧠 Section checkpoint: ${title}</h4><div class="sha-q"><strong>1. What should a learner do first in this section?</strong><button data-answer="1">Slow down, identify the goal, and check the numbers.</button><button data-answer="0">Choose the most exciting option immediately.</button></div><div class="sha-q"><strong>2. Which habit makes this lesson transferable?</strong><button data-answer="1">Explain the trade-off and write one next action.</button><button data-answer="0">Rely on a promise of guaranteed results.</button></div><div class="sha-score" aria-live="polite">Score: 0/2</div>`;const nav=body.querySelector('.nav-buttons');body.insertBefore(wrap,nav||null);let score=0,answered=0;wrap.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>{const q=btn.closest('.sha-q');if(q.dataset.done)return;q.dataset.done='1';answered++;const ok=btn.dataset.answer==='1';btn.classList.add(ok?'correct':'wrong');if(ok)score++;q.querySelectorAll('button').forEach(b=>b.disabled=true);wrap.querySelector('.sha-score').textContent=`Score: ${score}/2${answered===2?' · checkpoint complete':''}`;store('sha_section_checkpoint_'+i,{score,answered,title})}))})}
+  lab.querySelectorAll('.sha-tab').forEach(btn=>btn.addEventListener('click',()=>{if(btn.dataset.tab==='visuals')updateGoal()}));
+  [...lab.querySelectorAll('input,select')].forEach(el=>el.addEventListener('input',()=>{if(el.id.startsWith('goal'))updateGoal();if(el.id.startsWith('portfolio'))updatePortfolio()}));
+  $('saveGoalBtn')?.addEventListener('click',()=>{store('sha_financial_goal',{name:$('goalName').value,target:n('goalAmount'),current:n('goalCurrent'),months:n('goalMonths'),priority:$('goalPriority').value});$('saveGoalBtn').textContent='Goal saved locally';setTimeout(()=>$('saveGoalBtn').textContent='Save goal locally',1400)});
+  $('savePortfolioBtn')?.addEventListener('click',()=>{store('sha_portfolio_plan',{value:n('portfolioValue'),cash:n('portfolioCash'),bonds:n('portfolioBonds'),stocks:n('portfolioStocks'),move:Number($('portfolioMove').value)||0});$('savePortfolioBtn').textContent='Portfolio saved locally';setTimeout(()=>$('savePortfolioBtn').textContent='Save portfolio locally',1400)});
+  $('resetPortfolioBtn')?.addEventListener('click',()=>{[['portfolioValue',10000],['portfolioCash',20],['portfolioBonds',30],['portfolioStocks',50],['portfolioMove',-20]].forEach(x=>$(x[0]).value=x[1]);updatePortfolio()});
+  addSectionCheckpoints();updateGoal();updatePortfolio();
+})();
+</script>
+
+</body>
+</html>
