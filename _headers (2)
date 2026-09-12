@@ -1,0 +1,7 @@
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), midi=(), bluetooth=(), magnetometer=(), gyroscope=(), accelerometer=(), fullscreen=(self)
+  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://public-files.gumroad.com https://www.googletagmanager.com https://i.imgur.com; connect-src 'self' https://blog.smarterhustleacademy.com https://www.google-analytics.com https://www.googletagmanager.com; frame-src 'self' https://gumroad.com https://www.gumroad.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://smarterhustleacademy.gumroad.com
