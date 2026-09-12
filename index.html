@@ -1,11 +1,25 @@
 <!DOCTYPE html><html lang="en"><head>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TX0KEERVR0"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-TX0KEERVR0');
+  (function(){
+    var loaded=false;
+    function loadGA(){
+      if(loaded)return;loaded=true;
+      var s=document.createElement('script');
+      s.async=true;
+      s.src='https://www.googletagmanager.com/gtag/js?id=G-TX0KEERVR0';
+      document.head.appendChild(s);
+    }
+    ['click','scroll','keydown','touchstart','mousemove'].forEach(function(evt){
+      window.addEventListener(evt, loadGA, {passive:true, once:true});
+    });
+    if('requestIdleCallback' in window){ requestIdleCallback(loadGA, {timeout:5000}); }
+    else { setTimeout(loadGA, 5000); }
+  })();
 </script>
 <meta charset="UTF-8">
 <meta name="p:domain_verify" content="aed069f0d0ef70eb92fab3c9a0c82d58"/>
