@@ -378,8 +378,8 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
 .footer-tagline{font-size:13px;color:#6B7560;line-height:1.7;max-width:240px}
 .footer-links{display:flex;gap:40px;flex-wrap:wrap}
 .footer-col h4{font-family:var(--fh);font-size:12px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
-.footer-col a{display:block;font-size:13px;color:#6B7560;text-decoration:none;margin-bottom:8px;transition:.2s}
-.footer-col a:hover{color:var(--g3)}
+.footer-col a,.footer-col button{display:block;font-size:13px;color:#6B7560;text-decoration:none;margin-bottom:8px;transition:.2s;background:none;border:none;padding:0;font-family:inherit;cursor:pointer;text-align:left;width:100%}
+.footer-col a:hover,.footer-col button:hover{color:var(--g3)}
 .footer-bottom{border-top:1px solid #1A2A1A;padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 .footer-copy{font-size:12px;color:#3A4A3A}
 .footer-copy span{color:#6B7560}
@@ -768,7 +768,7 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
           </div>
           <div style="text-align:right;flex-shrink:0">
             <div id="qProdPrice" style="font-family:var(--fh);font-size:20px;font-weight:800;color:var(--go);margin-bottom:6px"></div>
-            <a id="qProdLink" href="#" target="_blank" rel="noopener"><button class="btn bgo" style="font-size:13px;padding:10px 18px">Get It →</button></a>
+            <a id="qProdLink" target="_blank" rel="noopener"><button class="btn bgo" style="font-size:13px;padding:10px 18px">Get It →</button></a>
           </div>
         </div>
       </div>
@@ -2199,16 +2199,16 @@ var _oeMid=document.getElementById('optinEmailMid');if(_oeMid){_oeMid.addEventLi
       <div class="footer-links">
         <div class="footer-col">
           <h4>Shop</h4>
-          <a href="#" data-tab="shop">All Guides</a>
-          <a href="#" data-tab="bundles">Bundle Deals</a>
-          <a href="#" data-tab="trading">Trading Academy</a>
+          <button data-tab="shop">All Guides</button>
+          <button data-tab="bundles">Bundle Deals</button>
+          <button data-tab="trading">Trading Academy</button>
           <a href="https://smarterhustleacademy.gumroad.com" target="_blank" rel="noopener">Gumroad Store ↗</a>
         </div>
         <div class="footer-col">
           <h4>Learn</h4>
-          <a href="#" data-tab="build">Build a Product</a>
-          <a href="#" data-tab="niche">Niche Finder</a>
-          <a href="#" data-tab="blog">Blog</a>
+          <button data-tab="build">Build a Product</button>
+          <button data-tab="niche">Niche Finder</button>
+          <button data-tab="blog">Blog</button>
         </div>
         <div class="footer-col">
           <h4>Product Pages</h4>
