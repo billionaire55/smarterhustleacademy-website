@@ -132,15 +132,15 @@
 :root{--g:#2D6A4F;--g2:#245a41;--g3:#40B081;--gl:#E8F5EF;--gb:#A8D5BE;--go:#D4A017;--go2:#b88914;--gol:#FDF6E3;--gob:#F0D080;--cr:#FAFAF5;--cr2:#F3EFE5;--cr3:#EAE4D4;--ink:#1A1F16;--ink2:#2D3328;--mu:#6B7560;--bd:#DDD8C8;--wh:#fff;--r:14px;--sh:0 2px 16px rgba(45,106,79,.10);--fh:'Sora',sans-serif;--fb:'DM Sans',sans-serif}
 body{font-family:var(--fb);background:var(--cr);color:var(--ink);min-height:100vh;font-size:16px;line-height:1.6}
 nav{background:var(--ink);position:sticky;top:0;z-index:200;display:flex;align-items:stretch;border-bottom:2px solid var(--g)}
-.nb{display:flex;align-items:center;gap:9px;padding:0 16px 0 14px;border-right:1px solid #2D3328;flex-shrink:0;min-height:52px;text-decoration:none;cursor:pointer}
+.nb{display:flex;align-items:center;gap:9px;padding:0 16px 0 14px;border-right:1px solid #2D3328;flex-shrink:0;min-height:52px}
 .nl{width:32px;height:32px;background:linear-gradient(135deg,var(--g),var(--g3));border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-weight:800;font-size:12px;color:#fff;flex-shrink:0}
 .nn{color:var(--go);font-family:var(--fh);font-size:13px;font-weight:700;white-space:nowrap}
 .ns{display:flex;align-items:stretch;overflow-x:auto;flex:1;scrollbar-width:none}
 .ns::-webkit-scrollbar{display:none}
-nav button,nav a.nav-link{background:none;border:none;color:#8A9080;padding:0 14px;font-size:13px;cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;transition:.2s;font-family:var(--fb);font-weight:600;min-height:52px;text-decoration:none;display:inline-flex;align-items:center}
+nav button{background:none;border:none;color:#8A9080;padding:0 14px;font-size:13px;cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;transition:.2s;font-family:var(--fb);font-weight:600;min-height:52px}
 .nav-div{width:1px;align-self:center;height:24px;background:rgba(255,255,255,.14);margin:0 4px;flex-shrink:0}
 nav button.on{color:var(--g3);border-bottom-color:var(--g3)}
-nav button:hover:not(.on),nav a.nav-link:hover{color:#fff}
+nav button:hover:not(.on){color:#fff}
 .sec{display:none;animation:fi .3s ease}.sec.act{display:block}
 @keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .cnt{padding:28px 20px 70px;max-width:840px;margin:0 auto}
@@ -364,8 +364,8 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
 .footer-tagline{font-size:13px;color:#6B7560;line-height:1.7;max-width:240px}
 .footer-links{display:flex;gap:40px;flex-wrap:wrap}
 .footer-col h4{font-family:var(--fh);font-size:12px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
-.footer-col a,.footer-col button{display:block;font-size:13px;color:#6B7560;text-decoration:none;margin-bottom:8px;transition:.2s;background:none;border:none;padding:0;font-family:inherit;cursor:pointer;text-align:left;width:100%}
-.footer-col a:hover,.footer-col button:hover{color:var(--g3)}
+.footer-col a{display:block;font-size:13px;color:#6B7560;text-decoration:none;margin-bottom:8px;transition:.2s}
+.footer-col a:hover{color:var(--g3)}
 .footer-bottom{border-top:1px solid #1A2A1A;padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 .footer-copy{font-size:12px;color:#3A4A3A}
 .footer-copy span{color:#6B7560}
@@ -702,9 +702,9 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
 <meta name="impact-site-verification" value="0e3f8d29-640d-4f4b-9c8c-90dbd14d3bb6">
 <link rel="icon" href="/icons/icon-192.png">
 <link rel="apple-touch-icon" href="/icons/icon-192.png">
-</head><body id="top">
-<nav aria-label="Primary">
-  <a class="nb" href="#top" aria-label="Smarter Hustle Academy home"><div class="nl">SHA</div><div class="nn">Smarter Hustle™</div></a>
+</head><body>
+<nav>
+  <div class="nb"><div class="nl">SHA</div><div class="nn">Smarter Hustle™</div></div>
   <div class="ns">
     <button class="on" data-tab="home">🏠 Home</button>
     <span class="nav-div"></span>
@@ -720,10 +720,6 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
     <span class="nav-div"></span>
     <button data-tab="blog">📖 Blog</button>
     <button data-tab="resources">🔗 Resources</button>
-    <span class="nav-div"></span>
-    <a class="nav-link" href="#get-started" data-tab="home">Get Started →</a>
-    <a class="nav-link" href="https://gumroad.com/oauth/login" target="_blank" rel="noopener">Sign In</a>
-    <a class="nav-link" href="https://smarterhustleacademy.gumroad.com" target="_blank" rel="noopener">Store ↗</a>
   </div>
 </nav>
 
@@ -737,10 +733,9 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
       <a href="https://smarterhustleacademy.gumroad.com/l/48hourincomesystem?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=hero_48hourincomesystem" target="_blank" rel="noopener"><button class="btn" style="font-size:16px;padding:15px 32px;letter-spacing:.2px">🚀 Get the Foundation — $27</button></a>
       <button class="btn-out" data-tab="niche" style="font-size:14px;padding:13px 24px;border-color:rgba(255,255,255,.3);color:#fff">Find My Niche First →</button>
     </div>
-    <div style="margin-top:14px;font-size:13px;color:#8A9080;position:relative">Not sure which one's right for you? <a href="#quiz-guide" style="color:var(--g3);text-decoration:underline">Answer 2 quick questions below</a> and we'll point you to the right starting place.</div>
-    <div style="margin-top:10px;font-size:13px;color:#6B7560;position:relative">⭐⭐⭐⭐⭐ &nbsp; Trusted by solo entrepreneurs starting from zero</div>
+    <div style="margin-top:18px;font-size:13px;color:#6B7560;position:relative">⭐⭐⭐⭐⭐ &nbsp; Trusted by solo entrepreneurs starting from zero</div>
   </div>
-  <div class="qb" id="quiz-guide">
+  <div class="qb">
     <h2>👋 Where are you right now?</h2>
     <p>Tell us where you're starting and we'll point you to exactly the right place.</p>
     <div class="qos">
@@ -760,7 +755,7 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
           </div>
           <div style="text-align:right;flex-shrink:0">
             <div id="qProdPrice" style="font-family:var(--fh);font-size:20px;font-weight:800;color:var(--go);margin-bottom:6px"></div>
-            <a id="qProdLink" target="_blank" rel="noopener"><button class="btn bgo" style="font-size:13px;padding:10px 18px">Get It →</button></a>
+            <a id="qProdLink" href="#" target="_blank" rel="noopener"><button class="btn bgo" style="font-size:13px;padding:10px 18px">Get It →</button></a>
           </div>
         </div>
       </div>
@@ -843,7 +838,7 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
     <!-- FLAGSHIP PRODUCT -->
     <h2 class="sh">Start With This</h2>
     <p class="sub" style="margin-bottom:14px">One system. Everything you need to go from idea to first sale in 48 hours.</p>
-    <div class="flagship" id="get-started">
+    <div class="flagship">
       <img class="flagship-img" src="https://public-files.gumroad.com/tilzj01ot29rv7godqzaxatgrbkh" alt="48-Hour Income System — Foundation cover">
       <div class="flagship-body">
       <span class="flagship-badge">⭐ MOST POPULAR — START HERE</span>
@@ -903,7 +898,7 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
         <div class="top-pick-title">Passive Income Foundations Bundle</div>
         <div class="top-pick-desc">Blueprint + Validation Toolkit + Bundle Builder Workbook — the full sequence from idea to a bundled offer.</div>
         <div class="top-pick-price">$71</div>
-        <a href="https://smarterhustleacademy.gumroad.com/l/passivefoundation?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=hero_passivefoundation_2" target="_blank" rel="noopener" class="top-pick-cta" onclick="event.stopPropagation();gtag('event','gumroad_click',{'product_slug':'passivefoundation','utm_content':'hero_passivefoundation_2','utm_campaign':'homepage','page_location':window.location.href})">Get the Bundle →</a>
+        <a href="https://smarterhustleacademy.gumroad.com/l/passivefoundation?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=hero_passivefoundation_2" target="_blank" rel="noopener" class="top-pick-cta">Get the Bundle →</a>
         </div>
       </div>
       <div class="top-pick" onclick="gtag('event','gumroad_click',{'product_slug':'faststartbundle','utm_content':'hero_faststartbundle','utm_campaign':'homepage','page_location':window.location.href});window.open('https://smarterhustleacademy.gumroad.com/l/faststartbundle?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=hero_faststartbundle','_blank')">
@@ -912,7 +907,7 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
         <div class="top-pick-title">Fast Start Bundle</div>
         <div class="top-pick-desc">The 48-Hr System + Validation Toolkit + AI Prompt Library. Everything to launch fast.</div>
         <div class="top-pick-price">$47 <span style="font-size:13px;color:var(--mu);font-weight:400;text-decoration:line-through">$81</span></div>
-        <a href="https://smarterhustleacademy.gumroad.com/l/faststartbundle?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=hero_faststartbundle_2" target="_blank" rel="noopener" class="top-pick-cta" onclick="event.stopPropagation();gtag('event','gumroad_click',{'product_slug':'faststartbundle','utm_content':'hero_faststartbundle_2','utm_campaign':'homepage','page_location':window.location.href})">Get the Bundle →</a>
+        <a href="https://smarterhustleacademy.gumroad.com/l/faststartbundle?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=hero_faststartbundle_2" target="_blank" rel="noopener" class="top-pick-cta">Get the Bundle →</a>
         </div>
       </div>
     </div>
@@ -1195,8 +1190,8 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
     <h2 class="sh">48-Hour Income System — Choose Your Level</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px;margin-bottom:30px">
       <div class="bun"><img class="bun-cover" src="https://public-files.gumroad.com/tilzj01ot29rv7godqzaxatgrbkh" alt="48-Hour Income System — Foundation cover"><div class="bdg bk">STARTER</div><div class="btr">Foundation</div><div class="bti">The Core System</div><div style="display:inline-block;background:var(--gl);color:var(--g);border:1px solid var(--gb);border-radius:20px;padding:4px 12px;font-size:11px;font-weight:700;margin-bottom:10px;font-family:var(--fh)">👋 Most beginners start here</div><div class="bde">The complete PDF system — everything to build and sell your first product.</div><div class="bit"><div class="bi">48-Hour Income System PDF (16 pages)</div><div class="bi">5 built-in video scripts</div><div class="bi">Full tool stack reference</div></div><div class="bpr"><span class="bp">$27</span></div><a href="https://smarterhustleacademy.gumroad.com/l/48hourincomesystem?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=bundles_48hourincomesystem" target="_blank" rel="noopener" style="display:block;background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;border-radius:10px;padding:12px;font-size:14px;font-weight:700;text-align:center;text-decoration:none;font-family:var(--fh)">Get Foundation →</a></div>
-      <div class="bun ft"><img class="bun-cover" src="https://public-files.gumroad.com/2t0e1ovabkdz6f995mdks0kskn1w" alt="48-Hour Income System — Builder cover"><div class="bdg">BEST VALUE</div><div class="btr">Builder</div><div class="bti">System + Execution Tools</div><div class="bde">The full system plus the AI Prompt Library — build your product AND write all your content.</div><div class="bit"><div class="bi">Everything in Foundation</div><div class="bi">AI Prompt Library — 52 Prompts ($37 value) — Write all your content with AI</div><div class="bi">Validation Toolkit ($17 value) — Confirm your idea will sell</div></div><div class="bbo"><span style="font-size:16px">★</span>BONUS: <a href="https://smarterhustleacademy.gumroad.com/l/quickstartchecklist?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=bundles_quickstartchecklist" target="_blank" rel="noopener" style="text-decoration:underline">SHA™ Starter Kit (free)</a></div><div class="bpr"><span class="bp">$44</span><span class="bw">$89 value</span><span class="bs">Save $45</span></div><a href="https://smarterhustleacademy.gumroad.com/l/48hourtier2?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=bundles_48hourtier2" target="_blank" rel="noopener" style="display:block;background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;border-radius:10px;padding:12px;font-size:14px;font-weight:700;text-align:center;text-decoration:none;font-family:var(--fh)">Get Builder →</a></div>
-      <div class="bun pm"><img class="bun-cover" src="https://public-files.gumroad.com/mtmy9ph2yn6munj9v8aju5glpkrj" alt="48-Hour Income System — Complete cover"><div class="bdg go">PREMIUM</div><div class="btr">Complete</div><div class="bti">Full Launch System</div><div class="bde">The entire suite plus a 30-day calendar so you know exactly what to do after launch.</div><div class="bit"><div class="bi">Everything in Builder</div><div class="bi">30-Day Launch Calendar ($17 value) — Know exactly what to post, daily</div><div class="bi">Platform Setup Walkthrough ($27 value) — Set up every platform correctly, once</div></div><div class="bbo"><span style="font-size:16px">★</span>BONUS: <a href="https://smarterhustleacademy.gumroad.com/l/48hourincomestarterkit?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=bundles_48hourincomestarterkit" target="_blank" rel="noopener" style="text-decoration:underline">SHA™ Launch Checklist (free)</a></div><div class="bpr"><span class="bp" style="color:var(--go2)">$81</span><span class="bw">$125 value</span><span class="bs" style="background:var(--gol);color:var(--go2);border-color:var(--gob)">Save $44</span></div><a href="https://smarterhustleacademy.gumroad.com/l/48hourtier3?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=bundles_48hourtier3" target="_blank" rel="noopener" style="display:block;background:linear-gradient(135deg,var(--go),var(--go2));color:#fff;border-radius:10px;padding:12px;font-size:14px;font-weight:700;text-align:center;text-decoration:none;font-family:var(--fh)">Get Complete →</a></div>
+      <div class="bun ft"><img class="bun-cover" src="https://public-files.gumroad.com/2t0e1ovabkdz6f995mdks0kskn1w" alt="48-Hour Income System — Builder cover"><div class="bdg">BEST VALUE</div><div class="btr">Builder</div><div class="bti">System + Execution Tools</div><div class="bde">The full system plus the AI Prompt Library — build your product AND write all your content.</div><div class="bit"><div class="bi">Everything in Foundation</div><div class="bi">AI Prompt Library — 52 Prompts ($37 value) — Write all your content with AI</div><div class="bi">Validation Toolkit ($17 value) — Confirm your idea will sell</div></div><div class="bbo"><span style="font-size:16px">★</span>BONUS: <a href="https://smarterhustleacademy.gumroad.com/l/quickstartchecklist?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=bundles_quickstartchecklist" target="_blank" rel="noopener" style="color:var(--go2);font-weight:700;text-decoration:underline">SHA™ Starter Kit (free)</a></div><div class="bpr"><span class="bp">$44</span><span class="bw">$89 value</span><span class="bs">Save $45</span></div><a href="https://smarterhustleacademy.gumroad.com/l/48hourtier2?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=bundles_48hourtier2" target="_blank" rel="noopener" style="display:block;background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;border-radius:10px;padding:12px;font-size:14px;font-weight:700;text-align:center;text-decoration:none;font-family:var(--fh)">Get Builder →</a></div>
+      <div class="bun pm"><img class="bun-cover" src="https://public-files.gumroad.com/mtmy9ph2yn6munj9v8aju5glpkrj" alt="48-Hour Income System — Complete cover"><div class="bdg go">PREMIUM</div><div class="btr">Complete</div><div class="bti">Full Launch System</div><div class="bde">The entire suite plus a 30-day calendar so you know exactly what to do after launch.</div><div class="bit"><div class="bi">Everything in Builder</div><div class="bi">30-Day Launch Calendar ($17 value) — Know exactly what to post, daily</div><div class="bi">Platform Setup Walkthrough ($27 value) — Set up every platform correctly, once</div></div><div class="bbo"><span style="font-size:16px">★</span>BONUS: <a href="https://smarterhustleacademy.gumroad.com/l/48hourincomestarterkit?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=bundles_48hourincomestarterkit" target="_blank" rel="noopener" style="color:var(--go2);font-weight:700;text-decoration:underline">SHA™ Launch Checklist (free)</a></div><div class="bpr"><span class="bp" style="color:var(--go2)">$81</span><span class="bw">$125 value</span><span class="bs" style="background:var(--gol);color:var(--go2);border-color:var(--gob)">Save $44</span></div><a href="https://smarterhustleacademy.gumroad.com/l/48hourtier3?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=bundles_48hourtier3" target="_blank" rel="noopener" style="display:block;background:linear-gradient(135deg,var(--go),var(--go2));color:#fff;border-radius:10px;padding:12px;font-size:14px;font-weight:700;text-align:center;text-decoration:none;font-family:var(--fh)">Get Complete →</a></div>
     </div>
 
     <div style="overflow-x:auto;margin-bottom:30px">
@@ -1223,7 +1218,7 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
         <div class="bg" style="background:var(--gl);border:1px solid var(--gb)"><div style="font-size:18px;margin-bottom:5px">✅</div><div class="bgt">Validation Toolkit</div><div class="bgs">Confirm your idea will sell</div><div class="bgv">$17 value</div></div>
         <div class="bg" style="background:var(--gl);border:1px solid var(--gb)"><div style="font-size:18px;margin-bottom:5px">📝</div><div class="bgt">AI Prompt Library</div><div class="bgs">Write everything with AI</div><div class="bgv">$37 value</div></div>
       </div>
-      <div class="bbo"><span style="font-size:16px">★</span>BONUS: SHA™ Starter Kit + <a href="https://smarterhustleacademy.gumroad.com/l/48hourincomestarterkit?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=bundles_48hourincomestarterkit_2" target="_blank" rel="noopener" style="text-decoration:underline">SHA™ Launch Checklist (free)</a></div>
+      <div class="bbo"><span style="font-size:16px">★</span>BONUS: SHA™ Starter Kit + <a href="https://smarterhustleacademy.gumroad.com/l/48hourincomestarterkit?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=bundles_48hourincomestarterkit_2" target="_blank" rel="noopener" style="color:var(--go2);font-weight:700;text-decoration:underline">SHA™ Launch Checklist (free)</a></div>
       <div class="bpr"><span class="bp">$47</span><span class="bw">$81 value</span><span class="bs">Save $34</span></div>
       <a href="https://smarterhustleacademy.gumroad.com/l/faststartbundle?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=bundles_faststartbundle" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;border-radius:10px;padding:13px 26px;font-size:15px;font-weight:700;text-decoration:none;font-family:var(--fh)">Get Fast Start Bundle →</a>
     </div>
@@ -1239,7 +1234,7 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
         <div class="bg" style="background:var(--gol);border:1px solid var(--gob)"><div style="font-size:18px;margin-bottom:5px">📦</div><div class="bgt">Bundle Builder Workbook</div><div class="bgs">Package your guides to sell more</div><div class="bgv">$47 value</div></div>
         <div class="bg" style="background:var(--gol);border:1px solid var(--gob)"><div style="font-size:18px;margin-bottom:5px">📱</div><div class="bgt">Platform Setup Walkthrough</div><div class="bgs">Set up every platform correctly, once</div><div class="bgv">$27 value</div></div>
       </div>
-      <div class="bbo"><span style="font-size:16px">★</span>BONUS: SHA™ Starter Kit + <a href="https://smarterhustleacademy.gumroad.com/l/48hourincomestarterkit?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=bundles_48hourincomestarterkit_3" target="_blank" rel="noopener" style="text-decoration:underline">SHA™ Launch Checklist (free)</a></div>
+      <div class="bbo"><span style="font-size:16px">★</span>BONUS: SHA™ Starter Kit + <a href="https://smarterhustleacademy.gumroad.com/l/48hourincomestarterkit?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=bundles_48hourincomestarterkit_3" target="_blank" rel="noopener" style="color:var(--go2);font-weight:700;text-decoration:underline">SHA™ Launch Checklist (free)</a></div>
       <div class="bpr"><span class="bp" style="color:var(--go2)">$97</span><span class="bw">$162 value</span><span class="bs" style="background:var(--gol);color:var(--go2);border-color:var(--gob)">Save $65</span></div>
       <a href="https://smarterhustleacademy.gumroad.com/l/completeincomestack?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=bundles_completeincomestack" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,var(--go),var(--go2));color:#fff;border-radius:10px;padding:13px 26px;font-size:15px;font-weight:700;text-decoration:none;font-family:var(--fh)">Get Income Stack →</a>
     </div>
@@ -1252,7 +1247,7 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
         <div class="bg" style="background:var(--gl);border:1px solid var(--gb)"><div style="font-size:18px;margin-bottom:5px">💻</div><div class="bgt">AI Prompts Code Guide</div><div class="bgs">Automate tasks without hiring a developer</div><div class="bgv">$27 value</div></div>
         <div class="bg" style="background:var(--gl);border:1px solid var(--gb)"><div style="font-size:18px;margin-bottom:5px">🤖</div><div class="bgt">AI Agents for Business Guide</div><div class="bgs">Run parts of your business on autopilot</div><div class="bgv">$37 value</div></div>
       </div>
-      <div class="bbo"><span style="font-size:16px">★</span>BONUS: <a href="https://smarterhustleacademy.gumroad.com/l/30proventiktokhook?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=bundles_30proventiktokhook" target="_blank" rel="noopener" style="text-decoration:underline">30 Proven TikTok Hook Formulas</a> <span style="color:var(--mu);font-size:12px">($17 value — free with this bundle)</span></div>
+      <div class="bbo"><span style="font-size:16px">★</span>BONUS: <a href="https://smarterhustleacademy.gumroad.com/l/30proventiktokhook?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=bundles_30proventiktokhook" target="_blank" rel="noopener" style="color:var(--go2);font-weight:700;text-decoration:underline">30 Proven TikTok Hook Formulas</a> <span style="color:var(--mu);font-size:12px">($17 value — free with this bundle)</span></div>
       <div class="bpr"><span class="bp">$65</span><span class="bw">$81 value</span><span class="bs">Save $16</span></div>
       <a href="https://smarterhustleacademy.gumroad.com/l/aimasterybundle?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=bundles_aimasterybundle" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;border-radius:10px;padding:13px 26px;font-size:15px;font-weight:700;text-decoration:none;font-family:var(--fh)">Get AI Mastery Bundle →</a>
     </div>
@@ -1265,7 +1260,7 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
         <div class="bg" style="background:var(--gl);border:1px solid var(--gb)"><div style="font-size:18px;margin-bottom:5px">📝</div><div class="bgt">AI Prompt Library</div><div class="bgs">Write all your content with AI</div><div class="bgv">$37 value</div></div>
         <div class="bg" style="background:var(--gl);border:1px solid var(--gb)"><div style="font-size:18px;margin-bottom:5px">💻</div><div class="bgt">AI Prompts Code Guide</div><div class="bgs">Automate tasks without hiring a developer</div><div class="bgv">$27 value</div></div>
       </div>
-      <div class="bbo"><span style="font-size:16px">★</span>BONUS: <a href="https://smarterhustleacademy.gumroad.com/l/30proventiktokhook?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=bundles_30proventiktokhook_2" target="_blank" rel="noopener" style="text-decoration:underline">30 Proven TikTok Hook Formulas</a> <span style="color:var(--mu);font-size:12px">($17 value — free with this bundle)</span></div>
+      <div class="bbo"><span style="font-size:16px">★</span>BONUS: <a href="https://smarterhustleacademy.gumroad.com/l/30proventiktokhook?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=bundles_30proventiktokhook_2" target="_blank" rel="noopener" style="color:var(--go2);font-weight:700;text-decoration:underline">30 Proven TikTok Hook Formulas</a> <span style="color:var(--mu);font-size:12px">($17 value — free with this bundle)</span></div>
       <div class="bpr"><span class="bp">$127</span><span class="bw">$148 value</span><span class="bs">Save $21</span></div>
       <a href="https://smarterhustleacademy.gumroad.com/l/aicommandcenter?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=bundles_aicommandcenter" target="_blank" rel="noopener" style="display:inline-block;background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;border-radius:10px;padding:13px 26px;font-size:15px;font-weight:700;text-decoration:none;font-family:var(--fh)">Get AI Command Centre →</a>
     </div>
@@ -1279,7 +1274,7 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
         <div class="bg" style="background:var(--cr2);border:1px solid var(--bd)"><div style="font-size:18px;margin-bottom:5px">📦</div><div class="bgt">Bundle Builder Workbook</div><div class="bgs">Package your guides to sell more</div><div class="bgv">$47 value</div></div>
         <div class="bg" style="background:var(--cr2);border:1px solid var(--bd)"><div style="font-size:18px;margin-bottom:5px">📊</div><div class="bgt">Weekly Revenue Review</div><div class="bgs">See what's working before the month ends</div><div class="bgv">$27 value</div></div>
       </div>
-      <div class="bbo"><span style="font-size:16px">★</span>BONUS: <a href="https://smarterhustleacademy.gumroad.com/l/aipromptlibrary?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=bundles_aipromptlibrary" target="_blank" rel="noopener" style="text-decoration:underline">AI Prompt Library — 52 Done-For-You Prompts</a> <span style="color:var(--mu);font-size:12px">($37 value — free with this bundle)</span></div>
+      <div class="bbo"><span style="font-size:16px">★</span>BONUS: <a href="https://smarterhustleacademy.gumroad.com/l/aipromptlibrary?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=bundles_aipromptlibrary" target="_blank" rel="noopener" style="color:var(--go2);font-weight:700;text-decoration:underline">AI Prompt Library — 52 Done-For-You Prompts</a> <span style="color:var(--mu);font-size:12px">($37 value — free with this bundle)</span></div>
       <div class="bpr"><span class="bp">$197</span><span class="bw">$292 value</span><span class="bs">Save $95</span></div>
       <a href="https://smarterhustleacademy.gumroad.com/l/premiumbusinessbuilder?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=bundles_premiumbusinessbuilder" target="_blank" rel="noopener" style="display:inline-block;background:var(--ink);color:var(--go);border-radius:10px;padding:13px 26px;font-size:15px;font-weight:700;text-decoration:none;font-family:var(--fh)">Get Premium Bundle →</a>
     </div>
@@ -1399,6 +1394,7 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
       <button class="fb" data-f="Garden">🌱 Gardening</button>
       <button class="fb" data-f="Coaching">🏆 Coaching</button>
       <button class="fb" data-f="Trading">📈 Trading</button>
+      <button class="fb" data-f="Money">🎓 Money Academy</button>
     </div>
     <div class="pgd" id="pGrid"></div>
   </div>
@@ -1871,7 +1867,7 @@ function handleOptin(suffix){
 <script>
 (function(){
 'use strict';
-var TABS=['home','build','content','niche','progress','bundles','blog','shop','resources','trading'];
+var TABS=['home','build','content','niche','progress','bundles','blog','shop','resources','trading','landing'];
 function goTab(id){TABS.forEach(function(t){var s=document.getElementById(t);if(s)s.classList.remove('act');});var s=document.getElementById(id);if(s){s.classList.add('act');window.scrollTo(0,0);}document.querySelectorAll('nav button').forEach(function(b){b.classList.remove('on');});var nb=document.querySelector('nav button[data-tab="'+id+'"]');if(nb)nb.classList.add('on');if(id==='home')updSnap();if(id==='blog')loadBlog();}
 document.addEventListener('click',function(e){
   var tb=e.target.closest('[data-tab]');if(tb&&tb.dataset.tab){goTab(tb.dataset.tab);return;}
@@ -1943,9 +1939,18 @@ var prods=[{cat:'Income',icon:'💰',img:'https://public-files.gumroad.com/tilzj
 {cat:'Income',icon:'🛠',img:'https://public-files.gumroad.com/32jec1oms1xa3em10zrcmnhorxa1',t:'The Complete Digital Hustle Stack Guide',s:'Every tool you need to build, launch & scale a passive income business — without tech skills or a team. 25+ pages.',b:'Full tool stack',p:'$27',url:'https://smarterhustleacademy.gumroad.com/l/digitalhustlestack?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=trading_digitalhustlestack'},
 {cat:'Trading',icon:'📈',img:'https://public-files.gumroad.com/cbiw1xn4qckbkcsli2dromrjussr',t:'30-Day Elite Trading Academy — Starter',s:'Full 36-lesson interactive academy with built-in tools and AI automation bonus module. Instant access, no expiry.',b:'Entry price',p:'$47',url:'https://smarterhustleacademy.gumroad.com/l/30daytradingacademy?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=trading_30daytradingacademy_2'},{cat:'Trading',icon:'📈',img:'https://public-files.gumroad.com/o84iug7i0sx61nw6cgq1kvosgsvj',t:'30-Day Elite Trading Academy — Founding Cohort',s:'Everything in Starter plus the Visual Companion Guide, printable journal templates, and lifetime updates.',b:'⭐ BEST VALUE',p:'$97',url:'https://smarterhustleacademy.gumroad.com/l/30daytradingacademyfounding?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=trading_30daytradingacademyfounding_5'},{cat:'Trading',icon:'📈',img:'https://public-files.gumroad.com/at0p1dzaytqa1c5vdjkep6z82k0d',t:'Trading Academy Complete Bundle',s:'Everything in Founding Cohort plus Passive Income Blueprint, AI Prompt Library, and Digital Hustle Stack Guide — $220+ value.',b:'Best bundle',p:'$147',url:'https://smarterhustleacademy.gumroad.com/l/tradingcompletebundle?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=trading_tradingcompletebundle_2'},
 {cat:'AI',icon:'⚡',img:'https://public-files.gumroad.com/1vj8lg6iag11pg9sjiw2zvjp2o1w',t:'Fast Start Bundle',s:'The 48-Hr System + Validation Toolkit + AI Prompt Library. Everything to launch fast.',b:'Bundle deal',p:'$47',url:'https://smarterhustleacademy.gumroad.com/l/faststartbundle?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=trading_faststartbundle'},
-{cat:'Income',icon:'💰',img:'https://public-files.gumroad.com/knhkxr31e4x2mxg9wd3lj4hfvc0s',t:'The Complete Income Stack',s:'6 guides plus bonuses to build multiple products and package them into bundles that sell on autopilot.',b:'Bundle deal',p:'$97',url:'https://smarterhustleacademy.gumroad.com/l/completeincomestack?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=trading_completeincomestack'}];
+{cat:'Income',icon:'💰',img:'https://public-files.gumroad.com/knhkxr31e4x2mxg9wd3lj4hfvc0s',t:'The Complete Income Stack',s:'6 guides plus bonuses to build multiple products and package them into bundles that sell on autopilot.',b:'Bundle deal',p:'$97',url:'https://smarterhustleacademy.gumroad.com/l/completeincomestack?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=trading_completeincomestack'},
+{cat:'Money',icon:'🎓',img:'https://public-files.gumroad.com/4ayzfhwhdv1h0fygg5vrnqe814eg',t:'Money Starter™ — Complete Bundle (Ages 13–17)',s:'Book + Workbook + Planner + Certificate of Completion. Everything a teen needs to actually understand money, including a full crypto and blockchain chapter.',b:'⭐ BEST VALUE',p:'$27',url:'https://smarterhustleacademy.gumroad.com/l/MoneyStarterBundle?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=shop_moneystarterbundle'},
+{cat:'Money',icon:'📘',img:'https://public-files.gumroad.com/vyid2tb8reqw9tcqrs0gm1hciuwo',t:'Money Starter: The Book (Ages 13-17)',s:'15 real-life money stories following Jordan, Maya, and Chris — 51 pages, now with a full crypto and blockchain chapter.',b:'15 chapters',p:'$17',url:'https://smarterhustleacademy.gumroad.com/l/moneystarter?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=shop_moneystarter'},
+{cat:'Money',icon:'📝',img:'https://public-files.gumroad.com/tmne62snex2lrcx98w9e4rgdp78m',t:'Money Starter: The Workbook (Ages 13-17)',s:'14 hands-on sections — one for every chapter in the book, including crypto — so teens practice what they just read.',b:'42 pages',p:'$15',url:'https://smarterhustleacademy.gumroad.com/l/moneystarterworkbook?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=shop_moneystarterworkbook'},
+{cat:'Money',icon:'📅',img:'https://public-files.gumroad.com/cxb1epp4vb8ovk3c4qn40ggrsqgo',t:'Money Starter: The Planner (Ages 13-17)',s:'Track jobs, savings goals, spending, and crypto safety as it happens — 28 pages with real checkboxes throughout.',b:'28 pages',p:'$12',url:'https://smarterhustleacademy.gumroad.com/l/moneystarterplanner?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=shop_moneystarterplanner'},
+{cat:'Money',icon:'🏆',img:'https://public-files.gumroad.com/f8ooxrn7vn66fsje4mnhv9y0fsz5',t:'Money Starter: Certificate of Completion',s:'A printable certificate for finishing the Money Starter course — something to show for the work.',b:'Printable',p:'$7',url:'https://smarterhustleacademy.gumroad.com/l/moneystartercertificate?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=shop_moneystartercertificate'},
+{cat:'Money',icon:'📘',img:'https://public-files.gumroad.com/432p8xkt5n6l8kt7g7bbey8grh53',t:'Money Independent: The Book (Ages 18-25)',s:'Follows Alexis, Marcus, and Taylor through first paychecks, credit, student loans, saving, and investing.',b:'Core chapters',p:'$17',url:'https://smarterhustleacademy.gumroad.com/l/moneyindependent?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=shop_moneyindependent'},
+{cat:'Money',icon:'📝',img:'https://public-files.gumroad.com/yb9e6gt35psqvlawqm3qreo05kmt',t:'Money Independent: The Workbook (Ages 18-25)',s:'8 sections that turn each lesson into a real activity you can apply to your own money right away.',b:'8 sections',p:'$15',url:'https://smarterhustleacademy.gumroad.com/l/moneyindependentworkbook?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=shop_moneyindependentworkbook'},
+{cat:'Money',icon:'📅',img:'https://public-files.gumroad.com/wywodr5hs0xsp4ne75dagcktf3lh',t:'Money Independent: The Planner (Ages 18-25)',s:'Net worth and 50/30/20 budget trackers built for the stage where your money decisions start compounding.',b:'Monthly check-in',p:'$12',url:'https://smarterhustleacademy.gumroad.com/l/moneyindependentplanner?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=shop_moneyindependentplanner'},
+{cat:'Money',icon:'🏆',img:'https://public-files.gumroad.com/i629f5hupewwmthem3si8yqq657c',t:'Money Independent: Certificate of Completion',s:'A printable certificate for finishing the Money Independent course.',b:'Printable',p:'$7',url:'https://smarterhustleacademy.gumroad.com/l/moneyindependentcertificate?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=shop_moneyindependentcertificate'}];
 var aF='all';
-function renderProd(){var filtered=aF==='all'?prods:prods.filter(function(p){return p.cat===aF;});var h='';filtered.forEach(function(p){var cc=p.cat==='AI'?'cag':p.cat==='Garden'?'cag':p.cat==='Coaching'?'cad':p.cat==='Trading'?'cad':'cao';var media=p.img?'<div class="pc-img-wrap"><img src="'+p.img+'" alt="'+p.t.replace(/"/g,'&quot;')+' cover" loading="lazy"></div>':'<div class="pc-img-wrap" style="display:flex;align-items:center;justify-content:center;font-size:40px">'+p.icon+'</div>';h+='<div class="pc">'+media+'<div class="pc-body"><span class="pca '+cc+'">'+p.cat.toUpperCase()+'</span><div class="ptl">'+p.t+'</div><div class="psu">'+p.s+'</div><span class="pb2">'+p.b+'</span><div class="pf"><span class="pp">'+p.p+'</span><a href="'+p.url+'" target="_blank" rel="noopener" class="pbtn">Buy →</a></div></div></div>';});document.getElementById('pGrid').innerHTML=h||'<div style="text-align:center;padding:30px;color:var(--mu)">No products in this category yet.</div>';}
+function renderProd(){var filtered=aF==='all'?prods:prods.filter(function(p){return p.cat===aF;});var h='';filtered.forEach(function(p){var cc=p.cat==='AI'?'cag':p.cat==='Garden'?'cag':p.cat==='Coaching'?'cad':p.cat==='Trading'?'cad':p.cat==='Money'?'cag':'cao';var media=p.img?'<div class="pc-img-wrap"><img src="'+p.img+'" alt="'+p.t.replace(/"/g,'&quot;')+' cover" loading="lazy"></div>':'<div class="pc-img-wrap" style="display:flex;align-items:center;justify-content:center;font-size:40px">'+p.icon+'</div>';h+='<div class="pc">'+media+'<div class="pc-body"><span class="pca '+cc+'">'+p.cat.toUpperCase()+'</span><div class="ptl">'+p.t+'</div><div class="psu">'+p.s+'</div><span class="pb2">'+p.b+'</span><div class="pf"><span class="pp">'+p.p+'</span><a href="'+p.url+'" target="_blank" rel="noopener" class="pbtn">Buy →</a></div></div></div>';});document.getElementById('pGrid').innerHTML=h||'<div style="text-align:center;padding:30px;color:var(--mu)">No products in this category yet.</div>';}
 renderProd();
 // ── BLOG — PRELOADED + HOME STRIP + LEARN TAB ────────────────────
 var blogLoaded=false;
@@ -2190,16 +2195,16 @@ var _oeMid=document.getElementById('optinEmailMid');if(_oeMid){_oeMid.addEventLi
       <div class="footer-links">
         <div class="footer-col">
           <h4>Shop</h4>
-          <button data-tab="shop">All Guides</button>
-          <button data-tab="bundles">Bundle Deals</button>
-          <button data-tab="trading">Trading Academy</button>
+          <a href="#" data-tab="shop">All Guides</a>
+          <a href="#" data-tab="bundles">Bundle Deals</a>
+          <a href="#" data-tab="trading">Trading Academy</a>
           <a href="https://smarterhustleacademy.gumroad.com" target="_blank" rel="noopener">Gumroad Store ↗</a>
         </div>
         <div class="footer-col">
           <h4>Learn</h4>
-          <button data-tab="build">Build a Product</button>
-          <button data-tab="niche">Niche Finder</button>
-          <button data-tab="blog">Blog</button>
+          <a href="#" data-tab="build">Build a Product</a>
+          <a href="#" data-tab="niche">Niche Finder</a>
+          <a href="#" data-tab="blog">Blog</a>
         </div>
         <div class="footer-col">
           <h4>Product Pages</h4>
@@ -2232,6 +2237,243 @@ var _oeMid=document.getElementById('optinEmailMid');if(_oeMid){_oeMid.addEventLi
   </div>
 </footer>
 
+<!-- LANDING PAGE TAB -->
+<div id="landing" class="sec">
+  <div class="lp-wrap">
+<div class="site-shell">
+    <header class="header">
+      <div class="container nav">
+        <a class="brand" href="#top" aria-label="Smarter Hustle Academy home">
+          <span class="brand-badge" aria-hidden="true">SHA</span>
+          <span>
+            Smarter Hustle Academy
+            <small>Build, launch & earn with less guesswork</small>
+          </span>
+        </a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#shop">Products</a>
+          <a href="#steps">How it works</a>
+          <a href="#faq">FAQ</a>
+          <a href="http://smarterhustleacademy.com" target="_blank" rel="noopener noreferrer">Main site</a>
+        </nav>
+        <a class="btn btn-primary" href="#capture">Get Started <span aria-hidden="true">→</span></a>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="container">
+          <div class="hero-card">
+            <div class="hero-grid">
+              <div>
+                <div class="eyebrow">✦ For beginners, side hustlers & creators starting from zero</div>
+                <h2>Build your first digital product. <span class="accent">Make your first sale</span> in 48 hours.</h2>
+                <p class="lead">No experience. No audience. No complicated tech. Just a clear system, practical templates, and a fast path to launch.</p>
+                <div class="hero-points" aria-label="Key benefits">
+                  <span class="pill">From zero to live product</span>
+                  <span class="pill">Works with Gumroad</span>
+                  <span class="pill">Async, beginner-friendly</span>
+                </div>
+                <div class="hero-actions">
+                  <a class="btn btn-primary" href="#shop">Get the 48-Hour System — $27 <span aria-hidden="true">→</span></a>
+                  <a class="btn btn-secondary" href="#capture">Find my niche first</a>
+                </div>
+              </div>
+              <aside class="stats" aria-label="Highlights">
+                <div class="stat"><strong>48hrs</strong><span>From idea to live product</span></div>
+                <div class="stat"><strong>$0</strong><span>Required to start</span></div>
+                <div class="stat"><strong>20+</strong><span>Guides, prompts & templates</span></div>
+                <div class="stat"><strong>100%</strong><span>Async — no live calls</span></div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="shop">
+        <div class="container">
+          <div class="section-head">
+            <div class="kicker">The shop</div>
+            <h2>Everything you need to launch — nothing you don’t.</h2>
+            <p class="section-copy">Every tool, guide, and system you need — organized in the right order for beginners.</p>
+          </div>
+          <div class="cards">
+            <article class="card">
+              <img class="card-img" src="https://public-files.gumroad.com/tilzj01ot29rv7godqzaxatgrbkh" alt="48-Hour Income System — Foundation cover">
+              <div class="card-inner">
+              <div class="card-top">
+                <span class="tag">Most Popular</span>
+                <div class="price">$27</div>
+              </div>
+              <h3>48-Hour Income System™ — Foundation</h3>
+              <p>The step-by-step playbook to build and publish your first PDF product on Gumroad in a weekend.</p>
+              <ul class="list" role="list">
+                <li><span class="check">✓</span><span>Idea to product framework</span></li>
+                <li><span class="check">✓</span><span>Plug-and-play PDF template</span></li>
+                <li><span class="check">✓</span><span>Pricing and launch checklist</span></li>
+              </ul>
+              <a class="btn btn-primary" href="https://smarterhustleacademy.gumroad.com/l/48hourincomesystem?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=landing&utm_content=landing_48hourincomesystem" target="_blank" rel="noopener">Get the System <span aria-hidden="true">→</span></a>
+              </div>
+            </article>
+            <div style="display:grid; gap:18px;">
+              <article class="card">
+                <div class="card-inner">
+                <div class="card-top">
+                  <span class="tag free">Free</span>
+                  <div class="price" style="color:var(--text); font-size: clamp(24px,4vw,42px);">Starter kit</div>
+                </div>
+                <h3>Niche Finder</h3>
+                <p>Identify a product idea, audience angle, and what they’ll pay for in under 20 minutes.</p>
+                <ul class="list" role="list">
+                  <li><span class="check">✓</span><span>Niche scoring worksheet</span></li>
+                  <li><span class="check">✓</span><span>Audience hooks library</span></li>
+                  <li><span class="check">✓</span><span>Validation prompts</span></li>
+                </ul>
+                <a class="btn btn-secondary" href="#capture">Send me the kit</a>
+                </div>
+              </article>
+              <article class="card">
+                <div class="card-inner">
+                <div class="card-top">
+                  <span class="tag free">Bonus</span>
+                  <div class="price" style="color:var(--text); font-size: clamp(24px,4vw,42px);">5 scripts</div>
+                </div>
+                <h3>Short-form video scripts</h3>
+                <p>Proven scripts that help turn content into clicks and early sales the same week.</p>
+                <ul class="list" role="list">
+                  <li><span class="check">✓</span><span>Hook formulas that convert</span></li>
+                  <li><span class="check">✓</span><span>CTA templates</span></li>
+                  <li><span class="check">✓</span><span>Posting cadence guide</span></li>
+                </ul>
+                <a class="btn btn-secondary" href="https://smarterhustleacademy.gumroad.com/l/aipromptlibrary?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=landing&utm_content=landing_aipromptlibrary" target="_blank" rel="noopener">Unlock scripts</a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="steps">
+        <div class="container">
+          <div class="section-head">
+            <div class="kicker">How it works</div>
+            <h2>Your first 3 steps to your first sale</h2>
+            <p class="section-copy">The three-step structure in the screenshots is one of the strongest parts of the page, because it translates the promise into an easy beginner path instead of leaving visitors with vague motivation.</p>
+          </div>
+          <div class="steps">
+            <article class="step">
+              <div class="step-number">1</div>
+              <h3>Find your niche</h3>
+              <p>Use the Niche Finder to pick one problem with proven demand and a simple first offer.</p>
+            </article>
+            <article class="step">
+              <div class="step-number">2</div>
+              <h3>Build your product</h3>
+              <p>Follow the 48-Hour System to create your PDF, write the offer, and publish without overthinking.</p>
+            </article>
+            <article class="step">
+              <div class="step-number">3</div>
+              <h3>Drive your first sale</h3>
+              <p>Use the content scripts and posting prompts to send traffic to your Gumroad page fast.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <div class="kicker">Real students</div>
+            <h2>Made by beginners. Loved by beginners.</h2>
+            
+          </div>
+          <div class="proof">
+            <article class="testimonial">
+              <div class="stars" aria-hidden="true">★★★★★</div>
+              <blockquote>“I had no audience and no idea. Three days later I had a product live and my first $27 sale.”</blockquote>
+              <div class="person"><strong>Monique T.</strong> — SHA™ Student</div>
+            </article>
+            <article class="testimonial">
+              <div class="stars" aria-hidden="true">★★★★★</div>
+              <blockquote>“The scripts alone are worth 10x the price. I finally have a system I can actually follow.”</blockquote>
+              <div class="person"><strong>Darius K.</strong> — SHA™ Student</div>
+            </article>
+            <article class="testimonial">
+              <div class="stars" aria-hidden="true">★★★★★</div>
+              <blockquote>“Cut my launch from months to a weekend. This is the most practical thing I've bought all year.”</blockquote>
+              <div class="person"><strong>Renee J.</strong> — SHA™ Student</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="capture">
+        <div class="container">
+          <div class="capture">
+            <div class="kicker" style="color:var(--gold)">Free starter kit</div>
+            <h2 style="max-width: 12ch;">Get the Niche Finder free — and your first product idea today.</h2>
+            <p>Get the free SHA™ Starter Kit — 25 AI prompts, a quick-start checklist, and your first product idea — delivered instantly.</p>
+            <form id="leadForm" novalidate>
+              <label class="sr-only" for="email">Email address</label>
+              <div class="input-wrap">
+                <span aria-hidden="true">✉️</span>
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+              </div>
+              <p class="error" id="emailError" aria-live="polite"></p>
+              <button class="btn btn-primary" type="submit" style="width:100%;">Send me the kit <span aria-hidden="true">→</span></button>
+              <p class="form-note">No spam. Unsubscribe anytime.</p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq">
+        <div class="container">
+          <div class="section-head">
+            <div class="kicker">Questions answered</div>
+            <h2>Clear answers for people starting from zero</h2>
+            
+          </div>
+          <div class="faq-list">
+            <details>
+              <summary>Do I need an audience to start?<span class="summary-icon">+</span></summary>
+              <div class="faq-content">No. You don't need a big following — you need the right first offer in front of the right few people. This system shows you how to build that offer and get it live without an audience, an email list, or an existing platform.</div>
+            </details>
+            <details>
+              <summary>What if I’m not technical?<span class="summary-icon">+</span></summary>
+              <div class="faq-content">That is exactly who this page is for. The flow stays focused on beginner-friendly tools, clear prompts, and simple actions you can complete without advanced setup.</div>
+            </details>
+            <details>
+              <summary>How long until I see results?<span class="summary-icon">+</span></summary>
+              <div class="faq-content">Most students make their first sale within a week of completing all three steps — niche, product, and content. The system works when you follow it in order and post consistently.</div>
+            </details>
+            
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-row">
+        <div class="brand" aria-label="Smarter Hustle Academy footer brand">
+          <span class="brand-badge" aria-hidden="true" style="width:60px;height:60px;font-size:24px;border-radius:18px;">SHA</span>
+          <span>© 2026 Smarter Hustle Academy™</span>
+        </div>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="#shop">Products</a>
+          <a href="#faq">FAQ</a>
+          <a href="https://smarterhustleacademy.com/resources/">Resources</a>
+          <a href="http://smarterhustleacademy.com" target="_blank" rel="noopener noreferrer">Main site</a>
+        </nav>
+      </div>
+    </footer>
+  </div>
+<div class="toast" id="toast" role="status" aria-live="polite">
+    <strong>You’re in.</strong>
+    Your free SHA starter kit is on its way.
+  </div>
+  </div>
+</div>
 <script>
 // GA4 click tracking for Gumroad links — delegated so it catches every
 // current and future Gumroad button without needing per-element wiring.
