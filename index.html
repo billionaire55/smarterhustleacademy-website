@@ -797,6 +797,23 @@ body[data-page="home"] #globalOptin{display:none}
   .tmb > div[style*="flex:1"]{min-width:150px}
   .tmb .btn{width:100%}
 }
+
+/* ===== blog cover images (Kie.ai, /blog-images/) ===== */
+.bl-img,.bl-ph{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--cr2)}
+.bl-ph{background:linear-gradient(135deg,#1A3A28 0%,var(--g) 60%,#40B081 100%);position:relative;overflow:hidden}
+.bl-ph::before{content:'';position:absolute;right:-30px;top:-30px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(212,160,23,.45),transparent 70%)}
+.bl-ph::after{content:'SHA';position:absolute;left:14px;bottom:10px;font-family:var(--fh);font-weight:800;font-size:13px;letter-spacing:1px;color:rgba(255,255,255,.85);background:rgba(0,0,0,.18);border-radius:6px;padding:3px 8px}
+.blog-strip-card{padding:0;overflow:hidden}
+.blog-strip-card .bl-img,.blog-strip-card .bl-ph{border-bottom:1px solid var(--bd)}
+.blog-strip-body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+.blog-strip-body .blog-strip-tag{align-self:flex-start}
+.blf{padding:0;overflow:hidden}
+.blf-body{padding:20px 22px 22px}
+.blc{align-items:stretch}
+.blc-thumb{width:128px;flex-shrink:0;border-radius:10px;overflow:hidden;align-self:flex-start}
+.blc-thumb .bl-img,.blc-thumb .bl-ph{aspect-ratio:16/10}
+.blc-thumb .bl-ph::after{font-size:10px;left:8px;bottom:6px;padding:2px 6px}
+@media(max-width:600px){.blc{flex-direction:column}.blc-thumb{width:100%}.blc-thumb .bl-img,.blc-thumb .bl-ph{aspect-ratio:16/9}}
 </style>
 <link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#2D6A4F">
@@ -2015,7 +2032,24 @@ renderProd();
 // ── BLOG — PRELOADED + HOME STRIP + LEARN TAB ────────────────────
 var blogLoaded=false;
 var blogData=null;
+var blogImgs={};
+function loadBlogImgs(){
+  return fetch('/blog-images/manifest.json',{cache:'no-store'})
+    .then(function(r){return r.ok?r.json():{};})
+    .then(function(m){blogImgs=m||{};})
+    .catch(function(){blogImgs={};});
+}
+function blogSlug(link){var m=String(link||'').match(/([A-Za-z0-9_-]+)\.html?$/);return m?m[1]:'';}
+function escAttr(t){return String(t||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function blogCover(item){
+  var e=blogImgs[blogSlug(item.link)];
+  if(e&&e.img)return '<img class="bl-img" src="'+escAttr(e.img)+'" alt="'+escAttr(stripHtml(item.title))+'" loading="lazy" decoding="async" onerror="this.outerHTML=\'<div class=&quot;bl-ph&quot; aria-hidden=&quot;true&quot;></div>\'">';
+  return '<div class="bl-ph" aria-hidden="true"></div>';
+}
 function fetchBlog(){
+  return Promise.all([fetchFeed(),loadBlogImgs()]).then(function(r){return r[0];});
+}
+function fetchFeed(){
   return fetch('https://blog.smarterhustleacademy.com/feed.xml',{cache:'no-store'})
     .then(function(r){
       if(!r.ok) throw new Error('feed fetch failed: '+r.status);
@@ -2066,12 +2100,14 @@ function renderHomeStrip(items){
   items.slice(0,3).forEach(function(item){
     var excerpt=stripHtml(item.description).substring(0,100).trim();
     h+='<a href="'+item.link+'" target="_blank" rel="noopener" class="blog-strip-card">'
+      +blogCover(item)
+      +'<div class="blog-strip-body">'
       +'<span class="blog-strip-tag">NEW POST</span>'
       +'<div class="blog-strip-date">'+fmtDate(item.pubDate)+'</div>'
       +'<div class="blog-strip-title">'+item.title+'</div>'
       +'<div class="blog-strip-excerpt">'+excerpt+'...</div>'
       +'<div class="blog-strip-read">Read article →</div>'
-      +'</a>';
+      +'</div></a>';
   });
   if(loading)loading.style.display='none';
   strip.innerHTML=h;
@@ -2087,13 +2123,13 @@ function renderLearnTab(items){
   bCont.style.display='block';
   var fi=items[0];
   var bFeat=document.getElementById('bFeat');
-  if(bFeat)bFeat.innerHTML='<a href="'+fi.link+'" target="_blank" rel="noopener" class="blf"><span class="blt">FEATURED</span><div style="font-size:11px;color:var(--mu);margin-bottom:5px">'+fmtDate(fi.pubDate)+'</div><div class="blti" style="font-size:18px;margin-bottom:7px">'+fi.title+'</div><div class="ble">'+stripHtml(fi.description).substring(0,160)+'...</div><div class="blr">Read article →</div></a>';
+  if(bFeat)bFeat.innerHTML='<a href="'+fi.link+'" target="_blank" rel="noopener" class="blf">'+blogCover(fi)+'<div class="blf-body"><span class="blt">FEATURED</span><div style="font-size:11px;color:var(--mu);margin-bottom:5px">'+fmtDate(fi.pubDate)+'</div><div class="blti" style="font-size:18px;margin-bottom:7px">'+fi.title+'</div><div class="ble">'+stripHtml(fi.description).substring(0,160)+'...</div><div class="blr">Read article →</div></div></a>';
   if(items.length>1){
     var bRecH=document.getElementById('bRecH');
     if(bRecH)bRecH.style.display='flex';
     var h='';
     items.slice(1,7).forEach(function(item){
-      h+='<a href="'+item.link+'" target="_blank" rel="noopener" class="blc"><div style="width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;background:var(--gl)">📄</div><div><span class="blt">Article</span><div style="font-size:12px;color:var(--mu);margin-bottom:5px">'+fmtDate(item.pubDate)+'</div><div class="blti">'+item.title+'</div><div class="ble">'+stripHtml(item.description).substring(0,100)+'...</div><div class="blr">Read →</div></div></a>';
+      h+='<a href="'+item.link+'" target="_blank" rel="noopener" class="blc"><div class="blc-thumb">'+blogCover(item)+'</div><div><span class="blt">Article</span><div style="font-size:12px;color:var(--mu);margin-bottom:5px">'+fmtDate(item.pubDate)+'</div><div class="blti">'+item.title+'</div><div class="ble">'+stripHtml(item.description).substring(0,100)+'...</div><div class="blr">Read →</div></div></a>';
     });
     var bRec=document.getElementById('bRec');
     if(bRec)bRec.innerHTML=h;
