@@ -11,7 +11,7 @@
 <meta name="p:domain_verify" content="aed069f0d0ef70eb92fab3c9a0c82d58"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Smarter Hustle Academy™ | Build Your First Digital Product</title>
-<meta name="description" content="Build your first digital product and make your first sale — no experience, no audience, no team required. Free Niche Finder + step-by-step system.">
+<meta name="description" content="Build your first digital product and get it live for sale on Gumroad in 48 hours — no audience, no experience, no tech skills. Start free with the Niche Finder.">
 <link rel="canonical" href="https://smarterhustleacademy.com/">
 <meta name="author" content="Smarter Hustle Academy™">
 <meta name="keywords" content="digital products, passive income, side hustle, Gumroad, AI tools, online business, digital entrepreneur">
@@ -121,7 +121,7 @@
       "name": "How long until I see results?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most students make their first sale within a week of completing all three steps — niche, product, and content. The system works when you follow it in order and post consistently."
+        "text": "The system is designed to take you from idea to a live product in 48 hours of focused work. How fast you make sales depends on your niche, your product, and how consistently you promote it. There is no guaranteed timeline."
       }
     }
   ]
@@ -499,9 +499,9 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
       position: absolute; left: -999px; top: 12px; background: var(--gold); color: #111;
       padding: 10px 14px; border-radius: 999px; z-index: 999;
     }
-    .skip-link:focus { left: 12px; }
-    .site-shell { overflow: clip; }
-    .container { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
+    :where(.lp-wrap) .skip-link:focus { left: 12px; }
+    :where(.lp-wrap) .site-shell { overflow: clip; }
+    :where(.lp-wrap) .container { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
 .lp-wrap .header {
       position: sticky; top: 0; z-index: 40; backdrop-filter: blur(12px);
       background: rgba(7, 27, 18, 0.78); border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -517,9 +517,9 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
       width: 72px; height: 72px; border-radius: 22px; background: linear-gradient(180deg, #53df8f, #3bc375);
       color: #07140d; display: grid; place-items: center; font-size: 28px; box-shadow: inset 0 1px 0 rgba(255,255,255,.22);
     }
-    .brand small { display: block; color: var(--muted); font-size: 13px; font-weight: 600; letter-spacing: 0.02em; }
-    .nav-links { display: none; gap: 24px; color: var(--muted); font-size: 15px; }
-    .nav-links a:hover { color: var(--text); }
+    :where(.lp-wrap) .brand small { display: block; color: var(--muted); font-size: 13px; font-weight: 600; letter-spacing: 0.02em; }
+    :where(.lp-wrap) .nav-links { display: none; gap: 24px; color: var(--muted); font-size: 15px; }
+    :where(.lp-wrap) .nav-links a:hover { color: var(--text); }
 .lp-wrap .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 10px;
       padding: 16px 24px; border-radius: 999px; border: 1px solid transparent; cursor: pointer;
@@ -529,11 +529,11 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
       background: linear-gradient(180deg, var(--gold-2), var(--gold)); color: #16120c;
       box-shadow: 0 12px 30px rgba(240, 187, 66, .18);
     }
-    .btn-primary:hover { transform: translateY(-1px); filter: brightness(1.03); }
+    :where(.lp-wrap) .btn-primary:hover { transform: translateY(-1px); filter: brightness(1.03); }
 .lp-wrap .btn-secondary {
       background: rgba(255,255,255,0.02); border-color: var(--border); color: var(--text);
     }
-    .btn-secondary:hover { background: rgba(255,255,255,0.05); }
+    :where(.lp-wrap) .btn-secondary:hover { background: rgba(255,255,255,0.05); }
 .lp-wrap .hero {
       padding: 54px 0 28px;
     }
@@ -550,21 +550,21 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
       border: 1px solid rgba(240, 187, 66, 0.3);
       box-shadow: var(--shadow);
     }
-    .hero-grid { display: grid; gap: 30px; align-items: center; }
+    :where(.lp-wrap) .hero-grid { display: grid; gap: 30px; align-items: center; }
 .lp-wrap h2 {
       margin: 0 0 18px; font-size: clamp(44px, 9vw, 88px); line-height: .95; letter-spacing: -0.06em;
       max-width: 11ch;
     }
-    .accent { color: #57db8d; }
+    :where(.lp-wrap) .accent { color: #57db8d; }
 .lp-wrap .lead {
       font-size: clamp(20px, 2.5vw, 28px); color: var(--muted); max-width: 25ch; margin-bottom: 26px;
     }
-    .hero-points { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
+    :where(.lp-wrap) .hero-points { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
 .lp-wrap .pill {
       padding: 10px 14px; border: 1px solid var(--border); border-radius: 999px; color: var(--muted); font-size: 14px;
       background: rgba(255,255,255,0.02);
     }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+    :where(.lp-wrap) .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
 .lp-wrap .stats {
       display: grid; gap: 14px; grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -572,33 +572,33 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
       background: rgba(0,0,0,0.16); border: 1px solid var(--border); border-radius: 24px; padding: 22px;
       min-height: 132px;
     }
-    .stat strong { display: block; font-size: clamp(28px, 5vw, 48px); color: var(--gold); letter-spacing: -0.05em; }
-    .stat span { color: var(--muted); font-size: 15px; }
-    section { padding: 34px 0; }
-    .section-head { margin-bottom: 24px; }
-    .kicker { color: var(--mint); text-transform: uppercase; letter-spacing: .18em; font-size: 14px; font-weight: 700; margin-bottom: 10px; }
-    h2 { margin: 0 0 12px; font-size: clamp(34px, 5vw, 64px); line-height: 1; letter-spacing: -0.05em; max-width: 12ch; }
-    .section-copy { color: var(--muted); font-size: 19px; max-width: 42ch; }
-    .cards { display: grid; gap: 18px; }
+    :where(.lp-wrap) .stat strong { display: block; font-size: clamp(28px, 5vw, 48px); color: var(--gold); letter-spacing: -0.05em; }
+    :where(.lp-wrap) .stat span { color: var(--muted); font-size: 15px; }
+    :where(.lp-wrap) section { padding: 34px 0; }
+    :where(.lp-wrap) .section-head { margin-bottom: 24px; }
+    :where(.lp-wrap) .kicker { color: var(--mint); text-transform: uppercase; letter-spacing: .18em; font-size: 14px; font-weight: 700; margin-bottom: 10px; }
+    :where(.lp-wrap) h2 { margin: 0 0 12px; font-size: clamp(34px, 5vw, 64px); line-height: 1; letter-spacing: -0.05em; max-width: 12ch; }
+    :where(.lp-wrap) .section-copy { color: var(--muted); font-size: 19px; max-width: 42ch; }
+    :where(.lp-wrap) .cards { display: grid; gap: 18px; }
 .lp-wrap .card {
       background: linear-gradient(180deg, var(--surface), var(--bg-2)); border: 1px solid var(--border); border-radius: 30px;
       overflow: hidden; box-shadow: var(--shadow);
     }
-    .card-inner { padding: 28px; }
-    .card-img { width: 100%; aspect-ratio: 16/9; object-fit: contain; display: block; background: #0d2a1d; }
-    .card-top { display: flex; align-items: start; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
-    .tag { display: inline-flex; padding: 9px 14px; border-radius: 999px; background: rgba(240,187,66,.15); color: var(--gold); font-size: 14px; font-weight: 800; }
-    .tag.free { background: rgba(70,216,135,.12); color: var(--mint-2); }
-    .price { font-size: clamp(28px, 5vw, 54px); font-weight: 800; letter-spacing: -0.05em; }
-    .card h3 { margin: 0 0 12px; font-size: clamp(28px, 4vw, 48px); letter-spacing: -0.04em; }
-    .card p { color: var(--muted); font-size: 18px; margin: 0 0 18px; max-width: 30ch; }
-    .list { display: grid; gap: 12px; margin: 0 0 24px; padding: 0; list-style: none; }
-    .list li { display: flex; gap: 12px; align-items: start; color: var(--text); font-size: 18px; }
+    :where(.lp-wrap) .card-inner { padding: 28px; }
+    :where(.lp-wrap) .card-img { width: 100%; aspect-ratio: 16/9; object-fit: contain; display: block; background: #0d2a1d; }
+    :where(.lp-wrap) .card-top { display: flex; align-items: start; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+    :where(.lp-wrap) .tag { display: inline-flex; padding: 9px 14px; border-radius: 999px; background: rgba(240,187,66,.15); color: var(--gold); font-size: 14px; font-weight: 800; }
+    :where(.lp-wrap) .tag.free { background: rgba(70,216,135,.12); color: var(--mint-2); }
+    :where(.lp-wrap) .price { font-size: clamp(28px, 5vw, 54px); font-weight: 800; letter-spacing: -0.05em; }
+    :where(.lp-wrap) .card h3 { margin: 0 0 12px; font-size: clamp(28px, 4vw, 48px); letter-spacing: -0.04em; }
+    :where(.lp-wrap) .card p { color: var(--muted); font-size: 18px; margin: 0 0 18px; max-width: 30ch; }
+    :where(.lp-wrap) .list { display: grid; gap: 12px; margin: 0 0 24px; padding: 0; list-style: none; }
+    :where(.lp-wrap) .list li { display: flex; gap: 12px; align-items: start; color: var(--text); font-size: 18px; }
 .lp-wrap .check {
       width: 28px; height: 28px; border-radius: 999px; flex: 0 0 28px; display: grid; place-items: center;
       background: rgba(70,216,135,.15); color: var(--mint-2); border: 1px solid rgba(70,216,135,.18); font-size: 15px;
     }
-    .steps { display: grid; gap: 18px; }
+    :where(.lp-wrap) .steps { display: grid; gap: 18px; }
 .lp-wrap .step {
       position: relative; padding: 28px 24px 24px 24px; border-radius: 28px; background: linear-gradient(180deg, #0b2419, #0a2016);
       border: 1px solid var(--border);
@@ -607,18 +607,18 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
       width: 62px; height: 62px; border-radius: 999px; background: var(--gold); color: #15120c; display: grid; place-items: center;
       font-weight: 800; font-size: 28px; margin-bottom: 24px;
     }
-    .step h3 { margin: 0 0 10px; font-size: 22px; }
-    .step p { margin: 0; color: var(--muted); font-size: 18px; max-width: 28ch; }
+    :where(.lp-wrap) .step h3 { margin: 0 0 10px; font-size: 22px; }
+    :where(.lp-wrap) .step p { margin: 0; color: var(--muted); font-size: 18px; max-width: 28ch; }
 .lp-wrap .proof {
       display: grid; gap: 18px;
     }
 .lp-wrap .testimonial {
       padding: 28px; border-radius: 28px; background: linear-gradient(180deg, #0b2a1c, #0c261b); border: 1px solid var(--border);
     }
-    .stars { color: var(--gold); letter-spacing: .1em; font-size: 28px; margin-bottom: 18px; }
-    blockquote { margin: 0 0 18px; font-size: clamp(22px, 3vw, 34px); line-height: 1.35; color: var(--text); }
-    .person { font-size: 16px; color: var(--muted); }
-    .person strong { display: block; color: var(--text); font-size: 20px; margin-bottom: 4px; }
+    :where(.lp-wrap) .stars { color: var(--gold); letter-spacing: .1em; font-size: 28px; margin-bottom: 18px; }
+    :where(.lp-wrap) blockquote { margin: 0 0 18px; font-size: clamp(22px, 3vw, 34px); line-height: 1.35; color: var(--text); }
+    :where(.lp-wrap) .person { font-size: 16px; color: var(--muted); }
+    :where(.lp-wrap) .person strong { display: block; color: var(--text); font-size: 20px; margin-bottom: 4px; }
 .lp-wrap .capture {
       position: relative; overflow: hidden; border-radius: 36px; padding: clamp(28px, 5vw, 46px);
       background:
@@ -627,8 +627,8 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
         repeating-linear-gradient(180deg, rgba(255,255,255,.04) 0 1px, transparent 1px 68px);
       border: 1px solid rgba(240, 187, 66, 0.28);
     }
-    .capture p { color: var(--muted); font-size: 19px; max-width: 34ch; }
-    form { margin-top: 24px; }
+    :where(.lp-wrap) .capture p { color: var(--muted); font-size: 19px; max-width: 34ch; }
+    :where(.lp-wrap) form { margin-top: 24px; }
 .lp-wrap .input-wrap {
       display: flex; align-items: center; gap: 12px; padding: 18px 20px; border-radius: 999px; background: rgba(0,0,0,.22);
       border: 1px solid var(--border); margin-bottom: 14px;
@@ -636,10 +636,10 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
 .lp-wrap .input-wrap input {
       width: 100%; background: transparent; border: 0; outline: none; color: var(--text); font-size: 19px;
     }
-    .input-wrap input::placeholder { color: #8ea291; }
-    .form-note { font-size: 15px; color: var(--soft); }
-    .error { color: var(--danger); font-size: 14px; min-height: 20px; margin: 0 0 10px; }
-    .faq-list { display: grid; gap: 14px; }
+    :where(.lp-wrap) .input-wrap input::placeholder { color: #8ea291; }
+    :where(.lp-wrap) .form-note { font-size: 15px; color: var(--soft); }
+    :where(.lp-wrap) .error { color: var(--danger); font-size: 14px; min-height: 20px; margin: 0 0 10px; }
+    :where(.lp-wrap) .faq-list { display: grid; gap: 14px; }
 .lp-wrap details {
       border-radius: 24px; background: linear-gradient(180deg, #0b261a, #081f15); border: 1px solid var(--border); padding: 0 22px;
     }
@@ -647,38 +647,38 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
       list-style: none; cursor: pointer; padding: 26px 0; font-size: clamp(20px, 3vw, 30px); font-weight: 700;
       display: flex; justify-content: space-between; align-items: center; gap: 16px;
     }
-    summary::-webkit-details-marker { display: none; }
-    .faq-content { color: var(--muted); font-size: 18px; padding: 0 0 24px; max-width: 40ch; }
-    .summary-icon { color: var(--mint); font-size: 34px; line-height: 1; }
+    :where(.lp-wrap) summary::-webkit-details-marker { display: none; }
+    :where(.lp-wrap) .faq-content { color: var(--muted); font-size: 18px; padding: 0 0 24px; max-width: 40ch; }
+    :where(.lp-wrap) .summary-icon { color: var(--mint); font-size: 34px; line-height: 1; }
 .lp-wrap .footer {
       padding: 42px 0 60px; border-top: 1px solid rgba(255,255,255,.06); color: var(--muted);
     }
 .lp-wrap .footer-row {
       display: flex; flex-direction: column; gap: 18px;
     }
-    .footer-nav { display: flex; flex-wrap: wrap; gap: 18px; font-size: 18px; }
-    .footer-nav a:hover { color: var(--text); }
+    :where(.lp-wrap) .footer-nav { display: flex; flex-wrap: wrap; gap: 18px; font-size: 18px; }
+    :where(.lp-wrap) .footer-nav a:hover { color: var(--text); }
 .lp-wrap .toast {
       position: fixed; right: 18px; bottom: 18px; background: linear-gradient(180deg, #133c28, #0f2b1f); border: 1px solid rgba(70,216,135,.25);
       color: var(--text); padding: 16px 18px; border-radius: 18px; box-shadow: var(--shadow); opacity: 0; transform: translateY(16px);
       pointer-events: none; transition: .25s ease; max-width: 320px; z-index: 80;
     }
-    .toast.show { opacity: 1; transform: translateY(0); }
-    .toast strong { display: block; margin-bottom: 4px; }
+    :where(.lp-wrap) .toast.show { opacity: 1; transform: translateY(0); }
+    :where(.lp-wrap) .toast strong { display: block; margin-bottom: 4px; }
     @media (min-width: 860px) {
-      .nav-links { display: flex; }
-      .hero-grid { grid-template-columns: 1.15fr .85fr; }
-      .cards { grid-template-columns: 1.1fr .9fr; }
-      .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .proof { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .footer-row { flex-direction: row; justify-content: space-between; align-items: center; }
+      :where(.lp-wrap) .nav-links { display: flex; }
+      :where(.lp-wrap) .hero-grid { grid-template-columns: 1.15fr .85fr; }
+      :where(.lp-wrap) .cards { grid-template-columns: 1.1fr .9fr; }
+      :where(.lp-wrap) .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      :where(.lp-wrap) .proof { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      :where(.lp-wrap) .footer-row { flex-direction: row; justify-content: space-between; align-items: center; }
     }
     @media (max-width: 640px) {
-      .brand-badge { width: 58px; height: 58px; border-radius: 18px; font-size: 24px; }
-      .nav .btn { padding-inline: 18px; min-height: 48px; }
-      .stats { grid-template-columns: 1fr 1fr; }
-      .card-inner, .step, .testimonial { padding: 22px; }
-      blockquote { font-size: 20px; }
+      :where(.lp-wrap) .brand-badge { width: 58px; height: 58px; border-radius: 18px; font-size: 24px; }
+      :where(.lp-wrap) .nav .btn { padding-inline: 18px; min-height: 48px; }
+      :where(.lp-wrap) .stats { grid-template-columns: 1fr 1fr; }
+      :where(.lp-wrap) .card-inner, :where(.lp-wrap) .step, :where(.lp-wrap) .testimonial { padding: 22px; }
+      :where(.lp-wrap) blockquote { font-size: 20px; }
     }
   
 /* ═══ END LANDING PAGE STYLES ═══ */
@@ -696,6 +696,107 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
    AI Prompt Library:     https://smarterhustleacademy.gumroad.com/l/aipromptlibrary
    Trading Academy:       https://smarterhustleacademy.gumroad.com/l/30daytradingacademy
 */
+
+/* ===== 2026-09 homepage conversion refresh ===== */
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+:focus-visible{outline:3px solid var(--go);outline-offset:2px}
+.btn-out{background:transparent;border:1.5px solid var(--g);color:var(--g);border-radius:10px;padding:12px 22px;font-size:14px;font-weight:700;cursor:pointer;font-family:var(--fh);transition:.2s}
+.btn-out:hover{background:var(--gl)}
+/* nav */
+nav{align-items:center}
+.nb{background:none;border:none;cursor:pointer;font:inherit;text-align:left}
+.nb.on{border-bottom-color:transparent}
+.ns{align-items:center}
+.ns-primary{display:flex;align-items:stretch;flex:1}
+.nmore-btn{display:flex;align-items:center;gap:6px}
+.nmore-btn .lbl-m{display:none}
+.ncta{flex-shrink:0;margin:0 14px 0 8px;background:linear-gradient(135deg,var(--go),var(--go2));color:#fff;text-decoration:none;font-family:var(--fh);font-weight:700;font-size:13px;padding:10px 16px;border-radius:9px;white-space:nowrap;min-height:40px;display:flex;align-items:center}
+.ncta:hover{filter:brightness(1.08)}
+.nmenu{position:absolute;top:100%;right:0;background:var(--ink);border:1px solid #2D3328;border-top:2px solid var(--g);border-radius:0 0 12px 12px;min-width:240px;padding:8px 0;box-shadow:0 14px 34px rgba(0,0,0,.35);z-index:210}
+.nmenu[hidden]{display:none}
+.nmenu button{display:block;width:100%;text-align:left;min-height:44px;padding:0 18px;border-bottom:none;border-left:3px solid transparent}
+.nmenu button.on{border-left-color:var(--g3);border-bottom-color:transparent}
+.nmenu-lbl{font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:#8A9080;font-weight:700;padding:10px 18px 4px;font-family:var(--fh)}
+.nmenu-primary{display:none}
+@media(max-width:760px){
+  .nn{display:none}
+  .ns-primary{display:none}
+  .ns{justify-content:flex-end}
+  .nmore-btn .lbl-d{display:none}.nmore-btn .lbl-m{display:inline}
+  .nmenu{left:0;right:0;border-radius:0;max-height:calc(100vh - 56px);overflow-y:auto}
+  .nmenu-primary{display:block}
+  .ncta{margin-right:10px;padding:9px 14px}
+}
+/* hero */
+.hero h1{font-size:clamp(26px,6.4vw,42px);max-width:760px;margin-left:auto;margin-right:auto;letter-spacing:-.4px}
+.hero .hes{max-width:600px;color:#C4CCB8;line-height:1.7}
+.hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;align-items:center}
+.hero-ctas .btn{font-size:16px;padding:15px 28px;min-height:52px}
+.hero-cta-free{border-color:rgba(255,255,255,.4);color:#fff;min-height:52px;font-size:15px}
+.hero-cta-free:hover{background:rgba(255,255,255,.08)}
+.hero-incl{margin:18px auto 0;max-width:560px;font-size:13px;color:#A8B09C;line-height:1.6;position:relative}
+/* home sections */
+.home-cnt{padding-top:8px}
+.hsec{padding:30px 0 6px}
+.hsec + .hsec{border-top:1px solid var(--cr3)}
+.h-eyebrow{font-family:var(--fh);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--go2);margin-bottom:6px}
+.h-title{font-family:var(--fh);font-size:clamp(21px,4.6vw,28px);font-weight:800;color:var(--ink);line-height:1.25;margin-bottom:16px;letter-spacing:-.3px}
+.h-steps{list-style:none;display:grid;gap:10px;margin-bottom:14px}
+.h-steps li{display:flex;gap:14px;align-items:flex-start;background:var(--wh);border:1.5px solid var(--bd);border-radius:12px;padding:16px;font-size:15px;color:var(--ink2);line-height:1.6}
+.h-num{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--g),var(--g3));color:#fff;font-family:var(--fh);font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.h-tag{display:inline-block;margin-left:4px;font-size:11px;font-weight:700;color:var(--g);background:var(--gl);border-radius:5px;padding:1px 7px;font-family:var(--fh);white-space:nowrap}
+.h-link{font-family:var(--fh);font-weight:700;font-size:14px;color:var(--g);text-decoration:none}
+.h-link:hover{text-decoration:underline}
+.h-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-bottom:16px}
+.h-fact{background:var(--ink);border-radius:12px;padding:16px}
+.h-fact-v{font-family:var(--fh);font-size:20px;font-weight:800;color:var(--go);margin-bottom:4px}
+.h-fact-l{font-size:13px;color:#C4CCB8;line-height:1.55}
+.h-outcome{background:var(--gl);border:1.5px solid var(--gb);border-radius:12px;padding:16px 18px;margin:12px 0 16px}
+.h-outcome-t{font-family:var(--fh);font-weight:700;color:var(--g);font-size:15px;margin-bottom:8px}
+.h-outcome ul,.h-cat ul{list-style:none;display:grid;gap:5px}
+.h-outcome li,.h-cat li{position:relative;padding-left:22px;font-size:14px;color:var(--ink2);line-height:1.55}
+.h-outcome li::before,.h-cat li::before{content:'✓';position:absolute;left:0;color:var(--g);font-weight:800}
+.h-cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-bottom:20px}
+.h-cat{border:1.5px solid var(--bd);border-radius:12px;padding:14px}
+.h-cat-t{font-family:var(--fh);font-weight:800;font-size:14px;color:var(--ink);margin-bottom:8px}
+.h-peek{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:18px}
+.h-peek img{width:100%;aspect-ratio:3/4;object-fit:contain;background:var(--cr2);border:1px solid var(--bd);border-radius:8px}
+.h-results{font-size:12.5px;color:var(--mu);line-height:1.6;margin-top:14px;padding-top:12px;border-top:1px dashed var(--bd)}
+.h-fit{background:var(--cr2);border-left:4px solid var(--go);border-radius:10px;padding:14px 18px;margin-top:4px}
+.h-fit summary{font-family:var(--fh);font-weight:700;font-size:15px;color:var(--ink);cursor:pointer}
+.h-fit-body{padding-top:10px}
+.h-fit-body p{font-size:14px;color:var(--ink2);line-height:1.7;margin-bottom:6px}
+.h-optin{border-radius:var(--r);padding:34px 20px}
+.h-quiz{margin:14px 0 0;max-width:none}
+.h-more-links{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:16px 0 8px}
+.h-final{background:var(--ink);border-radius:var(--r);padding:30px 20px;text-align:center;margin:22px 0 10px}
+.h-final h2{font-family:var(--fh);font-size:clamp(22px,5vw,30px);font-weight:800;color:#fff;margin-bottom:6px}
+.h-final p{color:#C4CCB8;font-size:15px;margin-bottom:18px}
+.h-blog h2.sh{margin-top:4px}
+/* global opt-in bar is redundant on the homepage (home has its own mid-page form) */
+body[data-page="home"] #globalOptin{display:none}
+/* member tools moved into the Build tab */
+#build .tmb,#build .psnp,#build .tipc{margin-left:0;margin-right:0;max-width:none}
+@media(max-width:600px){
+  .hero{padding:30px 16px 34px}
+  .hew{font-size:10px;letter-spacing:1.8px}
+  .hero .hes{font-size:15px}
+  .hero-ctas{flex-direction:column;align-items:stretch}
+  .hero-ctas a,.hero-ctas .btn,.hero-ctas .btn-out{width:100%;display:block}
+  .cnt{padding-left:16px;padding-right:16px}
+  .hsec{padding-top:24px}
+  .flagship-body{padding:20px 16px}
+  .flagship-footer .h-buy,.flagship-footer .h-buy .btn{width:100%;display:block}
+  .flagship-title{font-size:19px}
+  .optin-box .optin-input,.optin-box .optin-btn{width:100%;min-width:0}
+  .h-peek{grid-template-columns:1fr 1fr}
+  .qb{padding:20px 16px}
+  .h-quiz .qos{grid-template-columns:1fr 1fr}
+  .h-quiz .qo{padding:12px}
+  .tmd{font-size:20px;letter-spacing:.5px}
+  .tmb > div[style*="flex:1"]{min-width:150px}
+  .tmb .btn{width:100%}
+}
 </style>
 <link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#2D6A4F">
@@ -703,305 +804,248 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
 <link rel="icon" href="/icons/icon-192.png">
 <link rel="apple-touch-icon" href="/icons/icon-192.png">
 </head><body>
-<nav>
-  <div class="nb"><div class="nl">SHA</div><div class="nn">Smarter Hustle™</div></div>
+<nav aria-label="Main">
+  <button class="nb" data-tab="home" aria-label="Smarter Hustle Academy — home"><div class="nl">SHA</div><div class="nn">Smarter Hustle™</div></button>
   <div class="ns">
-    <button class="on" data-tab="home">🏠 Home</button>
-    <span class="nav-div"></span>
+    <div class="ns-primary">
+      <button class="on" data-tab="home">Start Here</button>
+      <button data-tab="build">Build Your Product</button>
+      <button data-tab="shop">Shop</button>
+      <button data-tab="niche">Free Resources</button>
+    </div>
+    <button class="nmore-btn" id="nMoreBtn" aria-expanded="false" aria-controls="nMenu"><span class="lbl-d">More ▾</span><span class="lbl-m">☰ Menu</span></button>
+  </div>
+  <a class="ncta" href="#offer" data-goto="offer">Get Started</a>
+  <div class="nmenu" id="nMenu" hidden>
+    <div class="nmenu-primary">
+      <button class="on" data-tab="home">🏠 Start Here</button>
+      <button data-tab="build">🛠 Build Your Product</button>
+      <button data-tab="shop">🛒 Shop</button>
+      <button data-tab="niche">📥 Free Resources</button>
+      <div class="nmenu-lbl">More</div>
+    </div>
     <button data-tab="niche">🎯 Niche Finder</button>
-    <button data-tab="build">🛠 Build</button>
-    <button data-tab="content">🎬 Scripts</button>
+    <button data-tab="content">🎬 Video Scripts</button>
     <button data-tab="progress">✅ My Progress</button>
-    <span class="nav-div"></span>
-    <button data-tab="shop">🛒 Shop</button>
     <button data-tab="bundles">🎁 Bundles</button>
     <button data-tab="money">💰 Money Academy</button>
-    <button data-tab="trading">📈 Trading</button>
-    <span class="nav-div"></span>
+    <button data-tab="trading">📈 Trading Academy</button>
     <button data-tab="blog">📖 Blog</button>
-    <button data-tab="resources">🔗 Resources</button>
+    <button data-tab="resources">🔗 Recommended Tools</button>
   </div>
 </nav>
 
 <!-- HOME -->
 <div id="home" class="sec act">
+
+  <!-- 1. HERO — promise + audience + mechanism -->
   <div class="hero">
-    <div class="hew">Smarter Hustle Academy™ · For Beginners, Side Hustlers &amp; Creators Starting From Zero</div>
-    <h1>Build Your First Digital Product.<br><span>Make Your First Sale.</span></h1>
-    <div class="hes">No experience. No big following. No tech skills required.<br>Just a proven system, the right tools, and a clear path forward.</div>
-    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;align-items:center">
-      <a href="https://smarterhustleacademy.gumroad.com/l/48hourincomesystem?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=hero_48hourincomesystem" target="_blank" rel="noopener"><button class="btn" style="font-size:16px;padding:15px 32px;letter-spacing:.2px">🚀 Get the Foundation — $27</button></a>
-      <button class="btn-out" data-tab="niche" style="font-size:14px;padding:13px 24px;border-color:rgba(255,255,255,.3);color:#fff">Find My Niche First →</button>
+    <div class="hew">No audience · No experience · No tech skills</div>
+    <h1>Build your first digital product and <span>get it live for sale in 48 hours.</span></h1>
+    <div class="hes">Tired of courses that assume you already have followers, money, or tech skills? This beginner system walks you through it: pick an idea, make a simple PDF with free tools, publish it on Gumroad, and promote it with short videos.</div>
+    <div class="hero-ctas">
+      <a class="hero-cta-main" href="https://smarterhustleacademy.gumroad.com/l/48hourincomesystem?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=hero_48hourincomesystem" target="_blank" rel="noopener"><button class="btn" tabindex="-1">Get the 48-Hour System — $27</button></a>
+      <button class="btn-out hero-cta-free" data-tab="niche">Start Free With the Niche Finder</button>
     </div>
-    <div style="margin-top:18px;font-size:13px;color:#6B7560;position:relative">⭐⭐⭐⭐⭐ &nbsp; Trusted by solo entrepreneurs starting from zero</div>
+    <div class="hero-incl">Includes the 16-page launch guide, Day 1 &amp; Day 2 build plan, Gumroad walkthrough, free tool stack, and 5 video scripts. Instant download.</div>
   </div>
-  <div class="qb">
-    <h2>👋 Where are you right now?</h2>
-    <p>Tell us where you're starting and we'll point you to exactly the right place.</p>
-    <div class="qos">
-      <div class="qo" data-quiz="0"><span class="qi">🌱</span><div class="ql">I'm completely new — never sold anything online</div></div>
-      <div class="qo" data-quiz="1"><span class="qi">💡</span><div class="ql">I have a topic but haven't built my product yet</div></div>
-      <div class="qo" data-quiz="2"><span class="qi">📦</span><div class="ql">I've built something but haven't made a sale yet</div></div>
-      <div class="qo" data-quiz="3"><span class="qi">📈</span><div class="ql">I'm making sales and want to grow consistently</div></div>
-    </div>
-    <div class="qr" id="qRes"><div class="qm" id="qMsg"></div><div class="qc" id="qCta"></div><button class="btn" id="qBtn" style="font-size:14px;padding:12px 24px"></button>
-      <div id="qProd" style="display:none;margin-top:16px;padding-top:16px;border-top:1px solid #2D3328">
-        <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--go);text-transform:uppercase;margin-bottom:10px;font-family:var(--fh)">Recommended For You</div>
-        <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
-          <div style="font-size:30px;flex-shrink:0" id="qProdIcon"></div>
-          <div style="flex:1;min-width:180px">
-            <div id="qProdTitle" style="font-family:var(--fh);font-size:14px;font-weight:700;color:#fff;margin-bottom:3px"></div>
-            <div id="qProdDesc" style="font-size:13px;color:#A0A898;line-height:1.6"></div>
+
+  <div class="cnt home-cnt">
+
+    <!-- 2. METHOD — three steps -->
+    <section class="hsec" aria-labelledby="hStepsH">
+      <div class="h-eyebrow">How it works</div>
+      <h2 class="h-title" id="hStepsH">Everything you need to go from idea to live product</h2>
+      <ol class="h-steps">
+        <li><span class="h-num">1</span><div><strong>Choose your idea.</strong> Pick a useful topic, the people you want to help, and what they'll pay for. <span class="h-tag">Free tool</span></div></li>
+        <li><span class="h-num">2</span><div><strong>Build the product.</strong> Make a simple PDF guide with free tools and publish it on Gumroad. <span class="h-tag">48-Hour System</span></div></li>
+        <li><span class="h-num">3</span><div><strong>Launch and promote.</strong> Record short videos from 5 ready-to-use scripts to bring your first visitors. <span class="h-tag">Included</span></div></li>
+      </ol>
+      <a href="#offer" class="h-link" data-goto="offer">See exactly what's inside ↓</a>
+    </section>
+
+    <!-- 3. TRUST — verifiable facts + founder note (proof before pricing) -->
+    <section class="hsec" aria-labelledby="hTrustH">
+      <div class="h-eyebrow">Why this system</div>
+      <h2 class="h-title" id="hTrustH">Built for people starting from zero</h2>
+      <div class="h-facts">
+        <div class="h-fact"><div class="h-fact-v">16 pages</div><div class="h-fact-l">A step-by-step guide you can finish in a weekend — not a 40-hour video course</div></div>
+        <div class="h-fact"><div class="h-fact-v">$0 tools</div><div class="h-fact-l">Canva, Gumroad, CapCut, and your phone. Nothing else to buy</div></div>
+        <div class="h-fact"><div class="h-fact-v">100% async</div><div class="h-fact-l">No calls, no live sessions, no need to show your face</div></div>
+        <div class="h-fact"><div class="h-fact-v">Instant</div><div class="h-fact-l">Delivered by Gumroad. Re-download any time</div></div>
+      </div>
+      <div class="founder">
+        <div class="founder-eyebrow">A note from the founder</div>
+        <p>When I started building income online, I wasted months on advice that assumed I already had an audience, a team, or money to invest. Nothing was made for someone starting from scratch.</p>
+        <p>So I built Smarter Hustle Academy™ for that person. Every guide here is designed around one fact: <strong>you are starting from zero, and you need a clear next step.</strong> No live calls. No complicated tech. No gatekeeping.</p>
+        <div class="founder-sig">— Davette Anderson</div>
+        <div class="founder-title">Founder, Smarter Hustle Academy™</div>
+      </div>
+    </section>
+
+    <!-- 4. MAIN OFFER -->
+    <section class="hsec" id="offer" aria-labelledby="hOfferH">
+      <div class="h-eyebrow">Start here</div>
+      <h2 class="h-title" id="hOfferH">One system. Idea to live product in 48 hours.</h2>
+      <div class="flagship">
+        <img class="flagship-img" src="https://public-files.gumroad.com/tilzj01ot29rv7godqzaxatgrbkh" alt="Cover of The 48-Hour Income System — Foundation guide">
+        <div class="flagship-body">
+          <span class="flagship-badge">START HERE · FLAGSHIP SYSTEM</span>
+          <div class="flagship-title">The 48-Hour Income System™ — Foundation</div>
+          <div class="h-outcome">
+            <div class="h-outcome-t">When you finish, you'll have:</div>
+            <ul>
+              <li>A clear product idea and audience</li>
+              <li>A finished PDF guide</li>
+              <li>A live Gumroad product page</li>
+              <li>5 short promo videos, recorded from your scripts</li>
+              <li>A simple plan for getting your first visitors</li>
+            </ul>
           </div>
-          <div style="text-align:right;flex-shrink:0">
-            <div id="qProdPrice" style="font-family:var(--fh);font-size:20px;font-weight:800;color:var(--go);margin-bottom:6px"></div>
-            <a id="qProdLink" href="#" target="_blank" rel="noopener"><button class="btn bgo" style="font-size:13px;padding:10px 18px">Get It →</button></a>
+          <div class="h-cats">
+            <div class="h-cat"><div class="h-cat-t">🛠 Build</div><ul><li>16-page step-by-step launch guide</li><li>Free tool stack reference</li></ul></div>
+            <div class="h-cat"><div class="h-cat-t">📦 Publish</div><ul><li>Gumroad setup walkthrough</li><li>Hour-by-hour Day 1 &amp; Day 2 plans</li></ul></div>
+            <div class="h-cat"><div class="h-cat-t">📣 Promote</div><ul><li>5 done-for-you video scripts</li><li>When to post your videos</li><li>The daily engagement habit</li></ul></div>
+          </div>
+          <!--
+            INTERIOR PAGE PREVIEWS — add 2–3 real screenshots of inside pages here when ready.
+            Upload the images to the repo (e.g. /images/48hr-preview-1.jpg) and uncomment:
+          <div class="h-peek">
+            <img src="/images/48hr-preview-1.jpg" alt="Inside page: Day 1 hour-by-hour plan" loading="lazy">
+            <img src="/images/48hr-preview-2.jpg" alt="Inside page: Gumroad setup walkthrough" loading="lazy">
+            <img src="/images/48hr-preview-3.jpg" alt="Inside page: video script example" loading="lazy">
+          </div>
+          -->
+          <div class="flagship-footer">
+            <span class="flagship-price">$27</span>
+            <a class="h-buy" href="https://smarterhustleacademy.gumroad.com/l/48hourincomesystem?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=hero_48hourincomesystem_3" target="_blank" rel="noopener"><button class="btn" tabindex="-1">Get the 48-Hour System →</button></a>
+            <span class="flagship-was">Instant download · No subscription</span>
+          </div>
+          <div id="foundingPriceNote" style="display:none;background:#fef3c7;border-left:4px solid var(--go);border-radius:10px;padding:14px 18px;margin-top:14px;font-size:14px;color:#78350f;line-height:1.7">
+            <strong>Founding Price — <span id="foundingDaysLeft"></span> left.</strong>
+            Price increases to $37 on <span id="foundingDateDisplay"></span>. Lock in $27 now.
+          </div>
+          <p class="h-results">Results vary. What you get out of this depends on your effort, your niche, the quality of your product, and how much you promote it. This system teaches a proven process — it does not promise income.</p>
+        </div>
+      </div>
+      <details class="h-fit">
+        <summary>Is this right for me?</summary>
+        <div class="h-fit-body">
+          <p><strong>It's for you if</strong> you can set aside two focused days and follow simple steps in order.</p>
+          <p><strong>It's not for you if</strong> you want results with no time or effort, or you're looking for a get-rich-quick scheme.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- 5. FREE OPTION -->
+    <section class="hsec" aria-labelledby="hFreeH">
+      <div class="optin-bar h-optin">
+        <div class="optin-eyebrow">Not ready to buy? Start free.</div>
+        <h2 id="hFreeH">Free Digital Product <span>Starter Kit</span></h2>
+        <div class="optin-sub">25 AI prompts, a quick-start checklist, and the 48-Hour Starter Kit — step one of the 48-Hour System, free.</div>
+        <div class="optin-box" id="optinBoxMid">
+          <label for="optinEmailMid" class="sr-only">Email address</label>
+          <input type="email" class="optin-input" id="optinEmailMid" placeholder="Enter your email address" autocomplete="email">
+          <button class="optin-btn" id="optinBtnMid" onclick="handleOptin('Mid')">Send Me the Free Kit →</button>
+        </div>
+        <div class="optin-note">No spam. No fluff. Unsubscribe any time.</div>
+        <div class="optin-success" id="optinSuccessMid">
+          <p>🎉 Your free kit is on the way!</p>
+          <span id="optinSuccessMsgMid">You just got 25 AI prompts, the Quick-Start Checklist, and the 48-Hr Starter Kit. Your next step: the 48-Hour System turns your idea into a live product this week.</span>
+          <div id="optinSuccessCtaMid" style="margin-top:14px"><a href="https://smarterhustleacademy.gumroad.com/l/48hourincomesystem?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=homepage_mid_optin_48hourincomesystem" target="_blank" rel="noopener" class="btn" style="font-size:14px;padding:11px 22px">Get the 48-Hour System — $27 →</a></div>
+        </div>
+      </div>
+
+      <div class="qb h-quiz">
+        <h2>Choose your starting point</h2>
+        <p>Tap the one that fits. We'll point you to the right next step.</p>
+        <div class="qos">
+          <div class="qo" data-quiz="0" role="button" tabindex="0"><span class="qi">🌱</span><div class="ql">I'm brand new — never sold anything online</div></div>
+          <div class="qo" data-quiz="1" role="button" tabindex="0"><span class="qi">💡</span><div class="ql">I have a topic but no product yet</div></div>
+          <div class="qo" data-quiz="2" role="button" tabindex="0"><span class="qi">📦</span><div class="ql">I built something but haven't sold yet</div></div>
+          <div class="qo" data-quiz="3" role="button" tabindex="0"><span class="qi">📈</span><div class="ql">I'm making sales and want to grow</div></div>
+        </div>
+        <div class="qr" id="qRes"><div class="qm" id="qMsg"></div><div class="qc" id="qCta"></div><button class="btn" id="qBtn" style="font-size:14px;padding:12px 24px"></button>
+          <div id="qProd" style="display:none;margin-top:16px;padding-top:16px;border-top:1px solid #2D3328">
+            <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--go);text-transform:uppercase;margin-bottom:10px;font-family:var(--fh)">Recommended For You</div>
+            <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+              <div style="font-size:30px;flex-shrink:0" id="qProdIcon"></div>
+              <div style="flex:1;min-width:180px">
+                <div id="qProdTitle" style="font-family:var(--fh);font-size:14px;font-weight:700;color:#fff;margin-bottom:3px"></div>
+                <div id="qProdDesc" style="font-size:13px;color:#A0A898;line-height:1.6"></div>
+              </div>
+              <div style="text-align:right;flex-shrink:0">
+                <div id="qProdPrice" style="font-family:var(--fh);font-size:20px;font-weight:800;color:var(--go);margin-bottom:6px"></div>
+                <a id="qProdLink" href="#" target="_blank" rel="noopener"><button class="btn bgo" style="font-size:13px;padding:10px 18px" tabindex="-1">Get It →</button></a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-<!-- PROOF STRIP -->
-<div class="proof-strip">
-  <div class="proof-item"><div><div class="proof-val">48hrs</div><div class="proof-lbl">From idea to first product live</div></div></div>
-  <div class="proof-item"><div><div class="proof-val">$0</div><div class="proof-lbl">Required to start — all free tools</div></div></div>
-  <div class="proof-item"><div><div class="proof-val">20+</div><div class="proof-lbl">Guides, templates &amp; systems</div></div></div>
-  <div class="proof-item"><div><div class="proof-val">100%</div><div class="proof-lbl">Async — no calls, no camera</div></div></div>
-</div>
+      <div class="h-more-links">
+        <button class="btn-out bsm" data-tab="bundles">Already launched? See bundles →</button>
+        <button class="btn-out bsm" data-tab="shop">Browse all guides →</button>
+      </div>
+    </section>
 
-<!-- START HERE PATH -->
-<div class="start-here">
-  <div class="start-here-eyebrow">🟢 New Here? Start Here.</div>
-  <h2>Your First 3 Steps to Your First Sale</h2>
-  <p>If you've never sold anything online, follow this path. Each step builds on the last. Most students make their first sale within a week of completing all three.</p>
-  <div class="start-path">
-    <div class="start-path-item">
-      <div class="start-path-num">1</div>
-      <div class="start-path-text">Use the <strong>Niche Finder</strong> to identify your product topic, audience, and what they'll pay for</div>
-      <span class="start-path-tag">FREE ↗</span>
-    </div>
-    <div class="start-path-item">
-      <div class="start-path-num">2</div>
-      <div class="start-path-text">Follow the <strong>48-Hour Income System™ — Foundation</strong> to build your PDF product and publish it on Gumroad</div>
-      <span class="start-path-tag">$27 ↗</span>
-    </div>
-    <div class="start-path-item">
-      <div class="start-path-num">3</div>
-      <div class="start-path-text">Use your <strong>5 Video Scripts</strong> to record content and drive traffic to your product the same week</div>
-      <span class="start-path-tag">INCLUDED ↗</span>
-    </div>
-  </div>
-  <div style="display:flex;gap:10px;flex-wrap:wrap">
-    <button class="btn" data-tab="niche" style="font-size:14px;padding:12px 22px">Step 1: Find My Niche →</button>
-    <a href="https://smarterhustleacademy.gumroad.com/l/48hourincomesystem?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=hero_48hourincomesystem_2" target="_blank" rel="noopener"><button class="btn bgo" style="font-size:14px;padding:12px 22px">Step 2: Get the System →</button></a>
-  </div>
-</div>
-  <div class="tmb">
-    <div class="tmi">⏱</div>
-    <div style="flex:1"><div class="tml">48-Hour Launch Challenge</div><div class="tmd" id="tDisp">Ready when you are</div><div class="tms" id="tSub">Start the clock and launch your product within 48 hours</div></div>
-    <button class="btn bgo" id="tBtn" style="font-size:13px;padding:11px 18px;flex-shrink:0">🚀 Start Challenge</button>
-  </div>
-  <div class="psnp" id="pSnap">
-    <h3>📊 Your Launch Progress</h3>
-    <div class="psb"><div class="psbi" id="pBar" style="width:0%"></div></div>
-    <div class="psst"><span id="pCnt">0 of 21 steps</span><span id="pPct">0%</span></div>
-    <div class="psnx" id="pNxt"></div>
-  </div>
-  <div class="tipc"><div class="tipct">💡 Today's Hustle Tip</div><div id="tipTxt" style="font-size:14px;color:var(--ink2);line-height:1.8"></div></div>
-  <div class="cnt">
-    <!-- HOW IT WORKS -->
-    <h2 class="sh">How It Works</h2>
-    <p class="sub" style="margin-bottom:14px">Three steps. Most students go from zero to first sale within a week.</p>
-    <div class="hiw">
-      <div class="hiw-step">
-        <div class="hiw-num">1</div>
-        <div class="hiw-icon">🎯</div>
-        <div class="hiw-title">Choose Your Niche</div>
-        <div class="hiw-desc">Use the Niche Finder to pick your topic, identify your audience, and generate your product idea in 60 seconds.</div>
-      </div>
-      <div class="hiw-step">
-        <div class="hiw-num">2</div>
-        <div class="hiw-icon">🛠</div>
-        <div class="hiw-title">Build Your Product</div>
-        <div class="hiw-desc">Follow the 48-Hour System to build a PDF guide in Canva, publish on Gumroad, and go live — all free tools.</div>
-      </div>
-      <div class="hiw-step">
-        <div class="hiw-num">3</div>
-        <div class="hiw-icon">🚀</div>
-        <div class="hiw-title">Launch With Content</div>
-        <div class="hiw-desc">Record 5 short videos using your done-for-you scripts, post them on TikTok and YouTube Shorts, and drive traffic to your link.</div>
-      </div>
-    </div>
-
-    <div class="dv"></div>
-
-    <!-- FLAGSHIP PRODUCT -->
-    <h2 class="sh">Start With This</h2>
-    <p class="sub" style="margin-bottom:14px">One system. Everything you need to go from idea to first sale in 48 hours.</p>
-    <div class="flagship">
-      <img class="flagship-img" src="https://public-files.gumroad.com/tilzj01ot29rv7godqzaxatgrbkh" alt="48-Hour Income System — Foundation cover">
-      <div class="flagship-body">
-      <span class="flagship-badge">⭐ MOST POPULAR — START HERE</span>
-      <div class="flagship-title">The 48-Hour Income System™ — Foundation</div>
-      <div class="flagship-sub">The complete step-by-step system to build your first digital product and get it live on Gumroad — in 48 hours or less. Built specifically for beginners with no prior experience, no following, and no budget.</div>
-      <div class="flagship-includes">
-        <div class="flagship-item">16-page step-by-step launch guide</div>
-        <div class="flagship-item">Hour-by-hour Day 1 &amp; Day 2 plans</div>
-        <div class="flagship-item">5 done-for-you video scripts</div>
-        <div class="flagship-item">Full free tool stack reference</div>
-        <div class="flagship-item">Gumroad setup walkthrough</div>
-        <div class="flagship-item">The engagement habit that drives sales</div>
-      </div>
-      <div class="flagship-footer">
-        <span class="flagship-price">$27</span>
-        <a href="https://smarterhustleacademy.gumroad.com/l/48hourincomesystem?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=hero_48hourincomesystem_3" target="_blank" rel="noopener"><button class="btn" style="font-size:16px;padding:14px 30px">Get the 48-Hour System →</button></a>
-        <span class="flagship-was" style="font-size:13px;color:var(--mu)">Instant download · No subscription</span>
-      </div>
-      <div id="foundingPriceNote" style="display:none;background:#fef3c7;border-left:4px solid var(--go);border-radius:10px;padding:14px 18px;margin-top:14px;font-size:14px;color:#78350f;line-height:1.7">
-        <strong>Founding Price — <span id="foundingDaysLeft"></span> left.</strong>
-        Price increases to $37 on <span id="foundingDateDisplay"></span>. Lock in $27 now.
-      </div>
-      </div>
-    </div>
-
-    <div style="background:var(--cr2);border-left:4px solid var(--go);border-radius:var(--r);padding:24px;margin:14px 0">
-      <h3 style="font-family:var(--fh);color:var(--ink);font-weight:700;font-size:16px;margin-bottom:12px">This Isn't For Everyone</h3>
-      <p style="color:var(--ink2);margin-bottom:12px;font-size:14px;line-height:1.8">The 48-Hour Income System works if you're ready to put in real effort over two focused days. It's not a magic button.</p>
-      <p style="color:var(--ink2);font-weight:600;margin-bottom:8px;font-size:14px">This is NOT for you if:</p>
-      <ul style="color:var(--ink2);margin-bottom:0;padding-left:20px;font-size:14px;line-height:1.9">
-        <li>You want results with zero time or effort</li>
-        <li>You're looking for a get-rich-quick scheme</li>
-        <li>You won't follow a simple step-by-step system</li>
-        <li>You expect overnight riches without doing the work</li>
-      </ul>
-      <p style="color:var(--g);font-weight:600;margin-top:12px;font-size:14px">If you're willing to spend two days building something real, this system was made for you.</p>
-    </div>
-
-    <div class="dv"></div>
-
-    <!-- TOP 3 PICKS -->
-    <h2 class="sh">Other Ways to Start</h2>
-    <p class="sub" style="margin-bottom:14px">Not sure where to begin? These three paths cover every starting point.</p>
-    <div class="top-picks">
-      <div class="top-pick top-pick-featured" data-tab="niche">
-        <div class="top-pick-body">
-        <div class="top-pick-ico">🎯</div>
-        <div class="top-pick-title">Find My Niche</div>
-        <div class="top-pick-desc">4 questions → full product plan with titles, hooks, and pricing. Free to use.</div>
-        <div class="top-pick-price">Free</div>
-        <span class="top-pick-cta">Use Niche Finder →</span>
+    <!-- 6. FAQ + FINAL CTA -->
+    <section class="hsec" aria-labelledby="hFaqH">
+      <div class="h-eyebrow">Questions</div>
+      <h2 class="h-title" id="hFaqH">Common questions</h2>
+      <div id="faqList">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do I need experience to use this?</span><span class="faq-icon">+</span></div>
+          <div class="faq-a"><div class="faq-a-inner">No. Every SHA™ guide is written for complete beginners. We assume you've never sold anything online, never built a digital product, and aren't technical. The 48-Hour System walks you through every step from idea to published product.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do I need an audience to start?</span><span class="faq-icon">+</span></div>
+          <div class="faq-a"><div class="faq-a-inner">No. You need a useful first product and a simple way to get it in front of people. The system shows you how to build it, publish it, and promote it with short videos — no existing following or email list needed.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How long until I see results?</span><span class="faq-icon">+</span></div>
+          <div class="faq-a"><div class="faq-a-inner">The system is designed to take you from idea to a live product in 48 hours of focused work. How fast you make sales depends on your niche, your product, and how consistently you promote it. There's no guaranteed timeline — and anyone who promises one isn't being straight with you.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do I need to get on calls or show my face?</span><span class="faq-icon">+</span></div>
+          <div class="faq-a"><div class="faq-a-inner">No. Smarter Hustle Academy™ is fully async. No calls, no live sessions, and no camera required. Everything is delivered digitally so you can work on your own schedule.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What tools do I need, and do they cost money?</span><span class="faq-icon">+</span></div>
+          <div class="faq-a"><div class="faq-a-inner">Only free tools: Canva (design your PDF), Gumroad (sell it), CapCut (edit videos), and your phone. The 48-Hour System includes a full free tool stack reference so you know what to use and when.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How do I get my guide after I buy?</span><span class="faq-icon">+</span></div>
+          <div class="faq-a"><div class="faq-a-inner">Gumroad delivers it instantly. You'll get an email with your download link, and you can log into Gumroad any time to download it again. No subscription, no expiry.</div></div>
         </div>
       </div>
-      <div class="top-pick" onclick="gtag('event','gumroad_click',{'product_slug':'passivefoundation','utm_content':'hero_passivefoundation','utm_campaign':'homepage','page_location':window.location.href});window.open('https://smarterhustleacademy.gumroad.com/l/passivefoundation?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=hero_passivefoundation','_blank')">
-        <img class="top-pick-img" src="https://public-files.gumroad.com/zsfp2al91fqkgqj86rndhyicv39g" alt="Passive Income Foundations Bundle cover">
-        <div class="top-pick-body">
-        <div class="top-pick-title">Passive Income Foundations Bundle</div>
-        <div class="top-pick-desc">Blueprint + Validation Toolkit + Bundle Builder Workbook — the full sequence from idea to a bundled offer.</div>
-        <div class="top-pick-price">$71</div>
-        <a href="https://smarterhustleacademy.gumroad.com/l/passivefoundation?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=hero_passivefoundation_2" target="_blank" rel="noopener" class="top-pick-cta">Get the Bundle →</a>
+
+      <div class="h-final">
+        <h2>Ready to build yours?</h2>
+        <p>Two focused days. Free tools. One clear system.</p>
+        <div class="hero-ctas">
+          <a class="hero-cta-main" href="https://smarterhustleacademy.gumroad.com/l/48hourincomesystem?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=final_cta_48hourincomesystem" target="_blank" rel="noopener"><button class="btn" tabindex="-1">Get the 48-Hour System — $27</button></a>
+          <button class="btn-out hero-cta-free" data-tab="niche">Start Free With the Niche Finder</button>
         </div>
       </div>
-      <div class="top-pick" onclick="gtag('event','gumroad_click',{'product_slug':'faststartbundle','utm_content':'hero_faststartbundle','utm_campaign':'homepage','page_location':window.location.href});window.open('https://smarterhustleacademy.gumroad.com/l/faststartbundle?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=hero_faststartbundle','_blank')">
-        <img class="top-pick-img" src="https://public-files.gumroad.com/1vj8lg6iag11pg9sjiw2zvjp2o1w" alt="Fast Start Bundle cover">
-        <div class="top-pick-body">
-        <div class="top-pick-title">Fast Start Bundle</div>
-        <div class="top-pick-desc">The 48-Hr System + Validation Toolkit + AI Prompt Library. Everything to launch fast.</div>
-        <div class="top-pick-price">$47 <span style="font-size:13px;color:var(--mu);font-weight:400;text-decoration:line-through">$81</span></div>
-        <a href="https://smarterhustleacademy.gumroad.com/l/faststartbundle?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=hero_faststartbundle_2" target="_blank" rel="noopener" class="top-pick-cta">Get the Bundle →</a>
-        </div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:14px">
-      <button class="btn-out bsm" data-tab="shop" style="font-size:13px">Browse All 20 Guides →</button>
-    </div>
+    </section>
 
-    <div class="dv"></div>
-    <!-- MID-PAGE EMAIL CAPTURE (duplicate of the bottom optin-bar, unique IDs, same working mechanism) -->
-    <div class="optin-bar" style="border-radius:var(--r)">
-      <div class="optin-eyebrow">Not Ready to Buy Yet?</div>
-      <h2>Get 25 Done-For-You <span>AI Prompts</span> — Free 🤖</h2>
-      <div class="optin-sub">The SHA™ AI Prompts Collection + Quick-Start Checklist + 48-Hour Starter Kit. Three free resources, one download. No purchase required.</div>
-      <div class="optin-perks">
-        <span class="optin-perk">✓ 25 AI Prompts (6 categories)</span>
-        <span class="optin-perk">✓ Quick-Start Checklist</span>
-        <span class="optin-perk">✓ 48-Hr Starter Kit</span>
-        <span class="optin-perk">✓ Instant Download</span>
+    <!-- LATEST FROM THE BLOG (secondary) -->
+    <section class="hsec h-blog" aria-labelledby="hBlogH">
+      <h2 class="sh" id="hBlogH">📖 Latest From the Blog</h2>
+      <div id="homeStripLoading" class="blog-strip-loading">
+        <div class="blog-strip-skeleton"></div>
+        <div class="blog-strip-skeleton"></div>
+        <div class="blog-strip-skeleton"></div>
       </div>
-      <div class="optin-box" id="optinBoxMid">
-        <input type="email" class="optin-input" id="optinEmailMid" placeholder="Enter your email address" autocomplete="email">
-        <button class="optin-btn" id="optinBtnMid" onclick="handleOptin('Mid')">Send Me the Free Kit →</button>
+      <div class="blog-strip" id="homeStrip" style="display:none"></div>
+      <div id="homeStripErr" style="display:none;text-align:center;padding:20px">
+        <a href="https://blog.smarterhustleacademy.com/" target="_blank" rel="noopener" class="btn" style="font-size:14px;padding:11px 22px">Read the Blog ↗</a>
       </div>
-      <div class="optin-note">No spam. No fluff. Unsubscribe any time.</div>
-      <div class="optin-success" id="optinSuccessMid">
-        <p>🎉 Your free resources are on the way!</p>
-        <span id="optinSuccessMsgMid">You just got 25 AI prompts, the Quick-Start Checklist, and the 48-Hr Starter Kit. Ready to go further? The full AI Prompt Library has 52 prompts plus advanced copy frameworks.</span>
-        <div id="optinSuccessCtaMid" style="margin-top:14px"><a href="https://smarterhustleacademy.gumroad.com/l/aipromptlibrary?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=homepage_mid_aipromptlibrary" target="_blank" rel="noopener" class="btn" style="font-size:14px;padding:11px 22px">Get the Full AI Prompt Library (52 Prompts) — $37 →</a></div>
+      <div style="text-align:center;margin-top:14px">
+        <button class="btn-out bsm" data-tab="blog">View All Articles →</button>
       </div>
-    </div>
+    </section>
 
-    <div class="dv"></div>
-    <!-- FOUNDER STORY -->
-    <h2 class="sh">Why This Exists</h2>
-    <div class="founder">
-      <div class="founder-eyebrow">A Note From the Founder</div>
-      <p>When I started trying to build income online, I wasted months on information that assumed I already had an audience, a team, or money to invest. None of the systems I found were built for someone starting completely from scratch — no following, no budget, no experience.</p>
-      <p>So I built Smarter Hustle Academy™ for exactly that person. Every guide, every prompt, every system here was designed around one constraint: <strong>you are starting from zero and you need results fast.</strong> No live calls. No complicated tech. No gatekeeping.</p>
-      <p>The 48-Hour Income System™ — Foundation alone has helped complete beginners publish their first digital product and make their first sale within days. That is what this is for.</p>
-      <div class="founder-sig">— Davette Anderson</div>
-      <div class="founder-title">Founder, Smarter Hustle Academy™ · Magnate Enterprise</div>
-    </div>
-
-    <div class="dv"></div>
-
-    <!-- FAQ -->
-    <h2 class="sh">Common Questions</h2>
-    <div id="faqList">
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do I need experience to use these guides?</span><span class="faq-icon">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">No. Every guide at SHA™ is written for complete beginners. We assume you have never sold anything online, never built a digital product, and are not technical. The 48-Hour System in particular walks you through every single step from idea to published product.</div></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">How do I access my guides after purchase?</span><span class="faq-icon">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">All guides are delivered instantly through Gumroad. After purchase you'll receive an email with your download link. You can also log into your Gumroad account at any time to re-download any purchase. No subscription, no expiry.</div></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Which guide should I start with if I'm brand new?</span><span class="faq-icon">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Start with the free Niche Finder on this site to identify your product topic. Then get the 48-Hour Income System™ — Foundation ($27) — it's the core system that everything else builds on. Once you've made your first sale, the Fast Start Bundle ($47) is the best next step.</div></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">Do I need to get on calls or show my face on camera?</span><span class="faq-icon">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Absolutely not. Smarter Hustle Academy™ was built on a fully async, no-live-contact model. No calls, no camera required, no synchronous interaction of any kind. Everything is delivered digitally and consumed on your own schedule.</div></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What tools do I need and do they cost money?</span><span class="faq-icon">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">To get started you only need free tools: Canva (design your PDF), Gumroad (sell your product), CapCut (edit your videos), and your smartphone camera. The 48-Hour Income System includes a full free tool stack reference so you know exactly what to use and when.</div></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)"><span class="faq-q-text">What if I purchase a bundle — do I get all the guides separately?</span><span class="faq-icon">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes. When you purchase a bundle on Gumroad, every guide inside is included in your download. You get them all at once, no additional purchases needed. Log into Gumroad at any time to access your full library.</div></div>
-      </div>
-
-    </div>
-
-    <div class="dv"></div>    <h2 class="sh">What SHA™ students are saying</h2>
-    <div class="tes"><div class="ts">★★★★★</div><div class="tq">"I had no idea where to start. I followed the 48-hour system step by step and had my first product on Gumroad by Day 1 afternoon. Got my first sale on Day 3. I cried. This actually works."</div><div class="ta"><div class="av">MT</div>Monique T. — SHA™ Student</div></div>
-    <div class="tes"><div class="ts">★★★★★</div><div class="tq">"The video scripts alone were worth it. I recorded all 5 in one hour and posted them the same day. One got 12K views and drove 4 sales."</div><div class="ta"><div class="av">DK</div>Darius K. — SHA™ Student</div></div>
-    <div class="tes"><div class="ts">★★★★★</div><div class="tq">"This is the first digital product that felt like someone actually thought about what a beginner needs. The checklist kept me sane."</div><div class="ta"><div class="av">RJ</div>Renee J. — SHA™ Student</div></div>
-    <div class="dv"></div>
-    <h2 class="sh">📖 Latest From the Blog</h2>
-    <p class="sub" style="margin-bottom:14px">Fresh weekly articles on side hustles, AI tools, and building income on your own terms.</p>
-    <div id="homeStripLoading" class="blog-strip-loading">
-      <div class="blog-strip-skeleton"></div>
-      <div class="blog-strip-skeleton"></div>
-      <div class="blog-strip-skeleton"></div>
-    </div>
-    <div class="blog-strip" id="homeStrip" style="display:none"></div>
-    <div id="homeStripErr" style="display:none;text-align:center;padding:20px">
-      <a href="https://blog.smarterhustleacademy.com/" target="_blank" rel="noopener" class="btn" style="font-size:14px;padding:11px 22px">Read the Blog ↗</a>
-    </div>
-    <div style="text-align:center;margin-top:18px">
-      <button class="btn-out" data-tab="blog" style="font-size:14px;padding:10px 22px">View All Articles →</button>
-    </div>
   </div>
 </div>
 
@@ -1010,6 +1054,19 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
   <div class="cnt">
     <h2 class="pg">🛠 Build My Product</h2>
     <p class="sub">Follow this plan and you'll have a real digital product live on Gumroad by the end of Day 1.</p>
+    <!-- Member tools (moved from homepage) -->
+  <div class="tmb">
+    <div class="tmi">⏱</div>
+    <div style="flex:1"><div class="tml">48-Hour Launch Challenge</div><div class="tmd" id="tDisp">Ready when you are</div><div class="tms" id="tSub">Start the clock and launch your product within 48 hours</div></div>
+    <button class="btn bgo" id="tBtn" style="font-size:13px;padding:11px 18px;flex-shrink:0">🚀 Start Challenge</button>
+  </div>
+    <div class="psnp" id="pSnap">
+    <h3>📊 Your Launch Progress</h3>
+    <div class="psb"><div class="psbi" id="pBar" style="width:0%"></div></div>
+    <div class="psst"><span id="pCnt">0 of 21 steps</span><span id="pPct">0%</span></div>
+    <div class="psnx" id="pNxt"></div>
+  </div>
+    <div class="tipc"><div class="tipct">💡 Today's Hustle Tip</div><div id="tipTxt" style="font-size:14px;color:var(--ink2);line-height:1.8"></div></div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:26px">
       <div class="card" style="border-top:5px solid var(--g)"><div style="font-size:11px;color:var(--g);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;font-family:var(--fh)">Today</div><div style="font-family:var(--fh);font-size:20px;font-weight:800;margin-bottom:4px">🏗 BUILD</div><p style="font-size:14px;color:var(--mu);margin:0">Create your product and get it live</p><div style="font-size:12px;color:var(--mu);margin-top:7px;font-weight:600">⏱ Est. 4–6 hours</div></div>
       <div class="card" style="border-top:5px solid var(--go)"><div style="font-size:11px;color:var(--go2);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px;font-family:var(--fh)">Tomorrow</div><div style="font-family:var(--fh);font-size:20px;font-weight:800;margin-bottom:4px">🚀 SELL</div><p style="font-size:14px;color:var(--mu);margin:0">Post your videos and drive traffic</p><div style="font-size:12px;color:var(--mu);margin-top:7px;font-weight:600">⏱ Est. 3–4 hours</div></div>
@@ -1020,7 +1077,7 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
     <div class="stp"><div class="stn">3</div><div class="stb"><h3 style="font-family:var(--fh);font-size:15px;font-weight:700;color:var(--ink2);margin:0 0 4px">Set up your Gumroad store <span class="stbg">30 min</span></h3><p>Go to gumroad.com — free to start. Upload your PDF, write a short description, add a cover image, set price $19–$27. Hit publish.</p></div></div>
     <div id="bLock" class="lc">
       <div class="li2">🔒</div><div class="lt2">Steps 4–6 + Full Hour-by-Hour Day Plans</div>
-      <div class="ld2">The exact steps and timelines from product built to first sale — including how to create your 5 videos, when to post them, and the engagement habit that doubles sales.</div>
+      <div class="ld2">The exact steps and timelines from product built to first sale — including how to create your 5 videos, when to post them, and the engagement habit that helps drive sales.</div>
       <div class="lin">✓ Step 4: Record your 5 videos &nbsp;·&nbsp; ✓ Step 5: Post and drive traffic &nbsp;·&nbsp; ✓ Step 6: Engage and convert</div>
       <a href="https://smarterhustleacademy.gumroad.com/l/48hourincomesystem?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=build_48hourincomesystem" target="_blank" rel="noopener"><button class="btn bgo" style="font-size:15px;padding:13px 26px">🔓 Get Full Access — $27 →</button></a>
       <div class="uh" data-unlock="build">Already purchased? Click to unlock →</div>
@@ -1493,7 +1550,7 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
       </a>
     </div>
 
-    <div style="margin-top:20px;font-size:13px;color:#6B8870;position:relative">⭐⭐⭐⭐⭐ &nbsp; Interactive platform · Instant access · No live calls required</div>
+    <div style="margin-top:20px;font-size:13px;color:#6B8870;position:relative">✓ Interactive platform · ✓ Instant access · ✓ No live calls required</div>
   </div>
 
   <!-- PROOF STRIP -->
@@ -1742,12 +1799,6 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:var(--g)}
       </a>
     </div>
 
-    <!-- TESTIMONIALS -->
-    <h2 class="sh">What Students Are Saying</h2>
-    <div class="tes"><div class="ts">★★★★★</div><div class="tq">"The position size calculator alone saved me from blowing my account on my first trade. I was about to buy 200 shares. Calculator said 50. That discipline is already paying off."</div><div class="ta"><div class="av">MT</div>Marcus T. — Week 1 Student</div></div>
-    <div class="tes"><div class="ts">★★★★★</div><div class="tq">"I've tried 3 other trading courses. This is the only one that built the foundation before throwing me into charts. The psychology lesson alone changed how I think about losses."</div><div class="ta"><div class="av">SJ</div>Sandra J. — Week 2 Student</div></div>
-    <div class="tes"><div class="ts">★★★★★</div><div class="tq">"The AI module is what got me. I set up a Composer bot on paper money, backtested my EMA crossover strategy, and watched it run for 30 days. Now I know it works before I risk a dollar."</div><div class="ta"><div class="av">DK</div>Darius K. — Founding Cohort</div></div>
-
     <!-- DISCLAIMER -->
     <div style="background:var(--cr3);border-radius:var(--r);padding:18px;margin-top:26px">
       <div style="font-size:12px;color:var(--mu);line-height:1.8">
@@ -1867,9 +1918,18 @@ function handleOptin(suffix){
 <script>
 (function(){
 'use strict';
-var TABS=['home','build','content','niche','progress','bundles','blog','shop','resources','trading','landing'];
-function goTab(id){TABS.forEach(function(t){var s=document.getElementById(t);if(s)s.classList.remove('act');});var s=document.getElementById(id);if(s){s.classList.add('act');window.scrollTo(0,0);}document.querySelectorAll('nav button').forEach(function(b){b.classList.remove('on');});var nb=document.querySelector('nav button[data-tab="'+id+'"]');if(nb)nb.classList.add('on');if(id==='home')updSnap();if(id==='blog')loadBlog();}
+var TABS=['home','build','content','niche','progress','bundles','blog','shop','resources','trading','money','landing'];
+function goTab(id){TABS.forEach(function(t){var s=document.getElementById(t);if(s)s.classList.remove('act');});var s=document.getElementById(id);if(s){s.classList.add('act');window.scrollTo(0,0);}document.querySelectorAll('nav button').forEach(function(b){b.classList.remove('on');});document.querySelectorAll('nav button[data-tab="'+id+'"]').forEach(function(b){b.classList.add('on');});document.body.setAttribute('data-page',id);closeMenu();if(id==='home'||id==='build')updSnap();if(id==='blog')loadBlog();}
+function closeMenu(){var m=document.getElementById('nMenu'),b=document.getElementById('nMoreBtn');if(m)m.hidden=true;if(b)b.setAttribute('aria-expanded','false');}
+document.body.setAttribute('data-page','home');
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){closeMenu();return;}
+  var qo=e.target.closest&&e.target.closest('.qo');if(qo&&(e.key==='Enter'||e.key===' ')){e.preventDefault();handleQ(parseInt(qo.dataset.quiz,10));}
+});
 document.addEventListener('click',function(e){
+  var mb=e.target.closest('#nMoreBtn');if(mb){var m=document.getElementById('nMenu');var open=m.hidden;m.hidden=!open;mb.setAttribute('aria-expanded',open?'true':'false');return;}
+  if(!e.target.closest('#nMenu'))closeMenu();
+  var gt=e.target.closest('[data-goto]');if(gt){e.preventDefault();var tgt=gt.dataset.goto;if(!document.getElementById('home').classList.contains('act'))goTab('home');setTimeout(function(){var el=document.getElementById(tgt);if(el){var y=el.getBoundingClientRect().top+window.pageYOffset-70;window.scrollTo({top:y,behavior:'smooth'});}},30);if(typeof gtag==='function')gtag('event','nav_get_started',{'target':tgt});return;}
   var tb=e.target.closest('[data-tab]');if(tb&&tb.dataset.tab){goTab(tb.dataset.tab);return;}
   if(e.target.id==='qBtn'){var g=e.target.dataset.gt;if(g)goTab(g);return;}
   if(e.target.id==='tBtn'){startTimer();return;}
@@ -2126,11 +2186,11 @@ var _oeMid=document.getElementById('optinEmailMid');if(_oeMid){_oeMid.addEventLi
 })();
 })();
 </script>
-<!-- EMAIL OPT-IN BAR -->
-<div class="optin-bar">
+<!-- EMAIL OPT-IN BAR (hidden on home, which has its own form) -->
+<div class="optin-bar" id="globalOptin">
   <div class="optin-eyebrow">Free Download — No Credit Card Required</div>
-  <h2>Get 25 Done-For-You <span>AI Prompts</span> — Free 🤖</h2>
-  <div class="optin-sub">The SHA™ AI Prompts Collection + Quick-Start Checklist + 48-Hour Starter Kit. Three free resources, one download. Everything you need to start building today.</div>
+  <h2>Free Digital Product <span>Starter Kit</span></h2>
+  <div class="optin-sub">25 AI prompts, a quick-start checklist, and the 48-Hour Starter Kit — step one of building your first digital product.</div>
   <div class="optin-perks">
     <span class="optin-perk">✓ 25 AI Prompts (6 categories)</span>
     <span class="optin-perk">✓ Quick-Start Checklist</span>
@@ -2154,8 +2214,8 @@ var _oeMid=document.getElementById('optinEmailMid');if(_oeMid){_oeMid.addEventLi
   <div class="epop-box">
     <button class="epop-close" id="epopClose" aria-label="Close">✕</button>
     <div class="epop-eyebrow">Wait — Before You Go</div>
-    <h2>Get 25 Done-For-You <span>AI Prompts</span> — Free 🤖</h2>
-    <div class="epop-sub">The SHA™ AI Prompts Collection + Quick-Start Checklist + 48-Hour Starter Kit. Three free resources, one download.</div>
+    <h2>Free Digital Product <span>Starter Kit</span></h2>
+    <div class="epop-sub">25 AI prompts, a quick-start checklist, and the 48-Hour Starter Kit — step one of building your first digital product.</div>
     <div class="epop-perks">
       <span class="optin-perk">✓ 25 AI Prompts</span>
       <span class="optin-perk">✓ Quick-Start Checklist</span>
@@ -2380,32 +2440,6 @@ var _oeMid=document.getElementById('optinEmailMid');if(_oeMid){_oeMid.addEventLi
         </div>
       </section>
 
-      <section>
-        <div class="container">
-          <div class="section-head">
-            <div class="kicker">Real students</div>
-            <h2>Made by beginners. Loved by beginners.</h2>
-            
-          </div>
-          <div class="proof">
-            <article class="testimonial">
-              <div class="stars" aria-hidden="true">★★★★★</div>
-              <blockquote>“I had no audience and no idea. Three days later I had a product live and my first $27 sale.”</blockquote>
-              <div class="person"><strong>Monique T.</strong> — SHA™ Student</div>
-            </article>
-            <article class="testimonial">
-              <div class="stars" aria-hidden="true">★★★★★</div>
-              <blockquote>“The scripts alone are worth 10x the price. I finally have a system I can actually follow.”</blockquote>
-              <div class="person"><strong>Darius K.</strong> — SHA™ Student</div>
-            </article>
-            <article class="testimonial">
-              <div class="stars" aria-hidden="true">★★★★★</div>
-              <blockquote>“Cut my launch from months to a weekend. This is the most practical thing I've bought all year.”</blockquote>
-              <div class="person"><strong>Renee J.</strong> — SHA™ Student</div>
-            </article>
-          </div>
-        </div>
-      </section>
 
       <section id="capture">
         <div class="container">
@@ -2445,7 +2479,7 @@ var _oeMid=document.getElementById('optinEmailMid');if(_oeMid){_oeMid.addEventLi
             </details>
             <details>
               <summary>How long until I see results?<span class="summary-icon">+</span></summary>
-              <div class="faq-content">Most students make their first sale within a week of completing all three steps — niche, product, and content. The system works when you follow it in order and post consistently.</div>
+              <div class="faq-content">The system is designed to take you from idea to a live product in 48 hours of focused work. How fast you make sales depends on your niche, your product, and how consistently you promote it. There is no guaranteed timeline.</div>
             </details>
             
           </div>
