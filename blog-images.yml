@@ -1,0 +1,52 @@
+name: Blog Cover Images (Kie.ai)
+
+on:
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Regenerate these (comma-separated, e.g. article-3,article-7) or "all". Leave blank for new articles only.'
+        required: false
+        default: ''
+  schedule:
+    # Daily at 14:30 UTC — after the blog's 11:00 UTC auto-publish
+    - cron: '30 14 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: blog-images
+  cancel-in-progress: false
+
+jobs:
+  covers:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Pillow
+        run: pip install pillow
+
+      - name: Generate missing covers
+        env:
+          KIE_API_KEY: ${{ secrets.KIE_API_KEY }}
+          FORCE: ${{ github.event.inputs.force }}
+          MAX_NEW: '45'
+        run: python scripts/blog_images.py
+
+      - name: Commit new images
+        run: |
+          git config user.name "sha-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add blog-images
+          if git diff --cached --quiet; then
+            echo "No new images."
+          else
+            git commit -m "Add blog cover images"
+            git push
+          fi
