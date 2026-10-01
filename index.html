@@ -798,6 +798,19 @@ body[data-page="home"] #globalOptin{display:none}
   .tmb .btn{width:100%}
 }
 
+/* ===== AI Digest links (2026-09-29) ===== */
+.nmenu a.nmenu-link{display:flex;align-items:center;gap:8px;width:100%;min-height:44px;padding:0 18px;color:#8A9080;font-size:13px;font-weight:600;font-family:var(--fb);text-decoration:none;border-left:3px solid transparent;transition:.2s}
+.nmenu a.nmenu-link:hover{color:#fff}
+.nmenu-new{font-size:10px;font-weight:700;background:var(--go);color:var(--ink);border-radius:999px;padding:1px 7px;font-family:var(--fh)}
+.h-digest{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;background:var(--ink);border:2px solid var(--go);border-radius:var(--r);padding:22px 24px;text-decoration:none;transition:.2s}
+.h-digest:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(22,36,29,.25)}
+.h-digest-l{flex:1;min-width:240px}
+.h-digest .h-eyebrow{color:var(--go)}
+.h-digest-t{font-family:var(--fh);font-size:clamp(18px,4vw,22px);font-weight:800;color:#fff;line-height:1.3;margin-bottom:6px}
+.h-digest-p{font-size:14px;color:#C4CCB8;line-height:1.65;margin:0}
+.h-digest-cta{font-family:var(--fh);font-weight:700;font-size:14px;color:var(--ink);background:linear-gradient(135deg,var(--go),var(--go2));padding:11px 18px;border-radius:10px;white-space:nowrap}
+@media(max-width:600px){.h-digest{padding:18px 16px}.h-digest-cta{width:100%;text-align:center}}
+
 /* ===== blog cover images (Kie.ai, /blog-images/) ===== */
 .bl-img,.bl-ph{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--cr2)}
 .bl-ph{background:linear-gradient(135deg,#1A3A28 0%,var(--g) 60%,#40B081 100%);position:relative;overflow:hidden}
@@ -848,6 +861,7 @@ body[data-page="home"] #globalOptin{display:none}
     <button data-tab="money">💰 Money Academy</button>
     <button data-tab="trading">📈 Trading Academy</button>
     <button data-tab="blog">📖 Blog</button>
+    <a class="nmenu-link" href="/ai-digest/">🤖 AI Digest <span class="nmenu-new">New</span></a>
     <button data-tab="resources">🔗 Recommended Tools</button>
   </div>
 </nav>
@@ -1044,6 +1058,19 @@ body[data-page="home"] #globalOptin{display:none}
           <button class="btn-out hero-cta-free" data-tab="niche">Start Free With the Niche Finder</button>
         </div>
       </div>
+    </section>
+
+    <!-- AI DIGEST TEASER -->
+    <section class="hsec" aria-labelledby="hDigestH">
+      <a class="h-digest" href="/ai-digest/2026-09-29/">
+        <div class="h-digest-l">
+          <div class="h-eyebrow">🤖 The Smarter Hustle AI Digest · Sept 29, 2026</div>
+          <h2 class="h-digest-t" id="hDigestH">AI Got Cheaper. Here's Your Next Business Move.</h2>
+          <p class="h-digest-p">AI news moves too fast, and most of it never tells you what it means for your money. This week: always-on AI agents, cheaper models, an $8.2B deal — and a 20-minute test you can run today.</p>
+        </div>
+        <span class="h-digest-cta">Read this week's issue →</span>
+      </a>
+      <div style="text-align:center;margin-top:10px"><a class="h-link" href="/ai-digest/">See all AI Digest issues →</a></div>
     </section>
 
     <!-- LATEST FROM THE BLOG (secondary) -->
@@ -1911,6 +1938,7 @@ function handleOptin(suffix){
     return;
   }
   _inp.style.borderColor='';
+  shaCapture(email,'optin_bar'+(suffix||''),'starter');
   var utmTag = suffix === 'Mid' ? 'homepage_mid_aipromptcollection' : suffix === 'Popup' ? 'popup_aipromptcollection' : 'trading_aipromptcollection';
   gtag('event','gumroad_click',{'product_slug':'aipromptcollection','utm_content':utmTag,'utm_campaign':'homepage','page_location':window.location.href});
   var url='https://smarterhustleacademy.gumroad.com/l/aipromptcollection?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content='+utmTag+'&email='+encodeURIComponent(email);
@@ -1990,7 +2018,7 @@ var tips=['Sunday: Batch your content. Record 5 videos today so you never scramb
 var _tip=document.getElementById('tipTxt');if(_tip)_tip.textContent=tips[new Date().getDay()];
 var unlocked={build:false,content:false,niche:false};
 function doUnlock(key){var pw=prompt('Enter your purchase email or unlock code:');if(!pw||pw.trim().length<3){alert('Please enter your purchase email.');return;}unlocked[key]=true;if(key==='build'){document.getElementById('bLock').style.display='none';document.getElementById('bUnlock').style.display='block';}if(key==='content'){document.getElementById('cLock').style.display='none';document.getElementById('cUnlock').style.display='block';renderS25();}if(key==='niche'){document.getElementById('nLock').style.display='none';document.getElementById('nFull').style.display='block';if(nf.n)genNiche();}}
-var sData=[{l:'FREE — SCRIPT 1: THE OVERTHINKING TRAP',t:'Hook: "Stop waiting until you\'re ready. Here\'s why."\n\nMost people spend weeks getting ready to start their digital product. They research everything. They plan everything. They never publish anything.\n\nHere\'s the truth: your first product will not be perfect. And that\'s completely fine.\n\nDone is better than perfect. Posted beats planned every single time.\n\nComment "READY" and I\'ll send you the first step for free.'},{l:'SCRIPT 2: THE $0 START',t:'Hook: "I started with zero dollars. Here\'s what actually worked."\n\nCanva is free. Gumroad is free. Your phone records video.\n\nDay 3: first sale. Week 2: fourth sale. Month 1: $152.\n\nLink in bio — the exact system step by step.'},{l:'SCRIPT 3: NO BIG FOLLOWING NEEDED',t:'Hook: "You don\'t need 10,000 followers to make your first sale."\n\nI made my first sale with 47 followers. The algorithm shows your video to strangers. Strangers become buyers.\n\nYou don\'t need an audience first. You need a product first.\n\nLink in bio — go build yours this week.'},{l:'SCRIPT 4: THE ONE-PRODUCT STRATEGY',t:'Hook: "Stop trying to sell 10 things. Sell one thing really well."\n\nOne niche. One problem. One product. One platform. For 90 days, that\'s your entire focus.\n\nThis is how you build momentum and how the algorithm learns who to show your videos to.\n\nLink in bio — build and launch that one thing in 48 hours.'},{l:'SCRIPT 5: THE DAILY HABIT THAT MAKES SALES',t:'Hook: "The 30-minute daily habit that changed my income."\n\nIt wasn\'t a new product or a viral video. It was this: I replied to every single comment. Every day. 30 minutes.\n\nComments are where buyers live.\n\nGo post your first video today. Then go reply to everyone.'}];
+var sData=[{l:'FREE — SCRIPT 1: THE OVERTHINKING TRAP',t:'Hook: "Stop waiting until you\'re ready. Here\'s why."\n\nMost people spend weeks getting ready to start their digital product. They research everything. They plan everything. They never publish anything.\n\nHere\'s the truth: your first product will not be perfect. And that\'s completely fine.\n\nDone is better than perfect. Posted beats planned every single time.\n\nComment "READY" and I\'ll send you the first step for free.'},{l:'SCRIPT 2: THE $0 START',t:'Hook: "I started with zero dollars. Here\'s what actually worked."\n\nCanva is free. Gumroad is free. Your phone records video.\n\nLink in bio — the exact system step by step.'},{l:'SCRIPT 3: NO BIG FOLLOWING NEEDED',t:'Hook: "You don\'t need 10,000 followers to make your first sale."\n\nSmall accounts still get shown to new people. New viewers can become buyers.\n\nYou don\'t need an audience first. You need a product first.\n\nLink in bio — go build yours this week.'},{l:'SCRIPT 4: THE ONE-PRODUCT STRATEGY',t:'Hook: "Stop trying to sell 10 things. Sell one thing really well."\n\nOne niche. One problem. One product. One platform. For 90 days, that\'s your entire focus.\n\nThis is how you build momentum and how the algorithm learns who to show your videos to.\n\nLink in bio — build and launch that one thing in 48 hours.'},{l:'SCRIPT 5: THE DAILY HABIT THAT MAKES SALES',t:'Hook: "The 30-minute daily habit that changed my income."\n\nIt wasn\'t a new product or a viral video. It was this: I replied to every single comment. Every day. 30 minutes.\n\nComments are where buyers live.\n\nGo post your first video today. Then go reply to everyone.'}];
 var _sc0=document.getElementById('sc0');if(_sc0)_sc0.textContent=sData[0].t;
 function renderS25(){var c=document.getElementById('sc25');c.innerHTML='';for(var i=1;i<sData.length;i++){var s=sData[i];var div=document.createElement('div');div.className='sk';div.innerHTML='<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:11px;flex-wrap:wrap;gap:8px"><span class="sl">'+s.l+'</span><button class="cb2 scb" data-idx="'+i+'">📋 Copy Script</button></div><div class="st">'+s.t.replace(/\n/g,'<br>')+'</div>';c.appendChild(div);}}
 var vData=[];
@@ -2208,6 +2236,7 @@ var _oeMid=document.getElementById('optinEmailMid');if(_oeMid){_oeMid.addEventLi
     if(!validEmail(val)){if(lpError)lpError.textContent='Enter a valid email address.';return;}
     if(lpError)lpError.textContent='';
     var captured=val;
+    shaCapture(val,'homepage_capture','starter');
     lpForm.reset();
     if(lpToast){lpToast.classList.add('show');setTimeout(function(){lpToast.classList.remove('show');},2600);}
     gtag('event','gumroad_click',{'product_slug':'quickstartchecklist','utm_content':'trading_quickstartchecklist','utm_campaign':'homepage','page_location':window.location.href});
@@ -2301,6 +2330,7 @@ var _oeMid=document.getElementById('optinEmailMid');if(_oeMid){_oeMid.addEventLi
           <a href="#" data-tab="build">Build a Product</a>
           <a href="#" data-tab="niche">Niche Finder</a>
           <a href="#" data-tab="blog">Blog</a>
+          <a href="/ai-digest/">AI Digest (Weekly)</a>
         </div>
         <div class="footer-col">
           <h4>Product Pages</h4>
@@ -2634,5 +2664,20 @@ document.addEventListener('click', function(e) {
         .catch(err => console.log('Service worker registration failed:', err));
     });
   }
+</script>
+<script>
+/* SHA lead capture: sends the opted-in email to MailerLite via the Netlify function.
+   Fire-and-forget so the visitor flow never breaks; also fires GA4 lead_submit. */
+function shaCapture(email, source, group){
+  try{
+    var q=new URLSearchParams(window.location.search);
+    fetch('/.netlify/functions/sha-sync-mailerlite',{
+      method:'POST',headers:{'Content-Type':'application/json'},keepalive:true,
+      body:JSON.stringify({email:email,group:group||'starter',source:source||'website',
+        campaign:q.get('utm_campaign')||'',content:q.get('utm_content')||'',lastPage:window.location.pathname})
+    }).catch(function(){});
+    if(window.gtag){gtag('event','lead_submit',{'form_source':source||'website','utm_campaign':q.get('utm_campaign')||'direct','utm_content':q.get('utm_content')||'unspecified'});}
+  }catch(e){}
+}
 </script>
 </body></html>
