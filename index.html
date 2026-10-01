@@ -1914,6 +1914,10 @@ function handleOptin(suffix){
   var utmTag = suffix === 'Mid' ? 'homepage_mid_aipromptcollection' : suffix === 'Popup' ? 'popup_aipromptcollection' : 'trading_aipromptcollection';
   gtag('event','gumroad_click',{'product_slug':'aipromptcollection','utm_content':utmTag,'utm_campaign':'homepage','page_location':window.location.href});
   var url='https://smarterhustleacademy.gumroad.com/l/aipromptcollection?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content='+utmTag+'&email='+encodeURIComponent(email);
+  // Open synchronously, in the same tick as the click, so popup blockers see
+  // it as user-initiated. A setTimeout here (even 0ms) loses that and gets
+  // silently blocked by Safari/Chrome, stranding the user with no download.
+  var _popup=window.open(url,'_blank');
   var _ob=document.getElementById('optinBox'+suffix);
   var _os=document.getElementById('optinSuccess'+suffix);
   if(_ob)_ob.style.display='none';
@@ -1929,7 +1933,21 @@ function handleOptin(suffix){
       if(ctaEl && segData.ctaHtml) ctaEl.innerHTML = segData.ctaHtml;
     }
   }catch(e){ /* sessionStorage unavailable — silently keep the default message */ }
-  setTimeout(function(){window.open(url,'_blank');},800);
+  // If the browser blocked the popup, don't leave the user stranded with a
+  // "resources are on the way" message and no way to actually get them.
+  if(!_popup||_popup.closed||typeof _popup.closed==='undefined'){
+    var _fb=document.getElementById('optinSuccess'+suffix);
+    if(_fb){
+      var _link=document.createElement('a');
+      _link.href=url;
+      _link.target='_blank';
+      _link.rel='noopener';
+      _link.className='btn';
+      _link.style.marginTop='10px';
+      _link.textContent='Your browser blocked the popup — tap here to get your free download →';
+      _fb.appendChild(_link);
+    }
+  }
 }
 </script>
 <script>
@@ -2209,9 +2227,35 @@ var _oeMid=document.getElementById('optinEmailMid');if(_oeMid){_oeMid.addEventLi
     if(lpError)lpError.textContent='';
     var captured=val;
     lpForm.reset();
-    if(lpToast){lpToast.classList.add('show');setTimeout(function(){lpToast.classList.remove('show');},2600);}
     gtag('event','gumroad_click',{'product_slug':'quickstartchecklist','utm_content':'trading_quickstartchecklist','utm_campaign':'homepage','page_location':window.location.href});
-    setTimeout(function(){window.open('https://smarterhustleacademy.gumroad.com/l/quickstartchecklist?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=trading_quickstartchecklist&email='+encodeURIComponent(captured),'_blank');},600);
+    var lpUrl='https://smarterhustleacademy.gumroad.com/l/quickstartchecklist?utm_source=smarterhustleacademy_site&utm_medium=onsite&utm_campaign=homepage&utm_content=trading_quickstartchecklist&email='+encodeURIComponent(captured);
+    // Open synchronously, in the same tick as the submit, so popup blockers
+    // see it as user-initiated. A setTimeout here (even a short one) loses
+    // that user-gesture context and gets silently blocked by Safari/Chrome,
+    // stranding the user with a "you're in" toast but no actual download.
+    var lpPopup=window.open(lpUrl,'_blank');
+    var lpBlocked=!lpPopup||lpPopup.closed||typeof lpPopup.closed==='undefined';
+    if(lpToast){
+      if(lpBlocked){
+        var lpFb=lpToast.querySelector('.toast-fallback');
+        if(!lpFb){
+          lpFb=document.createElement('a');
+          lpFb.className='toast-fallback';
+          lpFb.rel='noopener';
+          lpFb.target='_blank';
+          lpFb.style.display='block';
+          lpFb.style.marginTop='6px';
+          lpFb.style.textDecoration='underline';
+          lpToast.appendChild(lpFb);
+        }
+        lpFb.href=lpUrl;
+        lpFb.textContent='Your browser blocked the popup — tap here to get your free kit →';
+        lpToast.classList.add('show');
+      } else {
+        lpToast.classList.add('show');
+        setTimeout(function(){lpToast.classList.remove('show');},2600);
+      }
+    }
   });
   document.querySelectorAll('.lp-wrap details').forEach(function(d){
     d.addEventListener('toggle',function(){
@@ -2347,7 +2391,7 @@ var _oeMid=document.getElementById('optinEmailMid');if(_oeMid){_oeMid.addEventLi
           </span>
         </a>
         <nav class="nav-links" aria-label="Primary">
-          <a href="#shop">Products</a>
+          <a href="#landing-shop">Products</a>
           <a href="#steps">How it works</a>
           <a href="#faq">FAQ</a>
           <a href="http://smarterhustleacademy.com" target="_blank" rel="noopener noreferrer">Main site</a>
@@ -2371,7 +2415,7 @@ var _oeMid=document.getElementById('optinEmailMid');if(_oeMid){_oeMid.addEventLi
                   <span class="pill">Async, beginner-friendly</span>
                 </div>
                 <div class="hero-actions">
-                  <a class="btn btn-primary" href="#shop">Get the 48-Hour System — $27 <span aria-hidden="true">→</span></a>
+                  <a class="btn btn-primary" href="#landing-shop">Get the 48-Hour System — $27 <span aria-hidden="true">→</span></a>
                   <a class="btn btn-secondary" href="#capture">Find my niche first</a>
                 </div>
               </div>
@@ -2386,7 +2430,7 @@ var _oeMid=document.getElementById('optinEmailMid');if(_oeMid){_oeMid.addEventLi
         </div>
       </section>
 
-      <section id="shop">
+      <section id="landing-shop">
         <div class="container">
           <div class="section-head">
             <div class="kicker">The shop</div>
@@ -2530,7 +2574,7 @@ var _oeMid=document.getElementById('optinEmailMid');if(_oeMid){_oeMid.addEventLi
           <span>© 2026 Smarter Hustle Academy™</span>
         </div>
         <nav class="footer-nav" aria-label="Footer">
-          <a href="#shop">Products</a>
+          <a href="#landing-shop">Products</a>
           <a href="#faq">FAQ</a>
           <a href="https://smarterhustleacademy.com/resources/">Resources</a>
           <a href="http://smarterhustleacademy.com" target="_blank" rel="noopener noreferrer">Main site</a>
