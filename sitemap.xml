@@ -32,13 +32,25 @@
   </url>
   <url>
     <loc>https://smarterhustleacademy.com/ai-digest/</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://smarterhustleacademy.com/ai-digest/2026-09-29/</loc>
     <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://smarterhustleacademy.com/ai-digest/2026-10-12/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://smarterhustleacademy.com/ai-digest/2026-11-16/</loc>
+    <lastmod>2026-11-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
